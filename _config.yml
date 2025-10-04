@@ -9,6 +9,15 @@ logo: /assets/img/avt.jpg # your profile picture
 markdown: kramdown
 theme: jekyll-theme-minimal
 
+# Pagination settings
+paginate: 10
+paginate_path: "/blog/page:num/"
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+
 # Author information
 author:
   name: Mai Nhật Duy

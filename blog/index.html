@@ -1,0 +1,106 @@
+---
+layout: default
+title: Blog
+---
+
+<h1>Blog</h1>
+
+<p>Nơi tôi chia sẻ suy nghĩ, kinh nghiệm và kiến thức về công nghệ.</p>
+
+{% if paginator.posts and paginator.posts.size > 0 %}
+<div class="blog-list">
+  {% for post in paginator.posts %}
+    <article class="blog-post-card">
+      <div class="blog-post-header">
+        <h2 class="blog-post-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h2>
+        <time class="blog-post-date" datetime="{{ post.date | date_to_xmlschema }}">
+          {{ post.date | date: "%d/%m/%Y" }}
+        </time>
+      </div>
+      
+      <div class="blog-post-excerpt">
+        {{ post.excerpt | strip_html | truncatewords: 50 }}
+      </div>
+      
+      <a href="{{ post.url | relative_url }}" class="blog-post-link">
+        Đọc thêm →
+      </a>
+    </article>
+  {% endfor %}
+</div>
+
+<!-- Pagination -->
+{% if paginator.total_pages > 1 %}
+<nav class="pagination" role="navigation" aria-label="Pagination">
+  <div class="pagination-container">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path | relative_url }}" class="pagination-btn pagination-prev">
+        ← Trang trước
+      </a>
+    {% else %}
+      <span class="pagination-btn pagination-prev pagination-disabled">
+        ← Trang trước
+      </span>
+    {% endif %}
+    
+    <div class="pagination-numbers">
+      {% for page_num in (1..paginator.total_pages) %}
+        {% if page_num == paginator.page %}
+          <span class="pagination-number pagination-current">{{ page_num }}</span>
+        {% elsif page_num == 1 %}
+          <a href="{{ '/blog/' | relative_url }}" class="pagination-number">{{ page_num }}</a>
+        {% else %}
+          <a href="{{ site.paginate_path | relative_url | replace: ':num', page_num }}" class="pagination-number">{{ page_num }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
+    
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | relative_url }}" class="pagination-btn pagination-next">
+        Trang sau →
+      </a>
+    {% else %}
+      <span class="pagination-btn pagination-next pagination-disabled">
+        Trang sau →
+      </span>
+    {% endif %}
+  </div>
+  
+  <p class="pagination-info">
+    Trang {{ paginator.page }} / {{ paginator.total_pages }} — Tổng số {{ paginator.total_posts }} bài viết
+  </p>
+</nav>
+{% endif %}
+
+{% elsif site.posts and site.posts.size > 0 %}
+<div class="blog-list">
+  {% for post in site.posts limit:10 %}
+    <article class="blog-post-card">
+      <div class="blog-post-header">
+        <h2 class="blog-post-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h2>
+        <time class="blog-post-date" datetime="{{ post.date | date_to_xmlschema }}">
+          {{ post.date | date: "%d/%m/%Y" }}
+        </time>
+      </div>
+      
+      <div class="blog-post-excerpt">
+        {{ post.excerpt | strip_html | truncatewords: 50 }}
+      </div>
+      
+      <a href="{{ post.url | relative_url }}" class="blog-post-link">
+        Đọc thêm →
+      </a>
+    </article>
+  {% endfor %}
+</div>
+
+{% else %}
+<div class="blog-empty">
+  <p>Chưa có bài viết nào. Hãy quay lại sau nhé!</p>
+</div>
+{% endif %}
+
