@@ -1,11 +1,9 @@
 ---
 layout: default
-title: Trang chủ
+title: Portfolio
 ---
 
-# Xin chào! Tôi là Mai Nhật Duy 👋
-
-Chào mừng bạn đến với trang cá nhân của tôi.
+# Portfolio
 
 ## Về tôi
 
@@ -21,10 +19,6 @@ Tôi là một lập trình viên đam mê công nghệ và học hỏi những 
 ## Dự án nổi bật
 
 Đang cập nhật...
-
-## Blog
-
-Xem các bài viết mới nhất của tôi trong [Blog](/blog).
 
 ## Liên hệ
 
