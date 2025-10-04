@@ -3,6 +3,7 @@ title: Mai Nhật Duy
 description: Personal blog and portfolio
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://mainhatduy.github.io" # the base hostname & protocol for your site
+logo: /assets/img/avt.jpg # your profile picture
 
 # Build settings
 markdown: kramdown
