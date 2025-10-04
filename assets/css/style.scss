@@ -613,6 +613,170 @@ ul ul, ol ol {
   margin: 0;
 }
 
+/* Social Links Styles */
+.social-links {
+  margin-bottom: var(--space-3xl);
+  padding-bottom: var(--space-2xl);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.social-title {
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  margin-bottom: var(--space-xl);
+  color: var(--color-text);
+}
+
+.social-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  align-items: center;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  width: 100%;
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-bg);
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  font-family: var(--font-mono);
+  transition: all var(--transition-base);
+  text-decoration: none;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.social-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  transition: transform var(--transition-base);
+}
+
+.social-btn:hover .social-icon {
+  transform: scale(1.1);
+}
+
+.social-text {
+  flex: 1;
+  text-align: left;
+  letter-spacing: 0.01em;
+}
+
+/* Instagram Styling */
+.social-btn-instagram {
+  border-color: #E4405F;
+  background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+}
+
+.social-btn-instagram:hover {
+  border-color: #E4405F;
+  background: linear-gradient(135deg, #833AB4 0%, #FD1D1D 50%, #F77737 100%);
+  color: white;
+}
+
+.social-btn-instagram .social-icon {
+  color: #E4405F;
+}
+
+.social-btn-instagram:hover .social-icon {
+  color: white;
+}
+
+/* Facebook Styling */
+.social-btn-facebook {
+  border-color: #1877F2;
+  background: var(--color-bg);
+}
+
+.social-btn-facebook:hover {
+  border-color: #1877F2;
+  background: #1877F2;
+  color: white;
+}
+
+.social-btn-facebook .social-icon {
+  color: #1877F2;
+}
+
+.social-btn-facebook:hover .social-icon {
+  color: white;
+}
+
+/* GitHub Styling */
+.social-btn-github {
+  border-color: #333;
+  background: var(--color-bg);
+}
+
+.social-btn-github:hover {
+  border-color: #333;
+  background: #333;
+  color: white;
+}
+
+.social-btn-github .social-icon {
+  color: #333;
+}
+
+.social-btn-github:hover .social-icon {
+  color: white;
+}
+
+/* Email Styling */
+.social-btn-email {
+  border-color: #EA4335;
+  background: var(--color-bg);
+}
+
+.social-btn-email:hover {
+  border-color: #EA4335;
+  background: #EA4335;
+  color: white;
+}
+
+.social-btn-email .social-icon {
+  color: #EA4335;
+}
+
+.social-btn-email:hover .social-icon {
+  color: white;
+}
+
+/* HuggingFace Styling */
+.social-btn-huggingface {
+  border-color: #FFD21E;
+  background: var(--color-bg);
+}
+
+.social-btn-huggingface:hover {
+  border-color: #FFD21E;
+  background: linear-gradient(135deg, #FFD21E 0%, #FF9D0B 100%);
+  color: #333;
+}
+
+.social-btn-huggingface .social-icon {
+  color: #FFD21E;
+}
+
+.social-btn-huggingface:hover .social-icon {
+  color: #333;
+}
+
 /* ============================================
    8. UTILITIES
    ============================================ */
@@ -727,6 +891,22 @@ ul ul, ol ol {
     flex: 1;
     justify-content: center;
     min-width: 140px;
+  }
+  
+  /* Social buttons responsive */
+  .social-buttons {
+    max-width: 100%;
+    padding: 0 var(--space-sm);
+  }
+  
+  .social-btn {
+    font-size: var(--font-size-sm);
+    padding: var(--space-sm) var(--space-md);
+  }
+  
+  .social-icon {
+    width: 20px;
+    height: 20px;
   }
 }
 
