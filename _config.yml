@@ -1,0 +1,30 @@
+# Site settings
+title: Mai Nhật Duy
+description: Personal blog and portfolio
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://mainhatduy.github.io" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+theme: jekyll-theme-minimal
+
+# Author information
+author:
+  name: Mai Nhật Duy
+  email: your.email@example.com
+  github: mainhatduy
+
+# SEO settings
+lang: vi
+locale: vi_VN
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
