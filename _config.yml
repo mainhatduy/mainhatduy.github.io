@@ -9,6 +9,16 @@ logo: /assets/img/avt.jpg # your profile picture
 markdown: kramdown
 theme: jekyll-theme-minimal
 
+# Syntax highlighting
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+    span:
+      line_numbers: false
+    block:
+      line_numbers: false
+
 # Pagination settings
 paginate: 10
 paginate_path: "/blog/page:num/"
