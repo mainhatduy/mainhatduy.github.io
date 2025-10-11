@@ -154,6 +154,10 @@ git pull origin main
 git push origin main
 ```
 
+```python
+print("ok")
+```
+
 ## Git Workflow phổ biến
 
 ### Feature Branch Workflow
