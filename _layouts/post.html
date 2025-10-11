@@ -2,31 +2,47 @@
 layout: default
 ---
 
-<article class="post">
-  <header class="post-header">
-    <p class="post-meta">
-      <time datetime="{{ page.date | date_to_xmlschema }}">
-        {{ page.date | date: "%-d %B %Y" }}
-      </time>
-    </p>
-    <h1 class="post-title">{{ page.title }}</h1>
-    {% if site.author %}
-    <p class="post-author">
-      Viết bởi <strong>{{ site.author.name }}</strong>
-    </p>
-    {% endif %}
-    {% if page.tags and page.tags.size > 0 %}
-    <div class="post-tags">
-      {% for tag in page.tags %}
-        <a href="{{ '/blog' | relative_url }}?tag={{ tag | url_encode }}" class="tag">{{ tag }}</a>
-      {% endfor %}
+<div class="post-with-toc">
+  <article class="post post-main">
+    <header class="post-header">
+      <p class="post-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">
+          {{ page.date | date: "%-d %B %Y" }}
+        </time>
+      </p>
+      <h1 class="post-title">{{ page.title }}</h1>
+      {% if site.author %}
+      <p class="post-author">
+        Viết bởi <strong>{{ site.author.name }}</strong>
+      </p>
+      {% endif %}
+      {% if page.tags and page.tags.size > 0 %}
+      <div class="post-tags">
+        {% for tag in page.tags %}
+          <a href="{{ '/blog' | relative_url }}?tag={{ tag | url_encode }}" class="tag">{{ tag }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </header>
+
+    <div class="post-content">
+      {{ content }}
     </div>
-    {% endif %}
-  </header>
+  </article>
 
-  <div class="post-content">
-    {{ content }}
-  </div>
+  <!-- Table of Contents -->
+  <aside class="toc-container" aria-label="Mục lục">
+    <div class="toc-header">
+      <h2 class="toc-title">Mục lục</h2>
+      <button class="toc-toggle" aria-expanded="false" aria-label="Toggle mục lục">
+        <span class="toc-toggle-icon">+</span>
+      </button>
+    </div>
+    <nav class="toc-content">
+      <!-- TOC will be generated here by JavaScript -->
+    </nav>
+  </aside>
+</div>
 
-</article>
+<script src="{{ '/assets/js/toc.js' | relative_url }}"></script>
 

@@ -1910,19 +1910,228 @@ mark {
 }
 
 /* ============================================
-   12. PRINT STYLES
+   12. TABLE OF CONTENTS (TOC)
+   ============================================ */
+
+.post-with-toc {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: var(--space-3xl);
+  align-items: start;
+}
+
+.post-main {
+  min-width: 0; /* Prevents grid blowout */
+}
+
+.toc-container {
+  position: sticky;
+  top: calc(var(--nav-height) + var(--space-xl));
+  max-height: calc(100vh - var(--nav-height) - var(--space-3xl));
+  overflow-y: auto;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: var(--space-lg);
+}
+
+.toc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-md);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.toc-title {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.toc-toggle {
+  display: none; /* Hidden on desktop */
+  background: none;
+  border: none;
+  color: var(--color-text);
+  cursor: pointer;
+  padding: var(--space-xs);
+  font-size: var(--font-size-lg);
+  transition: all var(--transition-base);
+}
+
+.toc-toggle:hover {
+  color: var(--color-highlight);
+  transform: scale(1.1);
+}
+
+.toc-content {
+  max-height: none;
+  overflow: visible;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-item {
+  margin-bottom: var(--space-xs);
+}
+
+.toc-link {
+  display: block;
+  padding: var(--space-xs) var(--space-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  border: none;
+  border-left: 2px solid transparent;
+  transition: all var(--transition-base);
+  line-height: var(--line-height-normal);
+}
+
+.toc-link:hover {
+  color: var(--color-text);
+  background: var(--color-bg);
+  border-left-color: var(--color-border);
+  border-bottom: none;
+  transform: translateX(2px);
+}
+
+.toc-link.active {
+  color: var(--color-text);
+  font-weight: 600;
+  background: var(--color-bg);
+  border-left-color: var(--color-primary);
+}
+
+/* Heading levels indentation */
+.toc-level-2 .toc-link {
+  padding-left: var(--space-sm);
+}
+
+.toc-level-3 .toc-link {
+  padding-left: var(--space-lg);
+  font-size: var(--font-size-xs);
+}
+
+.toc-level-4 .toc-link {
+  padding-left: var(--space-xl);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+}
+
+/* Scrollbar for TOC */
+.toc-container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.toc-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.toc-container::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 2px;
+}
+
+.toc-container::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* Responsive TOC */
+@media (max-width: 1024px) {
+  .post-with-toc {
+    grid-template-columns: 1fr 240px;
+    gap: var(--space-2xl);
+  }
+
+  .toc-container {
+    padding: var(--space-md);
+  }
+
+  .toc-title {
+    font-size: var(--font-size-sm);
+  }
+
+  .toc-link {
+    font-size: var(--font-size-xs);
+  }
+}
+
+@media (max-width: 768px) {
+  .post-with-toc {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .toc-container {
+    position: static;
+    max-height: none;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .toc-toggle {
+    display: block;
+  }
+
+  .toc-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-base);
+  }
+
+  .toc-content.expanded {
+    max-height: 500px;
+    overflow-y: auto;
+  }
+
+  .toc-level-3 .toc-link,
+  .toc-level-4 .toc-link {
+    font-size: var(--font-size-xs);
+  }
+}
+
+@media (max-width: 480px) {
+  .toc-container {
+    padding: var(--space-md);
+  }
+
+  .toc-header {
+    margin-bottom: var(--space-sm);
+    padding-bottom: var(--space-sm);
+  }
+
+  .toc-title {
+    font-size: var(--font-size-xs);
+  }
+}
+
+/* ============================================
+   13. PRINT STYLES
    ============================================ */
 
 @media print {
   .main-nav,
   .main-footer,
   .search-box,
-  .tag-filters {
+  .tag-filters,
+  .toc-container {
     display: none;
   }
   
   .main-content {
     margin-top: 0;
+  }
+  
+  .post-with-toc {
+    grid-template-columns: 1fr;
   }
   
   a {
