@@ -44,9 +44,6 @@
         <ul class="nav-links nav-links-centered">
           <li><a href="{{ "/" | relative_url }}" class="nav-link">Portfolio</a></li>
           <li><a href="{{ "/blog" | relative_url }}" class="nav-link">Blog</a></li>
-          {% if site.github.is_project_page %}
-          <li><a href="{{ site.github.repository_url }}" class="nav-link nav-link-github" target="_blank" rel="noopener">GitHub</a></li>
-          {% endif %}
         </ul>
       </div>
     </nav>
@@ -62,11 +59,6 @@
     <footer class="main-footer" role="contentinfo">
       <div class="footer-container">
         <div class="footer-content">
-          <p class="footer-text">
-            {% if site.github.is_project_page %}
-            Designed & Built by <a href="{{ site.github.owner_url }}" class="footer-link">{{ site.github.owner_name }}</a>
-            {% endif %}
-          </p>
           <p class="footer-meta">© {{ 'now' | date: "%Y" }} — Hosted on GitHub Pages</p>
         </div>
       </div>
