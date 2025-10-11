@@ -7,6 +7,16 @@ title: Blog
 
 <p>Nơi tôi chia sẻ suy nghĩ, kinh nghiệm và kiến thức về công nghệ.</p>
 
+<!-- Search Container -->
+<div id="blog-search-container"></div>
+
+<!-- Load BM25 Search Engine -->
+<script src="{{ '/assets/js/bm25-search.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/blog-search.js' | relative_url }}"></script>
+
+<!-- Original blog list (hidden when search is active) -->
+<div id="original-blog-list" style="display: none;">
+
 {% if paginator.posts and paginator.posts.size > 0 %}
 <div class="blog-list">
   {% for post in paginator.posts %}
@@ -103,4 +113,5 @@ title: Blog
   <p>Chưa có bài viết nào. Hãy quay lại sau nhé!</p>
 </div>
 {% endif %}
+</div>
 

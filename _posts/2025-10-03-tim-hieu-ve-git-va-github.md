@@ -3,6 +3,7 @@ layout: post
 title: "Tìm hiểu về Git và GitHub"
 date: 2025-10-03 14:30:00 +0700
 categories: [git, tutorial]
+tags: [git, github, version-control, tutorial, lập-trình]
 ---
 
 Git và GitHub là hai công cụ không thể thiếu đối với bất kỳ lập trình viên nào. Trong bài viết này, tôi sẽ chia sẻ những kiến thức cơ bản và một số tips hữu ích khi làm việc với chúng.

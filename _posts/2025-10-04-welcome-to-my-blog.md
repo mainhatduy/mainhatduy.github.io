@@ -3,6 +3,7 @@ layout: post
 title: "Chào mừng đến với blog của tôi!"
 date: 2025-10-04 00:00:00 +0700
 categories: blog
+tags: [blog, giới-thiệu, machine-learning, knowledge-graph]
 ---
 
 Đây là bài viết đầu tiên trên blog cá nhân của tôi. Tôi rất vui khi chia sẻ kiến thức và kinh nghiệm của mình với mọi người.
