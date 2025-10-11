@@ -614,6 +614,32 @@ blockquote {
   margin-bottom: var(--space-3xl);
 }
 
+/* Links in post content - light blue with underline */
+.post-content a,
+.content-body a {
+  color: #4d9fff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  border-bottom: none;
+  transition: all var(--transition-base);
+}
+
+.post-content a:hover,
+.content-body a:hover {
+  color: #2b7fd9;
+  text-decoration: underline;
+}
+
+[data-theme="dark"] .post-content a,
+[data-theme="dark"] .content-body a {
+  color: #6eb3ff;
+}
+
+[data-theme="dark"] .post-content a:hover,
+[data-theme="dark"] .content-body a:hover {
+  color: #4d9fff;
+}
+
 /* Images in post content */
 .post-content img {
   max-width: 80%;
@@ -686,6 +712,14 @@ blockquote {
   border-radius: 3px;
   margin-right: var(--space-xs);
   font-family: var(--font-mono);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.post-tags .tag:hover {
+  background: var(--color-border);
+  color: var(--color-text);
+  text-decoration: none;
 }
 
 /* ============================================

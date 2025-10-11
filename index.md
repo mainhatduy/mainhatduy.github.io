@@ -17,10 +17,10 @@ title: Portfolio
         <ul class="profile-social">
           <li><i class="icon-location"></i> TP.HCM, Việt Nam</li>
           <li><a href="mailto:maiduy07102003@gmail.com"><i class="icon-email"></i> Email</a></li>
-          <li><a href="https://github.com/mainhatduy"><i class="icon-github"></i> Github</a></li>
-          <li><a href="https://linkedin.com/in/mainhatduy"><i class="icon-linkedin"></i> LinkedIn</a></li>
-          <li><a href="https://facebook.com/mainhatduy0710"><i class="icon-facebook"></i> Facebook</a></li>
-          <li><a href="https://huggingface.co/myduy"><i class="icon-huggingface"></i> Hugging Face</a></li>
+          <li><a href="https://github.com/mainhatduy" target="_blank" rel="noopener noreferrer"><i class="icon-github"></i> Github</a></li>
+          <li><a href="https://linkedin.com/in/mainhatduy" target="_blank" rel="noopener noreferrer"><i class="icon-linkedin"></i> LinkedIn</a></li>
+          <li><a href="https://facebook.com/mainhatduy0710" target="_blank" rel="noopener noreferrer"><i class="icon-facebook"></i> Facebook</a></li>
+          <li><a href="https://huggingface.co/myduy" target="_blank" rel="noopener noreferrer"><i class="icon-huggingface"></i> Hugging Face</a></li>
         </ul>
       </div>
     </div>

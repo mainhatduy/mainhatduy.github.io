@@ -19,3 +19,6 @@ Cảm ơn bạn đã ghé thăm, và hẹn gặp lại trong các bài viết ti
   <img src="/assets/img/avt.jpg" alt="Avatar của tôi">
   <figcaption>Đây là ảnh đại diện của tôi - chào mừng bạn đến với blog!</figcaption>
 </figure>
+
+Bạn có thể tìm hiểu thêm thông tin trên [Google](https://www.google.com).
+
