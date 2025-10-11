@@ -4,7 +4,7 @@ description: Personal blog and portfolio
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://mainhatduy.github.io" # the base hostname & protocol for your site
 logo: /assets/img/avt.jpg # your profile picture
-
+permalink: /:title/
 # Build settings
 markdown: kramdown
 theme: jekyll-theme-minimal
