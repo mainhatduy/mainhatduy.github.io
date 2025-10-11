@@ -1668,6 +1668,32 @@ button:focus-visible {
   border-color: var(--color-secondary);
 }
 
+/* Tag Expand/Collapse Buttons */
+.tag-expand-btn,
+.tag-collapse-btn {
+  background: var(--color-bg);
+  border: 2px dashed var(--color-border);
+  color: var(--color-text-muted);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+.tag-expand-btn {
+  letter-spacing: 0.1em;
+}
+
+.tag-expand-btn:hover,
+.tag-collapse-btn:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  border-style: solid;
+  color: var(--color-bg);
+}
+
 /* Post Tags */
 .post-tags {
   display: flex;

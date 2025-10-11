@@ -8,6 +8,7 @@ class BlogSearch {
     this.allPosts = [];
     this.selectedTags = new Set();
     this.currentQuery = '';
+    this.tagsExpanded = false; // Track if tags are expanded
     
     this.init();
   }
@@ -89,6 +90,11 @@ class BlogSearch {
       return;
     }
 
+    // Determine which tags to display
+    const maxVisibleTags = 6;
+    const hasMoreTags = allTags.length > maxVisibleTags;
+    const visibleTags = this.tagsExpanded || !hasMoreTags ? allTags : allTags.slice(0, maxVisibleTags);
+
     const tagsHTML = `
       <div class="tag-filter-header">
         <span class="tag-filter-label">Lọc theo tags:</span>
@@ -97,7 +103,7 @@ class BlogSearch {
         </button>
       </div>
       <div class="tag-filter-list">
-        ${allTags.map(tag => `
+        ${visibleTags.map(tag => `
           <button 
             class="tag-filter ${this.selectedTags.has(tag) ? 'active' : ''}" 
             data-tag="${tag}"
@@ -106,19 +112,55 @@ class BlogSearch {
             ${tag}
           </button>
         `).join('')}
+        ${hasMoreTags && !this.tagsExpanded ? `
+          <button 
+            id="expand-tags" 
+            class="tag-filter tag-expand-btn"
+            aria-label="Xem thêm tags"
+          >
+            ...
+          </button>
+        ` : ''}
+        ${hasMoreTags && this.tagsExpanded ? `
+          <button 
+            id="collapse-tags" 
+            class="tag-filter tag-collapse-btn"
+            aria-label="Ẩn bớt tags"
+          >
+            hide
+          </button>
+        ` : ''}
       </div>
     `;
     
     tagFiltersContainer.innerHTML = tagsHTML;
 
     // Add event listeners to tag filters
-    const tagButtons = tagFiltersContainer.querySelectorAll('.tag-filter');
+    const tagButtons = tagFiltersContainer.querySelectorAll('.tag-filter:not(#expand-tags):not(#collapse-tags)');
     tagButtons.forEach(btn => {
       btn.addEventListener('click', () => {
         const tag = btn.dataset.tag;
         this.toggleTagFilter(tag);
       });
     });
+
+    // Expand tags button
+    const expandBtn = document.getElementById('expand-tags');
+    if (expandBtn) {
+      expandBtn.addEventListener('click', () => {
+        this.tagsExpanded = true;
+        this.renderTagFilters();
+      });
+    }
+
+    // Collapse tags button
+    const collapseBtn = document.getElementById('collapse-tags');
+    if (collapseBtn) {
+      collapseBtn.addEventListener('click', () => {
+        this.tagsExpanded = false;
+        this.renderTagFilters();
+      });
+    }
 
     // Clear all tags button
     const clearTagsBtn = document.getElementById('clear-tags');
