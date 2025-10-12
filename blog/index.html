@@ -11,11 +11,11 @@ title: Blog
 <div id="blog-search-container"></div>
 
 <!-- Load BM25 Search Engine -->
-<script src="{{ '/assets/js/bm25-search.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/blog-search.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/bm25-search.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/blog-search.js' | relative_url }}" defer></script>
 
 <!-- Original blog list (hidden when search is active) -->
-<div id="original-blog-list" style="display: none;">
+<div id="original-blog-list">
 
 {% if paginator.posts and paginator.posts.size > 0 %}
 <div class="blog-list">

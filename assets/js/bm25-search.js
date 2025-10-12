@@ -41,10 +41,9 @@ class BM25Search {
     let totalLength = 0;
     
     this.documents.forEach((doc, docIndex) => {
-      // Kết hợp title, content và tags để tìm kiếm
+      // Kết hợp title, excerpt và tags để tìm kiếm
       const searchableText = [
         doc.title,
-        doc.content,
         doc.excerpt,
         (doc.tags || []).join(' '),
         (doc.categories || []).join(' ')

@@ -188,7 +188,21 @@ class BlogSearch {
 
   performSearch() {
     const resultsContainer = document.getElementById('search-results');
+    const originalList = document.getElementById('original-blog-list');
     if (!resultsContainer || !this.searchEngine) return;
+
+    const hasActiveSearch = this.currentQuery || this.selectedTags.size > 0;
+
+    // Show/hide original list based on search activity
+    if (originalList) {
+      originalList.style.display = hasActiveSearch ? 'none' : 'block';
+    }
+
+    // If no active search, clear results and show original list
+    if (!hasActiveSearch) {
+      resultsContainer.innerHTML = '';
+      return;
+    }
 
     const results = this.searchEngine.search(this.currentQuery, {
       tags: Array.from(this.selectedTags),
