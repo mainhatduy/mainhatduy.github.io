@@ -14,6 +14,40 @@
     <link rel="icon" type="image/png" href="{{ "/assets/img/logo.png" | relative_url }}">
     <link rel="apple-touch-icon" href="{{ "/assets/img/logo.png" | relative_url }}">
     
+    <!-- Theme initialization - must run before page renders to prevent flash -->
+    <script>
+      (function() {
+        const THEME_KEY = 'blog-theme';
+        const THEME_DARK = 'dark';
+        const THEME_LIGHT = 'light';
+        
+        // Get saved theme or check system preference
+        function getInitialTheme() {
+          const savedTheme = localStorage.getItem(THEME_KEY);
+          if (savedTheme) {
+            return savedTheme;
+          }
+          
+          // Check system preference if no saved theme
+          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            return THEME_DARK;
+          }
+          
+          return THEME_LIGHT;
+        }
+        
+        // Apply theme immediately
+        const theme = getInitialTheme();
+        document.documentElement.setAttribute('data-theme', theme);
+        
+        // Update meta theme-color
+        const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+        if (metaThemeColor) {
+          metaThemeColor.setAttribute('content', theme === THEME_DARK ? '#0f0f0f' : '#0a0a0a');
+        }
+      })();
+    </script>
+    
     <!-- MathJax for mathematical equations -->
     <script>
       MathJax = {
