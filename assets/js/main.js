@@ -107,6 +107,152 @@ const PROJECTS_DATA = {
   }
 };
 
+// --- Journey Milestones Database ---
+const MILESTONES_DATA = {
+  'root': {
+    title: "Bắt đầu hành trình",
+    subtitle: "Nhập học TDTU (2022)",
+    duration: "Năm 2022",
+    description: "Bắt đầu chặng đường Khoa học Máy tính tại Đại học Tôn Đức Thắng (TDTU). Tập trung xây dựng kiến thức nền tảng vững chắc về giải thuật, lập trình và toán học.",
+    icon: "lucide:flag",
+    color: "neutral"
+  },
+  'lab': {
+    title: "TDTU NLP-KD Lab",
+    subtitle: "Trợ lý nghiên cứu (2024)",
+    duration: "Năm 2024",
+    description: "Tham gia TDTU NLP-KD Lab. Bắt đầu các nghiên cứu chuyên sâu về Học sâu (Deep Learning), các mô hình Diffusion ngôn ngữ và tối ưu hóa tài nguyên phần cứng.",
+    icon: "lucide:graduation-cap",
+    color: "neutral"
+  },
+  'olympiad': {
+    title: "Southern Region Student AI Olympiad 2025",
+    subtitle: "Giải Khuyến Khích",
+    duration: "Năm 2025",
+    description: "Đạt giải Khuyến khích tại kỳ thi Olympic Trí tuệ nhân tạo sinh viên khu vực phía Nam năm 2025. Thể hiện khả năng giải quyết các vấn đề học máy thực tế dưới áp lực thời gian cao.",
+    icon: "lucide:trophy",
+    color: "blue"
+  },
+  'tdtu_present': {
+    title: "Ton Duc Thang University",
+    subtitle: "Sinh viên năm cuối ngành KHMT",
+    duration: "2022 — Present",
+    description: "Hoàn thiện chương trình học chuyên ngành Khoa học Máy tính tại TDTU. Thực hiện các đề tài nghiên cứu tối ưu hóa mô hình ngôn ngữ lớn (LLM) và sinh văn bản.",
+    icon: "lucide:graduation-cap",
+    color: "blue"
+  },
+  'quaveo_start': {
+    title: "Bắt đầu thực tập tại QUAVEO",
+    subtitle: "AI Engineer Intern",
+    duration: "Tháng 2, 2026",
+    description: "Gia nhập QUAVEO AI dưới vai trò thực tập sinh kỹ sư AI. Tiếp cận với môi trường phát triển sản phẩm AI thực tế của doanh nghiệp.",
+    icon: "lucide:briefcase",
+    color: "red"
+  },
+  'quaveo_present': {
+    title: "AI Engineer Intern at QUAVEO",
+    subtitle: "Hiện tại",
+    duration: "Tháng 2, 2026 — Present",
+    description: "Nghiên cứu phát triển các giải pháp AI tiên tiến, tối ưu hóa các ứng dụng xử lý ngôn ngữ tự nhiên (NLP), xây dựng hệ thống Multi-Agent và triển khai mô hình LLM tại QUAVEO.",
+    icon: "lucide:briefcase",
+    color: "red"
+  }
+};
+
+function selectMilestone(id) {
+  const data = MILESTONES_DATA[id];
+  if (!data) return;
+
+  // Update card content
+  document.getElementById('journey-title').textContent = data.title;
+  document.getElementById('journey-subtitle').textContent = data.subtitle;
+  document.getElementById('journey-duration').textContent = data.duration;
+  document.getElementById('journey-description').textContent = data.description;
+  
+  const iconEl = document.getElementById('journey-icon');
+  iconEl.setAttribute('icon', data.icon);
+  
+  // Set border color and background dynamically
+  const cardBorder = document.getElementById('journey-detail-card');
+  const iconContainer = iconEl.parentElement;
+  
+  let themeColorClass = '';
+  let iconColorClass = '';
+  
+  if (data.color === 'neutral') {
+    themeColorClass = 'border-l-neutral-400 dark:border-l-neutral-600';
+    iconColorClass = 'bg-neutral-500/10 text-neutral-500';
+  } else if (data.color === 'blue') {
+    themeColorClass = 'border-l-blue-500';
+    iconColorClass = 'bg-blue-500/10 text-blue-500';
+  } else if (data.color === 'red') {
+    themeColorClass = 'border-l-red-500';
+    iconColorClass = 'bg-red-500/10 text-red-500';
+  }
+  
+  cardBorder.className = `glass-card rounded-[20px] p-8 border-l-4 ${themeColorClass} transition-all duration-300 flex flex-col justify-between min-h-[220px]`;
+  iconContainer.className = `w-8 h-8 rounded-lg ${iconColorClass} flex items-center justify-center`;
+
+  // Trace path and nodes from root up to current node
+  const pathTrace = {
+    'root': {
+      paths: ['path-root'],
+      nodes: ['node-root']
+    },
+    'lab': {
+      paths: ['path-root', 'path-lab'],
+      nodes: ['node-root', 'node-lab']
+    },
+    'olympiad': {
+      paths: ['path-root', 'path-lab'],
+      nodes: ['node-root', 'node-lab', 'node-olympiad']
+    },
+    'tdtu_present': {
+      paths: ['path-root', 'path-lab', 'path-tdtu_present'],
+      nodes: ['node-root', 'node-lab', 'node-olympiad', 'node-tdtu_present']
+    },
+    'quaveo_start': {
+      paths: ['path-root', 'path-quaveo_start'],
+      nodes: ['node-root', 'node-lab', 'node-quaveo_start']
+    },
+    'quaveo_present': {
+      paths: ['path-root', 'path-quaveo_start', 'path-quaveo_present'],
+      nodes: ['node-root', 'node-lab', 'node-quaveo_start', 'node-quaveo_present']
+    }
+  };
+
+  // Reset all paths and nodes
+  document.querySelectorAll('.journey-path').forEach(p => {
+    p.classList.remove('active');
+  });
+  document.querySelectorAll('.journey-node').forEach(n => {
+    n.classList.remove('active');
+    n.style.color = '';
+  });
+
+  // Activate the trace paths and nodes
+  const trace = pathTrace[id] || { paths: [], nodes: [] };
+  
+  trace.paths.forEach(pId => {
+    const pEl = document.getElementById(pId);
+    if (pEl) pEl.classList.add('active');
+  });
+  
+  trace.nodes.forEach(nId => {
+    const nEl = document.getElementById(nId);
+    if (nEl) {
+      nEl.classList.add('active');
+      const nodeKey = nId.replace('node-', '');
+      const milestone = MILESTONES_DATA[nodeKey];
+      if (milestone) {
+        if (milestone.color === 'neutral') nEl.style.color = '#9ca3af';
+        else if (milestone.color === 'blue') nEl.style.color = '#3b82f6';
+        else if (milestone.color === 'red') nEl.style.color = '#ef4444';
+      }
+    }
+  });
+}
+
 // --- Single-Page Navigation Switcher ---
 function navigateTo(sectionId) {
   // Hide all sections
@@ -265,6 +411,8 @@ window.addEventListener('resize', resize);
 document.addEventListener('DOMContentLoaded', () => {
   // Show default section
   navigateTo('home');
+  // Initialize default milestone in Journey
+  selectMilestone('quaveo_present');
   resize();
   animate();
 });

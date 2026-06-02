@@ -56,13 +56,16 @@
             <nav class="flex items-center gap-1">
                 <button onclick="navigateTo('home')"
                     class="nav-link px-4 py-2 text-[11px] font-medium text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors rounded-full hover:bg-black/5 dark:hover:bg-white/5 active"
-                    data-target="home">Index</button>
+                    data-target="home">Home</button>
                 <button onclick="navigateTo('projects')"
                     class="nav-link px-4 py-2 text-[11px] font-medium text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors rounded-full hover:bg-black/5 dark:hover:bg-white/5"
-                    data-target="projects">Works</button>
+                    data-target="projects">Projects</button>
+                <button onclick="navigateTo('journey')"
+                    class="nav-link px-4 py-2 text-[11px] font-medium text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors rounded-full hover:bg-black/5 dark:hover:bg-white/5"
+                    data-target="journey">Journey</button>
                 <button onclick="navigateTo('skills')"
                     class="nav-link px-4 py-2 text-[11px] font-medium text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors rounded-full hover:bg-black/5 dark:hover:bg-white/5"
-                    data-target="skills">Stack</button>
+                    data-target="skills">Skills</button>
             </nav>
 
             <!-- Actions / Resume Button -->
@@ -287,144 +290,296 @@
             </div>
         </section>
 
-        <!-- ================= STACK SECTION ================= -->
-        <section id="skills" class="page-section hidden">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
-                <!-- Left: Timeline Journey -->
-                <div class="lg:col-span-2 space-y-10">
-                    <div>
-                        <span class="text-[11px] font-mono uppercase tracking-widest text-indigo-500">Journey</span>
-                        <h2 class="text-3xl font-bold tracking-tight dark:text-white mt-1">Education & Lab Work</h2>
-                    </div>
+        <!-- ================= JOURNEY SECTION ================= -->
+        <section id="journey" class="page-section hidden">
+            <div class="mb-12">
+                <span class="text-[11px] font-mono uppercase tracking-widest text-indigo-500">My Path</span>
+                <h2 class="text-3xl font-bold tracking-tight dark:text-white mt-1">Hành trình phát triển</h2>
+                <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2 max-w-md">Nhấp vào các nút tròn hoặc nhánh trên cây để khám phá chi tiết từng cột mốc.</p>
+            </div>
 
-                    <div class="space-y-8 pl-4 border-l border-neutral-200 dark:border-white/5 relative">
-                        <!-- Item 1 -->
-                        <div class="relative space-y-2">
-                            <span
-                                class="absolute -left-[21px] top-1.5 w-2.5 h-2.5 rounded-full bg-indigo-500 ring-4 ring-[#FAFAFA] dark:ring-dark"></span>
-                            <span
-                                class="text-[10px] font-mono text-indigo-500 dark:text-indigo-400 font-semibold uppercase tracking-wider">2024
-                                — Present</span>
-                            <h3 class="text-lg font-semibold dark:text-white leading-tight">Research Assistant</h3>
-                            <p class="text-xs text-neutral-500 dark:text-neutral-400">TDTU NLP-KD Lab</p>
-                            <p class="text-sm text-neutral-600 dark:text-neutral-400 font-light leading-relaxed">
-                                Researching state-of-the-art NLP models, specifically specializing in continuous and
-                                discrete Diffusion Language Models, plus building optimized dataset pre-processing and
-                                training pipelines.
-                            </p>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+                <!-- Left: Interactive Git-like branch tree (col-span-2) -->
+                <div class="lg:col-span-2 flex justify-center bg-white/5 dark:bg-black/20 p-8 rounded-3xl border border-black/5 dark:border-white/5 backdrop-blur-sm relative min-h-[480px]">
+                    <div class="relative w-full max-w-[380px] h-[400px] select-none my-auto">
+                        <!-- Chronological Grid Guidelines -->
+                        <div class="absolute left-0 top-[50px] w-full flex items-center pointer-events-none opacity-40 dark:opacity-20 z-0">
+                            <span class="text-[10px] font-mono font-bold tracking-wider text-neutral-500 dark:text-neutral-400 w-12 text-right">Present</span>
+                            <div class="flex-grow ml-2 border-t border-dashed border-neutral-300 dark:border-neutral-800"></div>
+                        </div>
+                        <div class="absolute left-0 top-[130px] w-full flex items-center pointer-events-none opacity-40 dark:opacity-20 z-0">
+                            <span class="text-[10px] font-mono font-bold tracking-wider text-neutral-500 dark:text-neutral-400 w-12 text-right">2026</span>
+                            <div class="flex-grow ml-2 border-t border-dashed border-neutral-300 dark:border-neutral-800"></div>
+                        </div>
+                        <div class="absolute left-0 top-[210px] w-full flex items-center pointer-events-none opacity-40 dark:opacity-20 z-0">
+                            <span class="text-[10px] font-mono font-bold tracking-wider text-neutral-500 dark:text-neutral-400 w-12 text-right">2025</span>
+                            <div class="flex-grow ml-2 border-t border-dashed border-neutral-300 dark:border-neutral-800"></div>
+                        </div>
+                        <div class="absolute left-0 top-[290px] w-full flex items-center pointer-events-none opacity-40 dark:opacity-20 z-0">
+                            <span class="text-[10px] font-mono font-bold tracking-wider text-neutral-500 dark:text-neutral-400 w-12 text-right">2024</span>
+                            <div class="flex-grow ml-2 border-t border-dashed border-neutral-300 dark:border-neutral-800"></div>
+                        </div>
+                        <div class="absolute left-0 top-[370px] w-full flex items-center pointer-events-none opacity-40 dark:opacity-20 z-0">
+                            <span class="text-[10px] font-mono font-bold tracking-wider text-neutral-500 dark:text-neutral-400 w-12 text-right">2022</span>
+                            <div class="flex-grow ml-2 border-t border-dashed border-neutral-300 dark:border-neutral-800"></div>
                         </div>
 
-                        <!-- Item 2 -->
-                        <div class="relative space-y-2">
-                            <span
-                                class="absolute -left-[21px] top-1.5 w-2.5 h-2.5 rounded-full bg-purple-500 ring-4 ring-[#FAFAFA] dark:ring-dark animate-pulse"></span>
-                            <span
-                                class="text-[10px] font-mono text-purple-500 dark:text-purple-400 font-semibold uppercase tracking-wider">2025</span>
-                            <div class="flex items-center gap-1">
-                                <iconify-icon icon="lucide:trophy" class="text-yellow-500" width="16"></iconify-icon>
-                                <h3 class="text-lg font-semibold dark:text-white leading-tight">Honorable Mention</h3>
-                            </div>
-                            <p class="text-xs text-neutral-500 dark:text-neutral-400">Southern Region Student AI
-                                Olympiad 2025</p>
-                            <p class="text-sm text-neutral-600 dark:text-neutral-400 font-light leading-relaxed">
-                                Recognized for building outstanding machine learning prototypes and application designs
-                                during the regional collegiate olympiad challenge.
-                            </p>
+                        <!-- SVG Branch Lines -->
+                        <svg class="absolute inset-0 w-full h-full pointer-events-none z-10" viewBox="0 0 380 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- path-root (Gray): Root to Lab -->
+                            <path id="path-root" d="M 160,370 L 160,290" class="journey-path cursor-pointer pointer-events-auto" stroke-width="6" stroke-linecap="round" onclick="selectMilestone('root')"/>
+                            
+                            <!-- path-lab (Gray): Lab to Olympiad -->
+                            <path id="path-lab" d="M 160,290 L 160,210" class="journey-path cursor-pointer pointer-events-auto" stroke-width="6" stroke-linecap="round" onclick="selectMilestone('lab')"/>
+                            
+                            <!-- path-tdtu_present (Blue): Olympiad to TDTU Present -->
+                            <path id="path-tdtu_present" d="M 160,210 L 160,50" class="journey-path cursor-pointer pointer-events-auto" stroke-width="6" stroke-linecap="round" onclick="selectMilestone('tdtu_present')"/>
+                            
+                            <!-- path-quaveo_start (Red): Lab branching to Quaveo Start -->
+                            <path id="path-quaveo_start" d="M 160,290 C 160,250 240,250 240,210 L 240,130" class="journey-path cursor-pointer pointer-events-auto" stroke-width="6" stroke-linecap="round" onclick="selectMilestone('quaveo_start')"/>
+                            
+                            <!-- path-quaveo_present (Red): Quaveo Start to Quaveo Present -->
+                            <path id="path-quaveo_present" d="M 240,130 L 240,50" class="journey-path cursor-pointer pointer-events-auto" stroke-width="6" stroke-linecap="round" onclick="selectMilestone('quaveo_present')"/>
+                        </svg>
+
+                        <!-- Interactive Nodes -->
+                        <!-- Root Node (Start 2022) -->
+                        <button id="node-root" class="journey-node absolute left-[148px] top-[358px] w-6 h-6 rounded-full border-[3px] border-neutral-400 dark:border-neutral-500 bg-white dark:bg-neutral-900 flex items-center justify-center transition-all duration-300 text-neutral-400 dark:text-neutral-500 focus:outline-none z-20" onclick="selectMilestone('root')">
+                            <span class="w-2 h-2 rounded-full bg-current"></span>
+                        </button>
+
+                        <!-- Lab Node (2024) -->
+                        <button id="node-lab" class="journey-node absolute left-[148px] top-[278px] w-6 h-6 rounded-full border-[3px] border-neutral-400 dark:border-neutral-500 bg-white dark:bg-neutral-900 flex items-center justify-center transition-all duration-300 text-neutral-400 dark:text-neutral-500 focus:outline-none z-20" onclick="selectMilestone('lab')">
+                            <span class="w-2 h-2 rounded-full bg-current"></span>
+                        </button>
+
+                        <!-- Olympiad 2025 Node (Blue) -->
+                        <button id="node-olympiad" class="journey-node absolute left-[148px] top-[198px] w-6 h-6 rounded-full border-[3px] border-blue-500 bg-white dark:bg-neutral-900 flex items-center justify-center transition-all duration-300 text-blue-500 focus:outline-none z-20" onclick="selectMilestone('olympiad')">
+                            <span class="w-2 h-2 rounded-full bg-current"></span>
+                        </button>
+
+                        <!-- TDTU Present Node (Blue) -->
+                        <button id="node-tdtu_present" class="journey-node absolute left-[148px] top-[38px] w-6 h-6 rounded-full border-[3px] border-blue-500 bg-white dark:bg-neutral-900 flex items-center justify-center transition-all duration-300 text-blue-500 focus:outline-none z-20" onclick="selectMilestone('tdtu_present')">
+                            <span class="w-2 h-2 rounded-full bg-current"></span>
+                            <span class="absolute -inset-1 rounded-full border border-blue-500 animate-ping opacity-35"></span>
+                        </button>
+
+                        <!-- QUAVEO Start Node (Red) -->
+                        <button id="node-quaveo_start" class="journey-node absolute left-[228px] top-[118px] w-6 h-6 rounded-full border-[3px] border-red-500 bg-white dark:bg-neutral-900 flex items-center justify-center transition-all duration-300 text-red-500 focus:outline-none z-20" onclick="selectMilestone('quaveo_start')">
+                            <span class="w-2 h-2 rounded-full bg-current"></span>
+                        </button>
+
+                        <!-- QUAVEO Present Node (Red) -->
+                        <button id="node-quaveo_present" class="journey-node absolute left-[228px] top-[38px] w-6 h-6 rounded-full border-[3px] border-red-500 bg-white dark:bg-neutral-900 flex items-center justify-center transition-all duration-300 text-red-500 focus:outline-none z-20" onclick="selectMilestone('quaveo_present')">
+                            <span class="w-2 h-2 rounded-full bg-current"></span>
+                            <span class="absolute -inset-1 rounded-full border border-red-500 animate-ping opacity-35"></span>
+                        </button>
+
+                        <!-- Text labels (Academic Column on the Left) -->
+                        <div class="absolute right-[240px] top-[354px] w-[130px] text-right cursor-pointer z-20" onclick="selectMilestone('root')">
+                            <p class="text-xs font-mono font-bold text-neutral-400 dark:text-neutral-500">START (2022)</p>
+                            <p class="text-[10px] text-neutral-400/60 mt-0.5">Nhập học TDTU</p>
+                        </div>
+                        
+                        <div class="absolute right-[240px] top-[274px] w-[130px] text-right cursor-pointer z-20" onclick="selectMilestone('lab')">
+                            <p class="text-xs font-mono font-bold text-neutral-400 dark:text-neutral-500">NLP LAB (2024)</p>
+                            <p class="text-[10px] text-neutral-400/60 mt-0.5">Trợ lý nghiên cứu</p>
                         </div>
 
-                        <!-- Item 3 -->
-                        <div class="relative space-y-2">
-                            <span
-                                class="absolute -left-[21px] top-1.5 w-2.5 h-2.5 rounded-full bg-neutral-400 dark:bg-neutral-600 ring-4 ring-[#FAFAFA] dark:ring-dark"></span>
-                            <span
-                                class="text-[10px] font-mono text-neutral-500 dark:text-neutral-400 font-semibold uppercase tracking-wider">2022
-                                — Present</span>
-                            <h3 class="text-lg font-semibold dark:text-white leading-tight">Ton Duc Thang University
-                            </h3>
-                            <p class="text-xs text-neutral-500 dark:text-neutral-400">Final-Year Computer Science
-                                Undergraduate</p>
-                            <p class="text-sm text-neutral-600 dark:text-neutral-400 font-light leading-relaxed">
-                                Focusing academic coursework on Deep Learning architectures and computational
-                                linguistics. Maintained a cumulative GPA of <strong>7.5 / 10.0</strong>.
-                            </p>
+                        <div class="absolute right-[240px] top-[194px] w-[130px] text-right cursor-pointer z-20" onclick="selectMilestone('olympiad')">
+                            <p class="text-xs font-mono font-bold text-blue-500">OLYMPIAD 2025</p>
+                            <p class="text-[10px] text-neutral-400/60 mt-0.5">Giải Khuyến Khích</p>
+                        </div>
+
+                        <div class="absolute right-[240px] top-[34px] w-[130px] text-right cursor-pointer z-20" onclick="selectMilestone('tdtu_present')">
+                            <p class="text-xs font-mono font-bold text-blue-500">TDTU PRESENT</p>
+                            <p class="text-[10px] text-neutral-400/60 mt-0.5">Sinh viên năm cuối</p>
+                        </div>
+
+                        <!-- Text labels (Work Column on the Right) -->
+                        <div class="absolute left-[270px] top-[114px] w-[110px] text-left cursor-pointer z-20" onclick="selectMilestone('quaveo_start')">
+                            <p class="text-xs font-mono font-bold text-red-500">QUAVEO START</p>
+                            <p class="text-[10px] text-neutral-400/60 mt-0.5">AI Intern</p>
+                        </div>
+
+                        <div class="absolute left-[270px] top-[34px] w-[110px] text-left cursor-pointer z-20" onclick="selectMilestone('quaveo_present')">
+                            <p class="text-xs font-mono font-bold text-red-500">QUAVEO PRESENT</p>
+                            <p class="text-[10px] text-neutral-400/60 mt-0.5">AI Intern</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right: Skills Categorized -->
-                <div class="space-y-8">
-                    <div>
-                        <span class="text-[11px] font-mono uppercase tracking-widest text-indigo-500">Expertise</span>
-                        <h2 class="text-3xl font-bold tracking-tight dark:text-white mt-1">Core Tech Stack</h2>
+                <!-- Right: Details Card (col-span-1) -->
+                <div class="lg:col-span-1">
+                    <div id="journey-detail-card" class="glass-card rounded-[20px] p-8 border-l-4 border-indigo-500 transition-all duration-300 flex flex-col justify-between min-h-[220px]">
+                        <div>
+                            <div class="flex items-center gap-2 mb-4">
+                                <div class="w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-500">
+                                    <iconify-icon id="journey-icon" icon="lucide:graduation-cap" width="18"></iconify-icon>
+                                </div>
+                                <span id="journey-duration" class="text-[10px] font-mono text-indigo-500 dark:text-indigo-400 font-semibold uppercase tracking-wider">2022 — Present</span>
+                            </div>
+                            <h3 id="journey-title" class="text-xl font-bold dark:text-white leading-tight">Ton Duc Thang University</h3>
+                            <p id="journey-subtitle" class="text-xs text-neutral-500 dark:text-neutral-400 mt-1 mb-4">Final-Year Computer Science Undergraduate</p>
+                            <p id="journey-description" class="text-sm text-neutral-600 dark:text-neutral-400 font-light leading-relaxed">
+                                Focusing academic coursework on Deep Learning architectures and computational linguistics.
+                            </p>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </section>
 
-                    <div class="space-y-6">
-                        <!-- Model Training -->
-                        <div class="space-y-2">
-                            <h4
-                                class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-widest">
-                                Model Training & NLP</h4>
-                            <div class="flex flex-wrap gap-1.5">
-                                <span
-                                    class="px-2.5 py-1 text-xs border border-neutral-300 dark:border-white/10 rounded-lg text-neutral-700 dark:text-neutral-300">PyTorch</span>
-                                <span
-                                    class="px-2.5 py-1 text-xs border border-neutral-300 dark:border-white/10 rounded-lg text-neutral-700 dark:text-neutral-300">Transformers</span>
-                                <span
-                                    class="px-2.5 py-1 text-xs border border-neutral-300 dark:border-white/10 rounded-lg text-neutral-700 dark:text-neutral-300">Unsloth</span>
-                                <span
-                                    class="px-2.5 py-1 text-xs border border-neutral-300 dark:border-white/10 rounded-lg text-neutral-700 dark:text-neutral-300">DeepSpeed</span>
-                                <span
-                                    class="px-2.5 py-1 text-xs border border-neutral-300 dark:border-white/10 rounded-lg text-neutral-700 dark:text-neutral-300">Scikit-learn</span>
+        <!-- ================= STACK SECTION ================= -->
+        <section id="skills" class="page-section hidden">
+            <div class="mb-12">
+                <span class="text-[11px] font-mono uppercase tracking-widest text-indigo-500">Expertise</span>
+                <h2 class="text-3xl font-bold tracking-tight dark:text-white mt-1">Core Tech Stack</h2>
+                <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2 max-w-md">Công nghệ và công cụ tôi sử dụng để xây dựng các mô hình và giải pháp AI.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Group 1: Model Training & NLP -->
+                <div class="glass-card rounded-[20px] p-6 space-y-6">
+                    <h3 class="text-xs font-mono text-neutral-500 mb-4 border-b border-neutral-200 dark:border-white/10 pb-2 flex items-center gap-2">
+                        <iconify-icon icon="lucide:brain" class="text-indigo-500" width="16"></iconify-icon>
+                        MODEL TRAINING & NLP
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between group">
+                            <div class="flex items-center gap-3">
+                                <iconify-icon icon="logos:pytorch-icon" width="18"></iconify-icon>
+                                <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">PyTorch</span>
                             </div>
+                            <span class="text-xs text-neutral-500 dark:text-neutral-400 font-mono">Expert</span>
                         </div>
-
-                        <!-- Infrastructure -->
-                        <div class="space-y-2">
-                            <h4
-                                class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-widest">
-                                Tools & Infrastructure</h4>
-                            <div class="flex flex-wrap gap-1.5">
-                                <span
-                                    class="px-2.5 py-1 text-xs border border-neutral-300 dark:border-white/10 rounded-lg text-neutral-700 dark:text-neutral-300">Git</span>
-                                <span
-                                    class="px-2.5 py-1 text-xs border border-neutral-300 dark:border-white/10 rounded-lg text-neutral-700 dark:text-neutral-300">Docker</span>
-                                <span
-                                    class="px-2.5 py-1 text-xs border border-neutral-300 dark:border-white/10 rounded-lg text-neutral-700 dark:text-neutral-300">ElasticSearch</span>
-                                <span
-                                    class="px-2.5 py-1 text-xs border border-neutral-300 dark:border-white/10 rounded-lg text-neutral-700 dark:text-neutral-300">vLLM</span>
-                                <span
-                                    class="px-2.5 py-1 text-xs border border-neutral-300 dark:border-white/10 rounded-lg text-neutral-700 dark:text-neutral-300">LangGraph</span>
-                                <span
-                                    class="px-2.5 py-1 text-xs border border-neutral-300 dark:border-white/10 rounded-lg text-neutral-700 dark:text-neutral-300">LangChain</span>
+                        <div class="flex items-center justify-between group">
+                            <div class="flex items-center gap-3">
+                                <iconify-icon icon="logos:huggingface" width="18"></iconify-icon>
+                                <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">Transformers</span>
                             </div>
+                            <span class="text-xs text-neutral-500 dark:text-neutral-400 font-mono">Advanced</span>
                         </div>
-
-                        <!-- Languages -->
-                        <div class="space-y-2">
-                            <h4
-                                class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-widest">
-                                Programming Languages</h4>
-                            <div class="flex flex-wrap gap-1.5">
-                                <span
-                                    class="px-2.5 py-1 text-xs border border-neutral-300 dark:border-white/10 rounded-lg text-neutral-700 dark:text-neutral-300">Python</span>
-                                <span
-                                    class="px-2.5 py-1 text-xs border border-neutral-300 dark:border-white/10 rounded-lg text-neutral-700 dark:text-neutral-300">Java</span>
+                        <div class="flex items-center justify-between group">
+                            <div class="flex items-center gap-3">
+                                <iconify-icon icon="lucide:zap" class="text-amber-500" width="18"></iconify-icon>
+                                <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">Unsloth</span>
                             </div>
+                            <span class="text-xs text-neutral-500 dark:text-neutral-400 font-mono">SFT & QLoRA</span>
                         </div>
-
-                        <!-- Language proficiency -->
-                        <div class="space-y-2">
-                            <h4
-                                class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-widest">
-                                Languages Spoken</h4>
-                            <div class="flex flex-wrap gap-1.5">
-                                <span
-                                    class="px-2.5 py-1 text-xs border border-neutral-300 dark:border-white/10 rounded-lg text-neutral-700 dark:text-neutral-300">Vietnamese
-                                    (Native)</span>
-                                <span
-                                    class="px-2.5 py-1 text-xs border border-neutral-300 dark:border-white/10 rounded-lg text-neutral-700 dark:text-neutral-300">English
-                                    (CEFR B2)</span>
+                        <div class="flex items-center justify-between group">
+                            <div class="flex items-center gap-3">
+                                <iconify-icon icon="lucide:cpu" class="text-indigo-400" width="18"></iconify-icon>
+                                <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">DeepSpeed</span>
                             </div>
+                            <span class="text-xs text-neutral-500 dark:text-neutral-400 font-mono">Distributed SFT</span>
+                        </div>
+                        <div class="flex items-center justify-between group">
+                            <div class="flex items-center gap-3">
+                                <iconify-icon icon="logos:scikit-learn" width="18"></iconify-icon>
+                                <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">Scikit-learn</span>
+                            </div>
+                            <span class="text-xs text-neutral-500 dark:text-neutral-400 font-mono">Intermediate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Group 2: Agentic Systems & Orchestration -->
+                <div class="glass-card rounded-[20px] p-6 space-y-6">
+                    <h3 class="text-xs font-mono text-neutral-500 mb-4 border-b border-neutral-200 dark:border-white/10 pb-2 flex items-center gap-2">
+                        <iconify-icon icon="lucide:network" class="text-purple-500" width="16"></iconify-icon>
+                        AGENTIC & RAG ORCHESTRATION
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between group">
+                            <div class="flex items-center gap-3">
+                                <iconify-icon icon="lucide:git-fork" class="text-emerald-500" width="18"></iconify-icon>
+                                <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">LangGraph</span>
+                            </div>
+                            <span class="text-xs text-neutral-500 dark:text-neutral-400 font-mono">Multi-Agent</span>
+                        </div>
+                        <div class="flex items-center justify-between group">
+                            <div class="flex items-center gap-3">
+                                <iconify-icon icon="lucide:link-2" class="text-sky-500" width="18"></iconify-icon>
+                                <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">LangChain</span>
+                            </div>
+                            <span class="text-xs text-neutral-500 dark:text-neutral-400 font-mono">Advanced</span>
+                        </div>
+                        <div class="flex items-center justify-between group">
+                            <div class="flex items-center gap-3">
+                                <iconify-icon icon="lucide:rocket" class="text-orange-500" width="18"></iconify-icon>
+                                <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">vLLM Inference</span>
+                            </div>
+                            <span class="text-xs text-neutral-500 dark:text-neutral-400 font-mono">Performance</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Group 3: Infrastructure & Databases -->
+                <div class="glass-card rounded-[20px] p-6 space-y-6">
+                    <h3 class="text-xs font-mono text-neutral-500 mb-4 border-b border-neutral-200 dark:border-white/10 pb-2 flex items-center gap-2">
+                        <iconify-icon icon="lucide:container" class="text-blue-500" width="16"></iconify-icon>
+                        INFRASTRUCTURE & DATABASES
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between group">
+                            <div class="flex items-center gap-3">
+                                <iconify-icon icon="logos:docker-icon" width="18"></iconify-icon>
+                                <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">Docker</span>
+                            </div>
+                            <span class="text-xs text-neutral-500 dark:text-neutral-400 font-mono">Intermediate</span>
+                        </div>
+                        <div class="flex items-center justify-between group">
+                            <div class="flex items-center gap-3">
+                                <iconify-icon icon="logos:elasticsearch" width="18"></iconify-icon>
+                                <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">ElasticSearch</span>
+                            </div>
+                            <span class="text-xs text-neutral-500 dark:text-neutral-400 font-mono">Vector Search</span>
+                        </div>
+                        <div class="flex items-center justify-between group">
+                            <div class="flex items-center gap-3">
+                                <iconify-icon icon="logos:git-icon" width="18"></iconify-icon>
+                                <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">Git</span>
+                            </div>
+                            <span class="text-xs text-neutral-500 dark:text-neutral-400 font-mono">Core</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Group 4: Languages & Communication -->
+                <div class="glass-card rounded-[20px] p-6 space-y-6">
+                    <h3 class="text-xs font-mono text-neutral-500 mb-4 border-b border-neutral-200 dark:border-white/10 pb-2 flex items-center gap-2">
+                        <iconify-icon icon="lucide:languages" class="text-amber-500" width="16"></iconify-icon>
+                        LANGUAGES Spoken & Written
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between group">
+                            <div class="flex items-center gap-3">
+                                <iconify-icon icon="logos:python" width="18"></iconify-icon>
+                                <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">Python</span>
+                            </div>
+                            <span class="text-xs text-neutral-500 dark:text-neutral-400 font-mono">Expert</span>
+                        </div>
+                        <div class="flex items-center justify-between group">
+                            <div class="flex items-center gap-3">
+                                <iconify-icon icon="logos:java" width="18"></iconify-icon>
+                                <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">Java</span>
+                            </div>
+                            <span class="text-xs text-neutral-500 dark:text-neutral-400 font-mono">Basic</span>
+                        </div>
+                        <div class="flex items-center justify-between group">
+                            <div class="flex items-center gap-3">
+                                <iconify-icon icon="twemoji:flag-vietnam" width="18"></iconify-icon>
+                                <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">Vietnamese</span>
+                            </div>
+                            <span class="text-xs text-neutral-500 dark:text-neutral-400 font-mono">Native</span>
+                        </div>
+                        <div class="flex items-center justify-between group">
+                            <div class="flex items-center gap-3">
+                                <iconify-icon icon="twemoji:flag-united-kingdom" width="18"></iconify-icon>
+                                <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">English</span>
+                            </div>
+                            <span class="text-xs text-neutral-500 dark:text-neutral-400 font-mono">CEFR B2</span>
                         </div>
                     </div>
                 </div>

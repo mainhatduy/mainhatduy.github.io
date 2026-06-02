@@ -101,3 +101,98 @@
 .delay-500 {
   animation-delay: 500ms;
 }
+
+/* Journey SVG Tree Custom Styles */
+.journey-path {
+  transition: opacity 0.3s ease, stroke-width 0.3s ease, filter 0.3s ease, stroke 0.3s ease;
+  opacity: 0.35;
+}
+
+/* Light theme strokes */
+#path-root, #path-lab {
+  stroke: #9ca3af;
+}
+#path-tdtu_present {
+  stroke: #3b82f6;
+}
+#path-quaveo_start, #path-quaveo_present {
+  stroke: #ef4444;
+}
+
+/* Dark theme strokes */
+.dark #path-root, .dark #path-lab {
+  stroke: #4b5563;
+}
+.dark #path-tdtu_present {
+  stroke: #2563eb;
+}
+.dark #path-quaveo_start, .dark #path-quaveo_present {
+  stroke: #dc2626;
+}
+
+/* Active states */
+.journey-path.active {
+  opacity: 1;
+  stroke-width: 7px;
+}
+
+#path-root.active, #path-lab.active {
+  stroke: #6b7280 !important;
+  filter: drop-shadow(0 0 4px rgba(107, 114, 128, 0.5));
+}
+.dark #path-root.active, .dark #path-lab.active {
+  stroke: #9ca3af !important;
+  filter: drop-shadow(0 0 6px rgba(156, 163, 175, 0.5));
+}
+
+#path-tdtu_present.active {
+  stroke: #3b82f6 !important;
+  filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.7));
+}
+.dark #path-tdtu_present.active {
+  stroke: #60a5fa !important;
+  filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.7));
+}
+
+#path-quaveo_start.active, #path-quaveo_present.active {
+  stroke: #ef4444 !important;
+  filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.7));
+}
+.dark #path-quaveo_start.active, .dark #path-quaveo_present.active {
+  stroke: #f87171 !important;
+  filter: drop-shadow(0 0 8px rgba(248, 113, 113, 0.7));
+}
+
+.journey-path:hover {
+  opacity: 0.8;
+  stroke-width: 7px;
+}
+.journey-path.active:hover {
+  opacity: 1;
+}
+
+/* Nodes styling */
+.journey-node {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  transform-origin: center;
+}
+
+.journey-node:hover {
+  transform: scale(1.2);
+}
+
+.journey-node.active {
+  transform: scale(1.25);
+  background-color: currentColor !important;
+  border-color: currentColor !important;
+  box-shadow: 0 0 15px currentColor;
+}
+
+.journey-node.active span {
+  background-color: #ffffff !important;
+}
+
+.journey-node span {
+  transition: background-color 0.3s ease;
+}
+
