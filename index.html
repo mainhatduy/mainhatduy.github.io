@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <title>Mai Nhat Duy | AI Engineer</title>
+    <meta name="description" content="Portfolio and CV of Mai Nhat Duy - AI Engineer & NLP Researcher.">
+    <meta name="author" content="Mai Nhat Duy">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mainhatduy.github.io/">
+    <meta property="og:title" content="Mai Nhat Duy | AI Engineer">
+    <meta property="og:description" content="Portfolio and CV of Mai Nhat Duy - AI Engineer & NLP Researcher.">
+    <meta property="og:image" content="/assets/img/avt.jpg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheets & Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="bg-[#FAFAFA] dark:bg-dark text-neutral-900 dark:text-[#EAEAEA] min-h-screen overflow-x-hidden relative">
+
+    <!-- Cinematic Noise Overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- Background Glows -->
+    <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-to-b from-indigo-500/5 to-transparent blur-[120px] pointer-events-none z-0">
+    </div>
+
+    <!-- Particle Background Canvas -->
+    <canvas id="network-canvas" class="fixed inset-0 w-full h-full pointer-events-none z-0 opacity-30"></canvas>
+
+    <!-- Header Navigation -->
+    <header class="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-5xl z-40">
+        <div
+            class="glass-panel rounded-full px-6 py-2 flex items-center justify-between shadow-lg shadow-black/5 dark:shadow-black/20">
+            <!-- Logo -->
+            <a href="#" onclick="navigateTo('home'); return false;"
+                class="flex items-center gap-2 font-mono text-sm tracking-wider font-semibold text-neutral-900 dark:text-white group">
+                <span class="w-2 h-2 rounded-full bg-indigo-500 animate-pulse-slow"></span>
+                <span>myduy</span>
+            </a>
+
+            <!-- Nav Links -->
+            <nav class="flex items-center gap-1">
+                <button onclick="navigateTo('home')"
+                    class="nav-link px-4 py-2 text-[11px] font-medium text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors rounded-full hover:bg-black/5 dark:hover:bg-white/5 active"
+                    data-target="home">Index</button>
+                <button onclick="navigateTo('projects')"
+                    class="nav-link px-4 py-2 text-[11px] font-medium text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors rounded-full hover:bg-black/5 dark:hover:bg-white/5"
+                    data-target="projects">Works</button>
+                <button onclick="navigateTo('skills')"
+                    class="nav-link px-4 py-2 text-[11px] font-medium text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors rounded-full hover:bg-black/5 dark:hover:bg-white/5"
+                    data-target="skills">Stack</button>
+            </nav>
+
+            <!-- Actions / Resume Button -->
+            <div>
+                <a href="/CV_MaiNhatDuy_AI_Engineering.pdf" target="_blank"
+                    class="inline-flex items-center gap-1.5 px-4 py-2 text-[11px] font-semibold text-white bg-indigo-500 hover:bg-indigo-400 rounded-full transition-all shadow-lg shadow-indigo-500/20 hover:shadow-[0_0_20px_rgba(99,102,241,0.3)]">
+                    <span>CV</span>
+                    <iconify-icon icon="lucide:arrow-up-right" width="12"></iconify-icon>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="relative z-10 max-w-5xl mx-auto px-6 pt-32 pb-20">
+
+        <!-- ================= HOME SECTION ================= -->
+        <section id="home" class="page-section min-h-[70vh] flex flex-col justify-center animate-slide-up">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-16 items-center">
+                <!-- Bio & Title -->
+                <div class="lg:col-span-2 space-y-8">
+                    <!-- Availability Badge -->
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-500/5 border border-emerald-500/20 rounded-full text-emerald-500 text-[10px] font-medium tracking-wider uppercase">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
+                        <span>Available for Hire & Collaboration</span>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h1
+                            class="text-5xl md:text-8xl font-bold tracking-[-0.03em] leading-[0.95] text-transparent bg-clip-text bg-gradient-to-b from-neutral-900 via-neutral-900 to-neutral-500 dark:from-white dark:via-white dark:to-neutral-400 glow-text">
+                            Mai Nhat Duy
+                        </h1>
+                        <p
+                            class="text-lg md:text-xl font-light text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-xl">
+                            AI Engineer & NLP Researcher bridging the gap between theoretical models and robust
+                            production systems. Specializing in Large Language Model fine-tuning, discrete diffusion,
+                            and agentic RAG architectures.
+                        </p>
+                    </div>
+
+                    <!-- Call To Actions -->
+                    <div class="flex flex-wrap items-center gap-4">
+                        <button onclick="navigateTo('projects')"
+                            class="px-6 py-3 bg-neutral-900 hover:bg-neutral-800 dark:bg-[#EDEDED] dark:hover:bg-white text-white dark:text-black text-xs font-semibold rounded-xl transition-all shadow-lg hover:-translate-y-1">
+                            View Case Studies
+                        </button>
+                        <a href="mailto:maiduy07102003@gmail.com"
+                            class="px-6 py-3 border border-neutral-300 dark:border-white/10 hover:bg-neutral-200 dark:hover:bg-white/5 text-xs font-semibold rounded-xl transition-all hover:-translate-y-1">
+                            Get in Touch
+                        </a>
+
+                        <!-- Social Links -->
+                        <div class="flex items-center gap-2 pl-3">
+                            <a href="https://github.com/mainhatduy" target="_blank"
+                                class="w-8 h-8 rounded-full border border-neutral-300 dark:border-white/10 flex items-center justify-center text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors"
+                                aria-label="GitHub">
+                                <iconify-icon icon="lucide:github" width="18"></iconify-icon>
+                            </a>
+                            <a href="https://linkedin.com/in/mainhatduy" target="_blank"
+                                class="w-8 h-8 rounded-full border border-neutral-300 dark:border-white/10 flex items-center justify-center text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors"
+                                aria-label="LinkedIn">
+                                <iconify-icon icon="lucide:linkedin" width="18"></iconify-icon>
+                            </a>
+                            <a href="https://huggingface.co/myduy" target="_blank"
+                                class="px-3 py-1.5 rounded-full border border-neutral-300 dark:border-white/10 flex items-center justify-center text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white text-[10px] font-bold font-mono transition-colors"
+                                aria-label="Hugging Face">
+                                🤗 HF
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Avatar Profile visual -->
+                <div class="flex justify-center lg:justify-end">
+                    <div class="relative w-64 h-64 lg:w-72 lg:h-72">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-tr from-indigo-500 to-purple-500/10 rounded-3xl blur-3xl opacity-20 dark:opacity-40 animate-pulse-slow">
+                        </div>
+                        <div
+                            class="w-full h-full rounded-[32px] overflow-hidden border border-black/5 dark:border-white/10 p-2 bg-[#FAFAFA]/80 dark:bg-[#0A0A0A]/80 backdrop-blur-md drop-shadow-2xl">
+                            <img src="/assets/img/avt.jpg" alt="Mai Nhat Duy"
+                                class="w-full h-full object-cover rounded-[24px]">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Ticker -->
+            <div
+                class="mt-24 border-t border-neutral-200 dark:border-white/5 pt-8 grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <span class="block text-3xl font-bold font-mono tracking-tight dark:text-white">3+</span>
+                    <span class="text-xs text-neutral-500 dark:text-neutral-400">HF Models Deployed</span>
+                </div>
+                <div>
+                    <span class="block text-3xl font-bold font-mono tracking-tight dark:text-white">79.04%</span>
+                    <span class="text-xs text-neutral-500 dark:text-neutral-400">NER F1-Score</span>
+                </div>
+                <div>
+                    <span class="block text-3xl font-bold font-mono tracking-tight dark:text-white">37.9</span>
+                    <span class="text-xs text-neutral-500 dark:text-neutral-400">Translation BLEU</span>
+                </div>
+                <div>
+                    <span class="block text-3xl font-bold font-mono tracking-tight dark:text-white">AI '25</span>
+                    <span class="text-xs text-neutral-500 dark:text-neutral-400">Olympiad Honorable Mention</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= WORKS SECTION ================= -->
+        <section id="projects" class="page-section hidden">
+            <div class="mb-12">
+                <span class="text-[11px] font-mono uppercase tracking-widest text-indigo-500">Selected Works</span>
+                <h2 class="text-3xl font-bold tracking-tight dark:text-white mt-1">Research & Systems</h2>
+            </div>
+
+            <!-- Bento Grid Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 h-auto">
+
+                <!-- Project 1: Medical SLM (Large: col-span-2) -->
+                <div onclick="openProject('proj-1')"
+                    class="group md:col-span-2 glass-card rounded-[20px] p-8 flex flex-col justify-between cursor-pointer relative overflow-hidden min-h-[280px]">
+                    <div class="flex items-start justify-between">
+                        <span class="text-[10px] font-mono uppercase tracking-wider text-indigo-400">NLP / LLM</span>
+                        <iconify-icon icon="lucide:brain-circuit" width="22"
+                            class="text-neutral-500 dark:text-neutral-400 group-hover:scale-125 duration-500"></iconify-icon>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold tracking-tight dark:text-white mt-10">Vietnamese Medical SLM
+                        </h3>
+                        <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2">Training specialized Small
+                            Language Models on medical documents and clinical notes optimized for constrained hardware
+                            architectures.</p>
+                        <div
+                            class="border-l border-indigo-500/20 bg-indigo-500/5 px-3 py-1.5 rounded-r mt-4 text-xs dark:text-indigo-300 w-fit">
+                            +4.5% Accuracy improvement vs Base
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-1.5 text-xs font-semibold dark:text-white mt-6">
+                        <span>View Case Study</span>
+                        <iconify-icon icon="lucide:arrow-right" width="12"
+                            class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+                    </div>
+                </div>
+
+                <!-- Project 2: deep-bot (Small: col-span-1) -->
+                <div onclick="openProject('proj-2')"
+                    class="group md:col-span-1 glass-card rounded-[20px] p-8 flex flex-col justify-between cursor-pointer relative overflow-hidden min-h-[280px]">
+                    <div class="flex items-start justify-between">
+                        <span class="text-[10px] font-mono uppercase tracking-wider text-indigo-400">Agents / RAG</span>
+                        <iconify-icon icon="lucide:bot" width="22"
+                            class="text-neutral-500 dark:text-neutral-400 group-hover:scale-125 duration-500"></iconify-icon>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold tracking-tight dark:text-white mt-10">deep-bot</h3>
+                        <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2">Graph-routed Agentic chatbot
+                            system supporting hybrid Vector & SQL parallel querying pipelines.</p>
+                        <div
+                            class="border-l border-indigo-500/20 bg-indigo-500/5 px-3 py-1.5 rounded-r mt-4 text-xs dark:text-indigo-300 w-fit">
+                            LangGraph Multi-Agent RAG
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-1.5 text-xs font-semibold dark:text-white mt-6">
+                        <span>View Case Study</span>
+                        <iconify-icon icon="lucide:arrow-right" width="12"
+                            class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+                    </div>
+                </div>
+
+                <!-- Project 3: Medical NER (Small: col-span-1) -->
+                <div onclick="openProject('proj-3')"
+                    class="group md:col-span-1 glass-card rounded-[20px] p-8 flex flex-col justify-between cursor-pointer relative overflow-hidden min-h-[280px]">
+                    <div class="flex items-start justify-between">
+                        <span class="text-[10px] font-mono uppercase tracking-wider text-indigo-400">Diffusion /
+                            NER</span>
+                        <iconify-icon icon="lucide:scan-eye" width="22"
+                            class="text-neutral-500 dark:text-neutral-400 group-hover:scale-125 duration-500"></iconify-icon>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold tracking-tight dark:text-white mt-10">Medical NER</h3>
+                        <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2">Fine-tuned Dream 7B Diffusion
+                            Language Model for Nested NER on Vietnamese COVID-19 documentation.</p>
+                        <div
+                            class="border-l border-indigo-500/20 bg-indigo-500/5 px-3 py-1.5 rounded-r mt-4 text-xs dark:text-indigo-300 w-fit">
+                            F1-Score of 79.04%
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-1.5 text-xs font-semibold dark:text-white mt-6">
+                        <span>View Case Study</span>
+                        <iconify-icon icon="lucide:arrow-right" width="12"
+                            class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+                    </div>
+                </div>
+
+                <!-- Project 4: Translation (Large: col-span-2) -->
+                <div onclick="openProject('proj-4')"
+                    class="group md:col-span-2 glass-card rounded-[20px] p-8 flex flex-col justify-between cursor-pointer relative overflow-hidden min-h-[280px]">
+                    <div class="flex items-start justify-between">
+                        <span class="text-[10px] font-mono uppercase tracking-wider text-indigo-400">Diffusion /
+                            Transl.</span>
+                        <iconify-icon icon="lucide:languages" width="22"
+                            class="text-neutral-500 dark:text-neutral-400 group-hover:scale-125 duration-500"></iconify-icon>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold tracking-tight dark:text-white mt-10">dlm-vi2en</h3>
+                        <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2">Discrete Diffusion translation
+                            engine built starting from XLM-RoBERTa Large featuring non-autoregressive token generation.
+                        </p>
+                        <div
+                            class="border-l border-indigo-500/20 bg-indigo-500/5 px-3 py-1.5 rounded-r mt-4 text-xs dark:text-indigo-300 w-fit">
+                            BLEU score of 37.9
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-1.5 text-xs font-semibold dark:text-white mt-6">
+                        <span>View Case Study</span>
+                        <iconify-icon icon="lucide:arrow-right" width="12"
+                            class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= STACK SECTION ================= -->
+        <section id="skills" class="page-section hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+                <!-- Left: Timeline Journey -->
+                <div class="lg:col-span-2 space-y-10">
+                    <div>
+                        <span class="text-[11px] font-mono uppercase tracking-widest text-indigo-500">Journey</span>
+                        <h2 class="text-3xl font-bold tracking-tight dark:text-white mt-1">Education & Lab Work</h2>
+                    </div>
+
+                    <div class="space-y-8 pl-4 border-l border-neutral-200 dark:border-white/5 relative">
+                        <!-- Item 1 -->
+                        <div class="relative space-y-2">
+                            <span
+                                class="absolute -left-[21px] top-1.5 w-2.5 h-2.5 rounded-full bg-indigo-500 ring-4 ring-[#FAFAFA] dark:ring-dark"></span>
+                            <span
+                                class="text-[10px] font-mono text-indigo-500 dark:text-indigo-400 font-semibold uppercase tracking-wider">2024
+                                — Present</span>
+                            <h3 class="text-lg font-semibold dark:text-white leading-tight">Research Assistant</h3>
+                            <p class="text-xs text-neutral-500 dark:text-neutral-400">TDTU NLP-KD Lab</p>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-400 font-light leading-relaxed">
+                                Researching state-of-the-art NLP models, specifically specializing in continuous and
+                                discrete Diffusion Language Models, plus building optimized dataset pre-processing and
+                                training pipelines.
+                            </p>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="relative space-y-2">
+                            <span
+                                class="absolute -left-[21px] top-1.5 w-2.5 h-2.5 rounded-full bg-purple-500 ring-4 ring-[#FAFAFA] dark:ring-dark animate-pulse"></span>
+                            <span
+                                class="text-[10px] font-mono text-purple-500 dark:text-purple-400 font-semibold uppercase tracking-wider">2025</span>
+                            <div class="flex items-center gap-1">
+                                <iconify-icon icon="lucide:trophy" class="text-yellow-500" width="16"></iconify-icon>
+                                <h3 class="text-lg font-semibold dark:text-white leading-tight">Honorable Mention</h3>
+                            </div>
+                            <p class="text-xs text-neutral-500 dark:text-neutral-400">Southern Region Student AI
+                                Olympiad 2025</p>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-400 font-light leading-relaxed">
+                                Recognized for building outstanding machine learning prototypes and application designs
+                                during the regional collegiate olympiad challenge.
+                            </p>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="relative space-y-2">
+                            <span
+                                class="absolute -left-[21px] top-1.5 w-2.5 h-2.5 rounded-full bg-neutral-400 dark:bg-neutral-600 ring-4 ring-[#FAFAFA] dark:ring-dark"></span>
+                            <span
+                                class="text-[10px] font-mono text-neutral-500 dark:text-neutral-400 font-semibold uppercase tracking-wider">2022
+                                — Present</span>
+                            <h3 class="text-lg font-semibold dark:text-white leading-tight">Ton Duc Thang University
+                            </h3>
+                            <p class="text-xs text-neutral-500 dark:text-neutral-400">Final-Year Computer Science
+                                Undergraduate</p>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-400 font-light leading-relaxed">
+                                Focusing academic coursework on Deep Learning architectures and computational
+                                linguistics. Maintained a cumulative GPA of <strong>7.5 / 10.0</strong>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Skills Categorized -->
+                <div class="space-y-8">
+                    <div>
+                        <span class="text-[11px] font-mono uppercase tracking-widest text-indigo-500">Expertise</span>
+                        <h2 class="text-3xl font-bold tracking-tight dark:text-white mt-1">Core Tech Stack</h2>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- Model Training -->
+                        <div class="space-y-2">
+                            <h4
+                                class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-widest">
+                                Model Training & NLP</h4>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span
+                                    class="px-2.5 py-1 text-xs border border-neutral-300 dark:border-white/10 rounded-lg text-neutral-700 dark:text-neutral-300">PyTorch</span>
+                                <span
+                                    class="px-2.5 py-1 text-xs border border-neutral-300 dark:border-white/10 rounded-lg text-neutral-700 dark:text-neutral-300">Transformers</span>
+                                <span
+                                    class="px-2.5 py-1 text-xs border border-neutral-300 dark:border-white/10 rounded-lg text-neutral-700 dark:text-neutral-300">Unsloth</span>
+                                <span
+                                    class="px-2.5 py-1 text-xs border border-neutral-300 dark:border-white/10 rounded-lg text-neutral-700 dark:text-neutral-300">DeepSpeed</span>
+                                <span
+                                    class="px-2.5 py-1 text-xs border border-neutral-300 dark:border-white/10 rounded-lg text-neutral-700 dark:text-neutral-300">Scikit-learn</span>
+                            </div>
+                        </div>
+
+                        <!-- Infrastructure -->
+                        <div class="space-y-2">
+                            <h4
+                                class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-widest">
+                                Tools & Infrastructure</h4>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span
+                                    class="px-2.5 py-1 text-xs border border-neutral-300 dark:border-white/10 rounded-lg text-neutral-700 dark:text-neutral-300">Git</span>
+                                <span
+                                    class="px-2.5 py-1 text-xs border border-neutral-300 dark:border-white/10 rounded-lg text-neutral-700 dark:text-neutral-300">Docker</span>
+                                <span
+                                    class="px-2.5 py-1 text-xs border border-neutral-300 dark:border-white/10 rounded-lg text-neutral-700 dark:text-neutral-300">ElasticSearch</span>
+                                <span
+                                    class="px-2.5 py-1 text-xs border border-neutral-300 dark:border-white/10 rounded-lg text-neutral-700 dark:text-neutral-300">vLLM</span>
+                                <span
+                                    class="px-2.5 py-1 text-xs border border-neutral-300 dark:border-white/10 rounded-lg text-neutral-700 dark:text-neutral-300">LangGraph</span>
+                                <span
+                                    class="px-2.5 py-1 text-xs border border-neutral-300 dark:border-white/10 rounded-lg text-neutral-700 dark:text-neutral-300">LangChain</span>
+                            </div>
+                        </div>
+
+                        <!-- Languages -->
+                        <div class="space-y-2">
+                            <h4
+                                class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-widest">
+                                Programming Languages</h4>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span
+                                    class="px-2.5 py-1 text-xs border border-neutral-300 dark:border-white/10 rounded-lg text-neutral-700 dark:text-neutral-300">Python</span>
+                                <span
+                                    class="px-2.5 py-1 text-xs border border-neutral-300 dark:border-white/10 rounded-lg text-neutral-700 dark:text-neutral-300">Java</span>
+                            </div>
+                        </div>
+
+                        <!-- Language proficiency -->
+                        <div class="space-y-2">
+                            <h4
+                                class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-widest">
+                                Languages Spoken</h4>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span
+                                    class="px-2.5 py-1 text-xs border border-neutral-300 dark:border-white/10 rounded-lg text-neutral-700 dark:text-neutral-300">Vietnamese
+                                    (Native)</span>
+                                <span
+                                    class="px-2.5 py-1 text-xs border border-neutral-300 dark:border-white/10 rounded-lg text-neutral-700 dark:text-neutral-300">English
+                                    (CEFR B2)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= REUSABLE PROJECT DETAIL CONTAINER ================= -->
+        <section id="proj-1" class="page-section hidden">
+            <!-- Breadcrumbs -->
+            <button onclick="navigateTo('projects')"
+                class="inline-flex items-center gap-1 text-xs text-neutral-500 dark:text-neutral-400 hover:text-indigo-500 transition-colors mb-8">
+                <iconify-icon icon="lucide:arrow-left" width="12"></iconify-icon>
+                <span>Back to Selected Works</span>
+            </button>
+
+            <!-- Case Study Content Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+                <!-- Main Case Study Info -->
+                <div class="lg:col-span-2 space-y-10">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-indigo-500">
+                            <iconify-icon id="detail-icon" icon="lucide:brain-circuit" width="26"></iconify-icon>
+                        </div>
+                        <h1 id="detail-title" class="text-3xl md:text-5xl font-bold tracking-tight dark:text-white">
+                            Vietnamese Medical SLM</h1>
+                    </div>
+
+                    <p id="detail-desc"
+                        class="text-lg text-neutral-600 dark:text-neutral-400 font-light leading-relaxed">
+                        Detailed case study explanation showing training methodologies and optimization parameters.
+                    </p>
+
+                    <hr class="border-neutral-200 dark:border-white/5">
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h3
+                                class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-widest mb-2">
+                                The Problem</h3>
+                            <p id="detail-problem"
+                                class="text-sm text-neutral-600 dark:text-neutral-400 font-light leading-relaxed">
+                                Explaining hospital computing constraints and clinical data indexing hurdles.
+                            </p>
+                        </div>
+                        <div>
+                            <h3
+                                class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-widest mb-2">
+                                The Solution</h3>
+                            <p id="detail-solution"
+                                class="text-sm text-neutral-600 dark:text-neutral-400 font-light leading-relaxed">
+                                Describing LoRA fine-tuning, training dataset curation with Datatrove and GPU memory
+                                reductions.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Metrics & Technology Summary -->
+                <div class="space-y-8">
+                    <div class="glass-card rounded-[20px] p-6 space-y-6">
+                        <div>
+                            <h4
+                                class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-widest mb-3">
+                                Technologies</h4>
+                            <div id="detail-tech" class="flex flex-wrap gap-1.5">
+                                <!-- Tech elements rendered here -->
+                            </div>
+                        </div>
+
+                        <hr class="border-white/5">
+
+                        <div>
+                            <h4
+                                class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-widest mb-3">
+                                Metrics & Details</h4>
+                            <div id="detail-metrics" class="space-y-3">
+                                <!-- Key metrics values printed here -->
+                            </div>
+                        </div>
+
+                        <div class="pt-4">
+                            <a id="detail-link" href="#" target="_blank"
+                                class="w-full inline-flex items-center justify-center gap-2 px-4 py-3 text-xs font-semibold text-white bg-indigo-500 hover:bg-indigo-400 rounded-xl transition-all shadow-lg shadow-indigo-500/10">
+                                <iconify-icon icon="lucide:external-link" width="14"></iconify-icon>
+                                <span>Visit Repository</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Contact & Footer Section -->
+    <footer id="contact" class="border-t border-neutral-200 dark:border-white/5 bg-[#F5F5F5] dark:bg-black/5 py-16">
+        <div class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Details -->
+            <div class="space-y-6">
+                <div>
+                    <span class="text-[11px] font-mono uppercase tracking-widest text-indigo-500">Contact</span>
+                    <h3 class="text-3xl font-bold tracking-tight dark:text-white mt-1">Let's build something.</h3>
+                </div>
+                <p class="text-sm text-neutral-500 dark:text-neutral-400 font-light leading-relaxed max-w-sm">
+                    Open to research opportunities, developer roles, and NLP pipelines consultations. Reach out
+                    directly.
+                </p>
+                <div class="space-y-3 text-sm text-neutral-700 dark:text-neutral-300 font-mono">
+                    <div class="flex items-center gap-2">
+                        <iconify-icon icon="lucide:mail" width="16" class="text-neutral-400"></iconify-icon>
+                        <a href="mailto:maiduy07102003@gmail.com"
+                            class="hover:text-indigo-500 transition-colors">maiduy07102003@gmail.com</a>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <iconify-icon icon="lucide:phone" width="16" class="text-neutral-400"></iconify-icon>
+                        <a href="tel:+84944043973" class="hover:text-indigo-500 transition-colors">+84.944.043.973</a>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <iconify-icon icon="lucide:map-pin" width="16" class="text-neutral-400"></iconify-icon>
+                        <span>Ho Chi Minh City, Vietnam</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Socials & Copyright -->
+            <div class="flex flex-col justify-between items-start md:items-end">
+                <div class="flex items-center gap-2">
+                    <a href="https://github.com/mainhatduy" target="_blank"
+                        class="w-10 h-10 rounded-full border border-neutral-300 dark:border-white/10 flex items-center justify-center text-neutral-500 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-white/5 hover:text-black dark:hover:text-white transition-colors"
+                        aria-label="GitHub">
+                        <iconify-icon icon="lucide:github" width="20"></iconify-icon>
+                    </a>
+                    <a href="https://linkedin.com/in/mainhatduy" target="_blank"
+                        class="w-10 h-10 rounded-full border border-neutral-300 dark:border-white/10 flex items-center justify-center text-neutral-500 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-white/5 hover:text-black dark:hover:text-white transition-colors"
+                        aria-label="LinkedIn">
+                        <iconify-icon icon="lucide:linkedin" width="20"></iconify-icon>
+                    </a>
+                    <a href="https://huggingface.co/myduy" target="_blank"
+                        class="h-10 px-4 rounded-full border border-neutral-300 dark:border-white/10 flex items-center justify-center text-neutral-500 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-white/5 hover:text-black dark:hover:text-white text-xs font-bold font-mono transition-colors"
+                        aria-label="Hugging Face">
+                        🤗 Hugging Face
+                    </a>
+                </div>
+
+                <div class="text-xs text-neutral-400 dark:text-neutral-500 mt-8 md:mt-0 md:text-right">
+                    <p>&copy; 2026 Mai Nhat Duy. All rights reserved.</p>
+                    <p class="mt-1 font-light text-[10px] opacity-60">Designed with cinematic noise overlay & network
+                        particles grid.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript Controller -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
