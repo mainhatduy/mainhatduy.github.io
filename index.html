@@ -294,117 +294,137 @@
         <section id="journey" class="page-section hidden">
             <div class="mb-12">
                 <span class="text-[11px] font-mono uppercase tracking-widest text-indigo-500">My Path</span>
-                <h2 class="text-3xl font-bold tracking-tight dark:text-white mt-1">Hành trình phát triển</h2>
-                <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2 max-w-md">Nhấp vào các nút tròn hoặc nhánh trên cây để khám phá chi tiết từng cột mốc.</p>
+                <h2 class="text-3xl font-bold tracking-tight dark:text-white mt-1">Development Journey</h2>
+                <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2 max-w-md">Click on the nodes or branch paths to explore the details of each milestone.</p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
                 <!-- Left: Interactive Git-like branch tree (col-span-2) -->
-                <div class="lg:col-span-2 flex justify-center bg-white/5 dark:bg-black/20 p-8 rounded-3xl border border-black/5 dark:border-white/5 backdrop-blur-sm relative min-h-[480px]">
-                    <div class="relative w-full max-w-[380px] h-[400px] select-none my-auto">
+                <div class="lg:col-span-2 flex justify-center bg-white/5 dark:bg-black/20 p-8 rounded-3xl border border-black/5 dark:border-white/5 backdrop-blur-sm relative min-h-[560px]">
+                    <div class="relative w-full max-w-[380px] h-[480px] select-none my-auto">
                         <!-- Chronological Grid Guidelines -->
-                        <div class="absolute left-0 top-[50px] w-full flex items-center pointer-events-none opacity-40 dark:opacity-20 z-0">
-                            <span class="text-[10px] font-mono font-bold tracking-wider text-neutral-500 dark:text-neutral-400 w-12 text-right">Present</span>
-                            <div class="flex-grow ml-2 border-t border-dashed border-neutral-300 dark:border-neutral-800"></div>
+                        <div class="absolute top-[40px] flex items-center pointer-events-none z-0" style="left: -125px; width: 285px;">
+                            <span class="text-[9px] font-mono font-bold text-white mr-1.5 whitespace-nowrap">Present ---</span>
+                            <div class="flex-grow border-t border-dashed border-white/40"></div>
                         </div>
-                        <div class="absolute left-0 top-[130px] w-full flex items-center pointer-events-none opacity-40 dark:opacity-20 z-0">
-                            <span class="text-[10px] font-mono font-bold tracking-wider text-neutral-500 dark:text-neutral-400 w-12 text-right">2026</span>
-                            <div class="flex-grow ml-2 border-t border-dashed border-neutral-300 dark:border-neutral-800"></div>
+                        <div class="absolute top-[100px] flex items-center pointer-events-none z-0" style="left: -125px; width: 405px;">
+                            <span class="text-[9px] font-mono font-bold text-white mr-1.5 whitespace-nowrap">Feb 2026 ---</span>
+                            <div class="flex-grow border-t border-dashed border-white/40"></div>
                         </div>
-                        <div class="absolute left-0 top-[210px] w-full flex items-center pointer-events-none opacity-40 dark:opacity-20 z-0">
-                            <span class="text-[10px] font-mono font-bold tracking-wider text-neutral-500 dark:text-neutral-400 w-12 text-right">2025</span>
-                            <div class="flex-grow ml-2 border-t border-dashed border-neutral-300 dark:border-neutral-800"></div>
+                        <div class="absolute top-[160px] flex items-center pointer-events-none z-0" style="left: -125px; width: 205px;">
+                            <span class="text-[9px] font-mono font-bold text-white mr-1.5 whitespace-nowrap">May 2025 ---</span>
+                            <div class="flex-grow border-t border-dashed border-white/40"></div>
                         </div>
-                        <div class="absolute left-0 top-[290px] w-full flex items-center pointer-events-none opacity-40 dark:opacity-20 z-0">
-                            <span class="text-[10px] font-mono font-bold tracking-wider text-neutral-500 dark:text-neutral-400 w-12 text-right">2024</span>
-                            <div class="flex-grow ml-2 border-t border-dashed border-neutral-300 dark:border-neutral-800"></div>
+                        <div class="absolute top-[220px] flex items-center pointer-events-none z-0" style="left: -125px; width: 205px;">
+                            <span class="text-[9px] font-mono font-bold text-white mr-1.5 whitespace-nowrap">Jan 2025 ---</span>
+                            <div class="flex-grow border-t border-dashed border-white/40"></div>
                         </div>
-                        <div class="absolute left-0 top-[370px] w-full flex items-center pointer-events-none opacity-40 dark:opacity-20 z-0">
-                            <span class="text-[10px] font-mono font-bold tracking-wider text-neutral-500 dark:text-neutral-400 w-12 text-right">2022</span>
-                            <div class="flex-grow ml-2 border-t border-dashed border-neutral-300 dark:border-neutral-800"></div>
+                        <div class="absolute top-[440px] flex items-center pointer-events-none z-0" style="left: -125px; width: 285px;">
+                            <span class="text-[9px] font-mono font-bold text-white mr-1.5 whitespace-nowrap">Oct 2022 ---</span>
+                            <div class="flex-grow border-t border-dashed border-white/40"></div>
                         </div>
 
                         <!-- SVG Branch Lines -->
-                        <svg class="absolute inset-0 w-full h-full pointer-events-none z-10" viewBox="0 0 380 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- path-root (Gray): Root to Lab -->
-                            <path id="path-root" d="M 160,370 L 160,290" class="journey-path cursor-pointer pointer-events-auto" stroke-width="6" stroke-linecap="round" onclick="selectMilestone('root')"/>
+                        <svg class="absolute inset-0 w-full h-full pointer-events-none z-10" viewBox="0 0 380 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- path-root (Dark Blue): Root to Y=220 -->
+                            <path id="path-root" d="M 160,440 L 160,220" class="journey-path cursor-pointer pointer-events-auto" stroke-width="6" stroke-linecap="round" onclick="selectMilestone('root')" />
                             
-                            <!-- path-lab (Gray): Lab to Olympiad -->
-                            <path id="path-lab" d="M 160,290 L 160,210" class="journey-path cursor-pointer pointer-events-auto" stroke-width="6" stroke-linecap="round" onclick="selectMilestone('lab')"/>
+                            <!-- path-trunk-middle (Dark Blue): Y=220 to Y=100 -->
+                            <path id="path-trunk-middle" d="M 160,220 L 160,100" class="journey-path cursor-pointer pointer-events-auto" stroke-width="6" stroke-linecap="round" onclick="selectMilestone('tdtu_present')" />
                             
-                            <!-- path-tdtu_present (Blue): Olympiad to TDTU Present -->
-                            <path id="path-tdtu_present" d="M 160,210 L 160,50" class="journey-path cursor-pointer pointer-events-auto" stroke-width="6" stroke-linecap="round" onclick="selectMilestone('tdtu_present')"/>
+                            <!-- path-tdtu_present (Dark Blue): Y=100 to TDTU Present -->
+                            <path id="path-tdtu_present" d="M 160,100 L 160,40" class="journey-path cursor-pointer pointer-events-auto" stroke-width="6" stroke-linecap="round" onclick="selectMilestone('tdtu_present')" />
                             
-                            <!-- path-quaveo_start (Red): Lab branching to Quaveo Start -->
-                            <path id="path-quaveo_start" d="M 160,290 C 160,250 240,250 240,210 L 240,130" class="journey-path cursor-pointer pointer-events-auto" stroke-width="6" stroke-linecap="round" onclick="selectMilestone('quaveo_start')"/>
+                            <!-- path-lab-branch (Cyan): Lab branch curving left from Trunk -->
+                            <path id="path-lab-branch" d="M 160,260 C 160,240 80,240 80,220" class="journey-path cursor-pointer pointer-events-auto" stroke-width="6" stroke-linecap="round" onclick="selectMilestone('lab')" />
+                            
+                            <!-- path-lab (Cyan): Lab to Olympiad -->
+                            <path id="path-lab" d="M 80,220 L 80,160" class="journey-path cursor-pointer pointer-events-auto" stroke-width="6" stroke-linecap="round" onclick="selectMilestone('olympiad')" />
+                            
+                            <!-- path-lab-present (Cyan): Olympiad to NLP Lab Present -->
+                            <path id="path-lab-present" d="M 80,160 L 80,40" class="journey-path cursor-pointer pointer-events-auto" stroke-width="6" stroke-linecap="round" onclick="selectMilestone('lab_present')" />
+                            
+                            <!-- path-quaveo-branch (Red): Quaveo branch curving right from Trunk -->
+                            <path id="path-quaveo-branch" d="M 160,140 C 160,120 280,120 280,100" class="journey-path cursor-pointer pointer-events-auto" stroke-width="6" stroke-linecap="round" onclick="selectMilestone('quaveo_start')" />
                             
                             <!-- path-quaveo_present (Red): Quaveo Start to Quaveo Present -->
-                            <path id="path-quaveo_present" d="M 240,130 L 240,50" class="journey-path cursor-pointer pointer-events-auto" stroke-width="6" stroke-linecap="round" onclick="selectMilestone('quaveo_present')"/>
+                            <path id="path-quaveo_present" d="M 280,100 L 280,40" class="journey-path cursor-pointer pointer-events-auto" stroke-width="6" stroke-linecap="round" onclick="selectMilestone('quaveo_present')" />
                         </svg>
 
                         <!-- Interactive Nodes -->
                         <!-- Root Node (Start 2022) -->
-                        <button id="node-root" class="journey-node absolute left-[148px] top-[358px] w-6 h-6 rounded-full border-[3px] border-neutral-400 dark:border-neutral-500 bg-white dark:bg-neutral-900 flex items-center justify-center transition-all duration-300 text-neutral-400 dark:text-neutral-500 focus:outline-none z-20" onclick="selectMilestone('root')">
+                        <button id="node-root" class="journey-node absolute left-[148px] top-[428px] w-6 h-6 rounded-full border-[3px] border-blue-500 bg-white dark:bg-neutral-900 flex items-center justify-center transition-all duration-300 text-blue-500 focus:outline-none z-20" onclick="selectMilestone('root')">
                             <span class="w-2 h-2 rounded-full bg-current"></span>
                         </button>
 
-                        <!-- Lab Node (2024) -->
-                        <button id="node-lab" class="journey-node absolute left-[148px] top-[278px] w-6 h-6 rounded-full border-[3px] border-neutral-400 dark:border-neutral-500 bg-white dark:bg-neutral-900 flex items-center justify-center transition-all duration-300 text-neutral-400 dark:text-neutral-500 focus:outline-none z-20" onclick="selectMilestone('lab')">
+                        <!-- Lab Node (Jan 2025) -->
+                        <button id="node-lab" class="journey-node absolute left-[68px] top-[208px] w-6 h-6 rounded-full border-[3px] border-cyan-500 bg-white dark:bg-neutral-900 flex items-center justify-center transition-all duration-300 text-cyan-500 focus:outline-none z-20" onclick="selectMilestone('lab')">
                             <span class="w-2 h-2 rounded-full bg-current"></span>
                         </button>
 
-                        <!-- Olympiad 2025 Node (Blue) -->
-                        <button id="node-olympiad" class="journey-node absolute left-[148px] top-[198px] w-6 h-6 rounded-full border-[3px] border-blue-500 bg-white dark:bg-neutral-900 flex items-center justify-center transition-all duration-300 text-blue-500 focus:outline-none z-20" onclick="selectMilestone('olympiad')">
+                        <!-- Olympiad 2025 Node (Cyan) -->
+                        <button id="node-olympiad" class="journey-node absolute left-[68px] top-[148px] w-6 h-6 rounded-full border-[3px] border-cyan-500 bg-white dark:bg-neutral-900 flex items-center justify-center transition-all duration-300 text-cyan-500 focus:outline-none z-20" onclick="selectMilestone('olympiad')">
                             <span class="w-2 h-2 rounded-full bg-current"></span>
+                        </button>
+
+                        <!-- NLP Lab Present Node (Cyan) -->
+                        <button id="node-lab_present" class="journey-node absolute left-[68px] top-[28px] w-6 h-6 rounded-full border-[3px] border-cyan-500 bg-white dark:bg-neutral-900 flex items-center justify-center transition-all duration-300 text-cyan-500 focus:outline-none z-20" onclick="selectMilestone('lab_present')">
+                            <span class="w-2 h-2 rounded-full bg-current"></span>
+                            <span class="absolute -inset-1 rounded-full border border-cyan-500 animate-ping opacity-35"></span>
                         </button>
 
                         <!-- TDTU Present Node (Blue) -->
-                        <button id="node-tdtu_present" class="journey-node absolute left-[148px] top-[38px] w-6 h-6 rounded-full border-[3px] border-blue-500 bg-white dark:bg-neutral-900 flex items-center justify-center transition-all duration-300 text-blue-500 focus:outline-none z-20" onclick="selectMilestone('tdtu_present')">
+                        <button id="node-tdtu_present" class="journey-node absolute left-[148px] top-[28px] w-6 h-6 rounded-full border-[3px] border-blue-500 bg-white dark:bg-neutral-900 flex items-center justify-center transition-all duration-300 text-blue-500 focus:outline-none z-20" onclick="selectMilestone('tdtu_present')">
                             <span class="w-2 h-2 rounded-full bg-current"></span>
                             <span class="absolute -inset-1 rounded-full border border-blue-500 animate-ping opacity-35"></span>
                         </button>
 
                         <!-- QUAVEO Start Node (Red) -->
-                        <button id="node-quaveo_start" class="journey-node absolute left-[228px] top-[118px] w-6 h-6 rounded-full border-[3px] border-red-500 bg-white dark:bg-neutral-900 flex items-center justify-center transition-all duration-300 text-red-500 focus:outline-none z-20" onclick="selectMilestone('quaveo_start')">
+                        <button id="node-quaveo_start" class="journey-node absolute left-[268px] top-[88px] w-6 h-6 rounded-full border-[3px] border-red-500 bg-white dark:bg-neutral-900 flex items-center justify-center transition-all duration-300 text-red-500 focus:outline-none z-20" onclick="selectMilestone('quaveo_start')">
                             <span class="w-2 h-2 rounded-full bg-current"></span>
                         </button>
 
                         <!-- QUAVEO Present Node (Red) -->
-                        <button id="node-quaveo_present" class="journey-node absolute left-[228px] top-[38px] w-6 h-6 rounded-full border-[3px] border-red-500 bg-white dark:bg-neutral-900 flex items-center justify-center transition-all duration-300 text-red-500 focus:outline-none z-20" onclick="selectMilestone('quaveo_present')">
+                        <button id="node-quaveo_present" class="journey-node absolute left-[268px] top-[28px] w-6 h-6 rounded-full border-[3px] border-red-500 bg-white dark:bg-neutral-900 flex items-center justify-center transition-all duration-300 text-red-500 focus:outline-none z-20" onclick="selectMilestone('quaveo_present')">
                             <span class="w-2 h-2 rounded-full bg-current"></span>
                             <span class="absolute -inset-1 rounded-full border border-red-500 animate-ping opacity-35"></span>
                         </button>
 
                         <!-- Text labels (Academic Column on the Left) -->
-                        <div class="absolute right-[240px] top-[354px] w-[130px] text-right cursor-pointer z-20" onclick="selectMilestone('root')">
-                            <p class="text-xs font-mono font-bold text-neutral-400 dark:text-neutral-500">START (2022)</p>
-                            <p class="text-[10px] text-neutral-400/60 mt-0.5">Nhập học TDTU</p>
-                        </div>
-                        
-                        <div class="absolute right-[240px] top-[274px] w-[130px] text-right cursor-pointer z-20" onclick="selectMilestone('lab')">
-                            <p class="text-xs font-mono font-bold text-neutral-400 dark:text-neutral-500">NLP LAB (2024)</p>
-                            <p class="text-[10px] text-neutral-400/60 mt-0.5">Trợ lý nghiên cứu</p>
+                        <div class="absolute right-[232px] top-[424px] w-[130px] text-right cursor-pointer z-20" onclick="selectMilestone('root')">
+                            <p class="text-xs font-mono font-bold text-neutral-300 dark:text-neutral-300">START</p>
+                            <p class="text-[10px] text-neutral-300 mt-0.5">Enrolled at TDTU</p>
                         </div>
 
-                        <div class="absolute right-[240px] top-[194px] w-[130px] text-right cursor-pointer z-20" onclick="selectMilestone('olympiad')">
-                            <p class="text-xs font-mono font-bold text-blue-500">OLYMPIAD 2025</p>
-                            <p class="text-[10px] text-neutral-400/60 mt-0.5">Giải Khuyến Khích</p>
+                        <div class="absolute right-[312px] top-[204px] w-[120px] text-right cursor-pointer z-20" onclick="selectMilestone('lab')">
+                            <p class="text-xs font-mono font-bold text-neutral-300 dark:text-neutral-300">NLP LAB</p>
+                            <p class="text-[10px] text-neutral-300 mt-0.5">Research Assistant</p>
                         </div>
 
-                        <div class="absolute right-[240px] top-[34px] w-[130px] text-right cursor-pointer z-20" onclick="selectMilestone('tdtu_present')">
-                            <p class="text-xs font-mono font-bold text-blue-500">TDTU PRESENT</p>
-                            <p class="text-[10px] text-neutral-400/60 mt-0.5">Sinh viên năm cuối</p>
+                        <div class="absolute right-[312px] top-[144px] w-[120px] text-right cursor-pointer z-20" onclick="selectMilestone('olympiad')">
+                            <p class="text-xs font-mono font-bold text-cyan-500">AI OLYMPIAD</p>
+                            <p class="text-[10px] text-neutral-300 mt-0.5">Consolation Prize</p>
+                        </div>
+
+                        <div class="absolute right-[312px] top-[24px] w-[120px] text-right cursor-pointer z-20" onclick="selectMilestone('lab_present')">
+                            <p class="text-xs font-mono font-bold text-cyan-500">NLP PRESENT</p>
+                            <p class="text-[10px] text-neutral-300 mt-0.5">Research Assistant</p>
+                        </div>
+
+                        <div class="absolute left-[176px] top-[24px] w-[90px] text-left cursor-pointer z-20" onclick="selectMilestone('tdtu_present')">
+                            <p class="text-xs font-mono font-bold text-blue-500">PRESENT</p>
+                            <p class="text-[10px] text-neutral-300 mt-0.5">Final-Year Student</p>
                         </div>
 
                         <!-- Text labels (Work Column on the Right) -->
-                        <div class="absolute left-[270px] top-[114px] w-[110px] text-left cursor-pointer z-20" onclick="selectMilestone('quaveo_start')">
+                        <div class="absolute left-[292px] top-[84px] w-[80px] text-left cursor-pointer z-20" onclick="selectMilestone('quaveo_start')">
                             <p class="text-xs font-mono font-bold text-red-500">QUAVEO START</p>
-                            <p class="text-[10px] text-neutral-400/60 mt-0.5">AI Intern</p>
+                            <p class="text-[10px] text-neutral-300 mt-0.5">AI Intern</p>
                         </div>
 
-                        <div class="absolute left-[270px] top-[34px] w-[110px] text-left cursor-pointer z-20" onclick="selectMilestone('quaveo_present')">
+                        <div class="absolute left-[292px] top-[24px] w-[80px] text-left cursor-pointer z-20" onclick="selectMilestone('quaveo_present')">
                             <p class="text-xs font-mono font-bold text-red-500">QUAVEO PRESENT</p>
-                            <p class="text-[10px] text-neutral-400/60 mt-0.5">AI Intern</p>
+                            <p class="text-[10px] text-neutral-300 mt-0.5">AI Intern</p>
                         </div>
                     </div>
                 </div>
@@ -414,15 +434,23 @@
                     <div id="journey-detail-card" class="glass-card rounded-[20px] p-8 border-l-4 border-indigo-500 transition-all duration-300 flex flex-col justify-between min-h-[220px]">
                         <div>
                             <div class="flex items-center gap-2 mb-4">
-                                <div class="w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-500">
-                                    <iconify-icon id="journey-icon" icon="lucide:graduation-cap" width="18"></iconify-icon>
+                                <div
+                                    class="w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-500">
+                                    <iconify-icon id="journey-icon" icon="lucide:graduation-cap"
+                                        width="18"></iconify-icon>
                                 </div>
-                                <span id="journey-duration" class="text-[10px] font-mono text-indigo-500 dark:text-indigo-400 font-semibold uppercase tracking-wider">2022 — Present</span>
+                                <span id="journey-duration"
+                                    class="text-[10px] font-mono text-indigo-500 dark:text-indigo-400 font-semibold uppercase tracking-wider">2022
+                                    — Present</span>
                             </div>
-                            <h3 id="journey-title" class="text-xl font-bold dark:text-white leading-tight">Ton Duc Thang University</h3>
-                            <p id="journey-subtitle" class="text-xs text-neutral-500 dark:text-neutral-400 mt-1 mb-4">Final-Year Computer Science Undergraduate</p>
-                            <p id="journey-description" class="text-sm text-neutral-600 dark:text-neutral-400 font-light leading-relaxed">
-                                Focusing academic coursework on Deep Learning architectures and computational linguistics.
+                            <h3 id="journey-title" class="text-xl font-bold dark:text-white leading-tight">Ton Duc Thang
+                                University</h3>
+                            <p id="journey-subtitle" class="text-xs text-neutral-500 dark:text-neutral-400 mt-1 mb-4">
+                                Final-Year Computer Science Undergraduate</p>
+                            <p id="journey-description"
+                                class="text-sm text-neutral-600 dark:text-neutral-400 font-light leading-relaxed">
+                                Focusing academic coursework on Deep Learning architectures and computational
+                                linguistics.
                             </p>
                         </div>
                     </div>
@@ -435,13 +463,15 @@
             <div class="mb-12">
                 <span class="text-[11px] font-mono uppercase tracking-widest text-indigo-500">Expertise</span>
                 <h2 class="text-3xl font-bold tracking-tight dark:text-white mt-1">Core Tech Stack</h2>
-                <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2 max-w-md">Công nghệ và công cụ tôi sử dụng để xây dựng các mô hình và giải pháp AI.</p>
+                <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2 max-w-md">Công nghệ và công cụ tôi sử dụng
+                    để xây dựng các mô hình và giải pháp AI.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Group 1: Model Training & NLP -->
                 <div class="glass-card rounded-[20px] p-6 space-y-6">
-                    <h3 class="text-xs font-mono text-neutral-500 mb-4 border-b border-neutral-200 dark:border-white/10 pb-2 flex items-center gap-2">
+                    <h3
+                        class="text-xs font-mono text-neutral-500 mb-4 border-b border-neutral-200 dark:border-white/10 pb-2 flex items-center gap-2">
                         <iconify-icon icon="lucide:brain" class="text-indigo-500" width="16"></iconify-icon>
                         MODEL TRAINING & NLP
                     </h3>
@@ -456,7 +486,8 @@
                         <div class="flex items-center justify-between group">
                             <div class="flex items-center gap-3">
                                 <iconify-icon icon="logos:huggingface" width="18"></iconify-icon>
-                                <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">Transformers</span>
+                                <span
+                                    class="text-sm font-medium text-neutral-700 dark:text-neutral-300">Transformers</span>
                             </div>
                             <span class="text-xs text-neutral-500 dark:text-neutral-400 font-mono">Advanced</span>
                         </div>
@@ -470,14 +501,17 @@
                         <div class="flex items-center justify-between group">
                             <div class="flex items-center gap-3">
                                 <iconify-icon icon="lucide:cpu" class="text-indigo-400" width="18"></iconify-icon>
-                                <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">DeepSpeed</span>
+                                <span
+                                    class="text-sm font-medium text-neutral-700 dark:text-neutral-300">DeepSpeed</span>
                             </div>
-                            <span class="text-xs text-neutral-500 dark:text-neutral-400 font-mono">Distributed SFT</span>
+                            <span class="text-xs text-neutral-500 dark:text-neutral-400 font-mono">Distributed
+                                SFT</span>
                         </div>
                         <div class="flex items-center justify-between group">
                             <div class="flex items-center gap-3">
                                 <iconify-icon icon="logos:scikit-learn" width="18"></iconify-icon>
-                                <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">Scikit-learn</span>
+                                <span
+                                    class="text-sm font-medium text-neutral-700 dark:text-neutral-300">Scikit-learn</span>
                             </div>
                             <span class="text-xs text-neutral-500 dark:text-neutral-400 font-mono">Intermediate</span>
                         </div>
@@ -486,7 +520,8 @@
 
                 <!-- Group 2: Agentic Systems & Orchestration -->
                 <div class="glass-card rounded-[20px] p-6 space-y-6">
-                    <h3 class="text-xs font-mono text-neutral-500 mb-4 border-b border-neutral-200 dark:border-white/10 pb-2 flex items-center gap-2">
+                    <h3
+                        class="text-xs font-mono text-neutral-500 mb-4 border-b border-neutral-200 dark:border-white/10 pb-2 flex items-center gap-2">
                         <iconify-icon icon="lucide:network" class="text-purple-500" width="16"></iconify-icon>
                         AGENTIC & RAG ORCHESTRATION
                     </h3>
@@ -494,21 +529,24 @@
                         <div class="flex items-center justify-between group">
                             <div class="flex items-center gap-3">
                                 <iconify-icon icon="lucide:git-fork" class="text-emerald-500" width="18"></iconify-icon>
-                                <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">LangGraph</span>
+                                <span
+                                    class="text-sm font-medium text-neutral-700 dark:text-neutral-300">LangGraph</span>
                             </div>
                             <span class="text-xs text-neutral-500 dark:text-neutral-400 font-mono">Multi-Agent</span>
                         </div>
                         <div class="flex items-center justify-between group">
                             <div class="flex items-center gap-3">
                                 <iconify-icon icon="lucide:link-2" class="text-sky-500" width="18"></iconify-icon>
-                                <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">LangChain</span>
+                                <span
+                                    class="text-sm font-medium text-neutral-700 dark:text-neutral-300">LangChain</span>
                             </div>
                             <span class="text-xs text-neutral-500 dark:text-neutral-400 font-mono">Advanced</span>
                         </div>
                         <div class="flex items-center justify-between group">
                             <div class="flex items-center gap-3">
                                 <iconify-icon icon="lucide:rocket" class="text-orange-500" width="18"></iconify-icon>
-                                <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">vLLM Inference</span>
+                                <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">vLLM
+                                    Inference</span>
                             </div>
                             <span class="text-xs text-neutral-500 dark:text-neutral-400 font-mono">Performance</span>
                         </div>
@@ -517,7 +555,8 @@
 
                 <!-- Group 3: Infrastructure & Databases -->
                 <div class="glass-card rounded-[20px] p-6 space-y-6">
-                    <h3 class="text-xs font-mono text-neutral-500 mb-4 border-b border-neutral-200 dark:border-white/10 pb-2 flex items-center gap-2">
+                    <h3
+                        class="text-xs font-mono text-neutral-500 mb-4 border-b border-neutral-200 dark:border-white/10 pb-2 flex items-center gap-2">
                         <iconify-icon icon="lucide:container" class="text-blue-500" width="16"></iconify-icon>
                         INFRASTRUCTURE & DATABASES
                     </h3>
@@ -532,7 +571,8 @@
                         <div class="flex items-center justify-between group">
                             <div class="flex items-center gap-3">
                                 <iconify-icon icon="logos:elasticsearch" width="18"></iconify-icon>
-                                <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">ElasticSearch</span>
+                                <span
+                                    class="text-sm font-medium text-neutral-700 dark:text-neutral-300">ElasticSearch</span>
                             </div>
                             <span class="text-xs text-neutral-500 dark:text-neutral-400 font-mono">Vector Search</span>
                         </div>
@@ -548,7 +588,8 @@
 
                 <!-- Group 4: Languages & Communication -->
                 <div class="glass-card rounded-[20px] p-6 space-y-6">
-                    <h3 class="text-xs font-mono text-neutral-500 mb-4 border-b border-neutral-200 dark:border-white/10 pb-2 flex items-center gap-2">
+                    <h3
+                        class="text-xs font-mono text-neutral-500 mb-4 border-b border-neutral-200 dark:border-white/10 pb-2 flex items-center gap-2">
                         <iconify-icon icon="lucide:languages" class="text-amber-500" width="16"></iconify-icon>
                         LANGUAGES Spoken & Written
                     </h3>
@@ -570,7 +611,8 @@
                         <div class="flex items-center justify-between group">
                             <div class="flex items-center gap-3">
                                 <iconify-icon icon="twemoji:flag-vietnam" width="18"></iconify-icon>
-                                <span class="text-sm font-medium text-neutral-700 dark:text-neutral-300">Vietnamese</span>
+                                <span
+                                    class="text-sm font-medium text-neutral-700 dark:text-neutral-300">Vietnamese</span>
                             </div>
                             <span class="text-xs text-neutral-500 dark:text-neutral-400 font-mono">Native</span>
                         </div>

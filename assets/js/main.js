@@ -110,50 +110,58 @@ const PROJECTS_DATA = {
 // --- Journey Milestones Database ---
 const MILESTONES_DATA = {
   'root': {
-    title: "Bắt đầu hành trình",
-    subtitle: "Nhập học TDTU (2022)",
-    duration: "Năm 2022",
-    description: "Bắt đầu chặng đường Khoa học Máy tính tại Đại học Tôn Đức Thắng (TDTU). Tập trung xây dựng kiến thức nền tảng vững chắc về giải thuật, lập trình và toán học.",
+    title: "Start of Journey",
+    subtitle: "Enrolled at TDTU",
+    duration: "Oct 2022",
+    description: "Commenced Computer Science undergraduate studies at Ton Duc Thang University (TDTU). Focused on building a strong foundation in algorithms, programming, and mathematics.",
     icon: "lucide:flag",
-    color: "neutral"
+    color: "blue"
   },
   'lab': {
     title: "TDTU NLP-KD Lab",
-    subtitle: "Trợ lý nghiên cứu (2024)",
-    duration: "Năm 2024",
-    description: "Tham gia TDTU NLP-KD Lab. Bắt đầu các nghiên cứu chuyên sâu về Học sâu (Deep Learning), các mô hình Diffusion ngôn ngữ và tối ưu hóa tài nguyên phần cứng.",
+    subtitle: "Research Assistant",
+    duration: "Jan 2025",
+    description: "Joined the TDTU NLP-KD Lab. Conducted research on Deep Learning, Language Diffusion Models, and hardware acceleration optimization.",
     icon: "lucide:graduation-cap",
-    color: "neutral"
+    color: "cyan"
   },
   'olympiad': {
     title: "Southern Region Student AI Olympiad 2025",
-    subtitle: "Giải Khuyến Khích",
-    duration: "Năm 2025",
-    description: "Đạt giải Khuyến khích tại kỳ thi Olympic Trí tuệ nhân tạo sinh viên khu vực phía Nam năm 2025. Thể hiện khả năng giải quyết các vấn đề học máy thực tế dưới áp lực thời gian cao.",
+    subtitle: "Consolation Prize",
+    duration: "May 2025",
+    description: "Awarded the Consolation Prize in the Southern Region Student AI Olympiad 2025, demonstrating machine learning problem-solving under tight time constraints.",
     icon: "lucide:trophy",
-    color: "blue"
+    color: "cyan"
+  },
+  'lab_present': {
+    title: "TDTU NLP-KD Lab",
+    subtitle: "Research Assistant (Present)",
+    duration: "Jan 2025 — Present",
+    description: "Continuing research on Deep Learning, Language Diffusion Models, and hardware acceleration optimization at the TDTU NLP-KD Lab.",
+    icon: "lucide:graduation-cap",
+    color: "cyan"
   },
   'tdtu_present': {
     title: "Ton Duc Thang University",
-    subtitle: "Sinh viên năm cuối ngành KHMT",
-    duration: "2022 — Present",
-    description: "Hoàn thiện chương trình học chuyên ngành Khoa học Máy tính tại TDTU. Thực hiện các đề tài nghiên cứu tối ưu hóa mô hình ngôn ngữ lớn (LLM) và sinh văn bản.",
+    subtitle: "Final-Year Student",
+    duration: "Oct 2022 — Present",
+    description: "Completing undergraduate coursework in Computer Science at TDTU. Researching Large Language Model (LLM) optimization and text generation techniques.",
     icon: "lucide:graduation-cap",
     color: "blue"
   },
   'quaveo_start': {
-    title: "Bắt đầu thực tập tại QUAVEO",
+    title: "Start of Internship at QUAVEO",
     subtitle: "AI Engineer Intern",
-    duration: "Tháng 2, 2026",
-    description: "Gia nhập QUAVEO AI dưới vai trò thực tập sinh kỹ sư AI. Tiếp cận với môi trường phát triển sản phẩm AI thực tế của doanh nghiệp.",
+    duration: "Feb 2026",
+    description: "Joined QUAVEO as an AI Engineer Intern, gaining hands-on experience in enterprise AI product development.",
     icon: "lucide:briefcase",
     color: "red"
   },
   'quaveo_present': {
     title: "AI Engineer Intern at QUAVEO",
-    subtitle: "Hiện tại",
-    duration: "Tháng 2, 2026 — Present",
-    description: "Nghiên cứu phát triển các giải pháp AI tiên tiến, tối ưu hóa các ứng dụng xử lý ngôn ngữ tự nhiên (NLP), xây dựng hệ thống Multi-Agent và triển khai mô hình LLM tại QUAVEO.",
+    subtitle: "Present",
+    duration: "Feb 2026 — Present",
+    description: "Researching and developing advanced AI solutions, optimizing Natural Language Processing (NLP) applications, building Multi-Agent systems, and deploying LLMs at QUAVEO.",
     icon: "lucide:briefcase",
     color: "red"
   }
@@ -182,6 +190,9 @@ function selectMilestone(id) {
   if (data.color === 'neutral') {
     themeColorClass = 'border-l-neutral-400 dark:border-l-neutral-600';
     iconColorClass = 'bg-neutral-500/10 text-neutral-500';
+  } else if (data.color === 'cyan') {
+    themeColorClass = 'border-l-cyan-500';
+    iconColorClass = 'bg-cyan-500/10 text-cyan-500';
   } else if (data.color === 'blue') {
     themeColorClass = 'border-l-blue-500';
     iconColorClass = 'bg-blue-500/10 text-blue-500';
@@ -200,24 +211,28 @@ function selectMilestone(id) {
       nodes: ['node-root']
     },
     'lab': {
-      paths: ['path-root', 'path-lab'],
+      paths: ['path-root', 'path-lab-branch'],
       nodes: ['node-root', 'node-lab']
     },
     'olympiad': {
-      paths: ['path-root', 'path-lab'],
+      paths: ['path-root', 'path-lab-branch', 'path-lab'],
       nodes: ['node-root', 'node-lab', 'node-olympiad']
     },
+    'lab_present': {
+      paths: ['path-root', 'path-lab-branch', 'path-lab', 'path-lab-present'],
+      nodes: ['node-root', 'node-lab', 'node-olympiad', 'node-lab_present']
+    },
     'tdtu_present': {
-      paths: ['path-root', 'path-lab', 'path-tdtu_present'],
-      nodes: ['node-root', 'node-lab', 'node-olympiad', 'node-tdtu_present']
+      paths: ['path-root', 'path-trunk-middle', 'path-tdtu_present'],
+      nodes: ['node-root', 'node-tdtu_present']
     },
     'quaveo_start': {
-      paths: ['path-root', 'path-quaveo_start'],
-      nodes: ['node-root', 'node-lab', 'node-quaveo_start']
+      paths: ['path-root', 'path-trunk-middle', 'path-quaveo-branch'],
+      nodes: ['node-root', 'node-quaveo_start']
     },
     'quaveo_present': {
-      paths: ['path-root', 'path-quaveo_start', 'path-quaveo_present'],
-      nodes: ['node-root', 'node-lab', 'node-quaveo_start', 'node-quaveo_present']
+      paths: ['path-root', 'path-trunk-middle', 'path-quaveo-branch', 'path-quaveo_present'],
+      nodes: ['node-root', 'node-quaveo_start', 'node-quaveo_present']
     }
   };
 
@@ -246,6 +261,7 @@ function selectMilestone(id) {
       const milestone = MILESTONES_DATA[nodeKey];
       if (milestone) {
         if (milestone.color === 'neutral') nEl.style.color = '#9ca3af';
+        else if (milestone.color === 'cyan') nEl.style.color = '#22d3ee';
         else if (milestone.color === 'blue') nEl.style.color = '#3b82f6';
         else if (milestone.color === 'red') nEl.style.color = '#ef4444';
       }
