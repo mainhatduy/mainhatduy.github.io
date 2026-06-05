@@ -1,367 +1,129 @@
 <section id="journey" class="page-section hidden">
+    <!-- Header/Title Section -->
     <div class="mb-12">
-        <span class="text-[11px] font-mono uppercase tracking-widest text-indigo-500">My Path</span>
-        <h2 class="text-3xl font-bold tracking-tight dark:text-white mt-1">Development Journey</h2>
-        <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2 max-w-md">Click on the nodes or branch
-            paths to explore the details of each milestone.</p>
+        <span class="text-[11px] font-mono uppercase tracking-widest text-indigo-500">Interactive Path Visualization</span>
+        <h2 class="text-3xl font-bold tracking-tight dark:text-white mt-1">Development & Research Journey</h2>
+        <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2 max-w-2xl">
+            Explore each career milestone formatted as Git commits. Click on individual rows to inspect technical details, simulated files modified, hashes, and tags.
+        </p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
-        <!-- Left: Table-based Git Commit Graph (col-span-2) -->
-        <div class="lg:col-span-2 bg-white/5 dark:bg-black/20 p-6 md:p-8 rounded-3xl border border-black/5 dark:border-white/5 backdrop-blur-sm">
-            <table class="table-fixed border-separate border-spacing-0 ms-2 w-full">
-                <thead>
-                    <tr>
-                        <th class="w-0 table-cell md:hidden"></th> <!-- Simplified git tree -->
-                        <th class="w-[25px] hidden md:table-cell"></th> <!-- Commit branch 1 (QUAVEO) -->
-                        <th class="w-[25px] hidden md:table-cell"></th> <!-- Commit branch 2 (NLP Lab) -->
-                        <th class="w-[25px] hidden md:table-cell"></th> <!-- Commit branch 3 (Main TDTU) -->
-                        <th class="w-auto"></th> <!-- Text content -->
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Row 1: quaveo_present -->
-                    <tr class="relative h-14 commit-row" onclick="selectMilestone('quaveo_present')" data-milestone="quaveo_present">
-                        <!-- Mobile -->
-                        <td class="border-s-2 border-s-red-400 table-cell md:hidden">
-                            <div class="circle-component bg-[#FAFAFA] dark:bg-dark circle-upper-left border-red-400"></div>
-                        </td>
-                        <!-- Col 1: QUAVEO -->
-                        <td class="w-[25px] border-s-2 border-s-red-400 hidden md:table-cell">
-                            <div class="circle-component bg-[#FAFAFA] dark:bg-dark circle-upper-left border-red-400"></div>
-                        </td>
-                        <!-- Col 2: NLP -->
-                        <td class="w-[25px] border-s-2 border-s-cyan-400 hidden md:table-cell"></td>
-                        <!-- Col 3: TDTU -->
-                        <td class="w-[25px] border-s-2 border-s-blue-500 hidden md:table-cell"></td>
-                        <!-- Text -->
-                        <td>
-                            <div class="relative -top-3 ps-4 md:ps-2 group">
-                                <div class="transition-all duration-300">
-                                    <div class="block group-hover:hidden">
-                                        <p class="text-sm font-semibold text-neutral-900 dark:text-white group-hover:text-red-500 transition-colors">AI Engineer Intern at QUAVEO</p>
-                                        <p class="text-[10px] font-mono text-red-500 dark:text-red-400 mt-0.5">Feb 2026 — Present · HEAD</p>
-                                    </div>
-                                    <div class="hidden group-hover:block font-mono text-[10px] text-neutral-600 dark:text-neutral-400 leading-tight bg-white dark:bg-black/40 p-2 rounded-lg border border-black/5 dark:border-white/10 shadow-sm">
-                                        <p><span class="text-red-500 dark:text-red-400">commit</span> a1b2c3d4 (HEAD -> work/quaveo)</p>
-                                        <p>Author: Mai Nhat Duy &lt;maiduy07102003@gmail.com&gt;</p>
-                                        <p>Date:   Present</p>
-                                        <p class="mt-2 text-neutral-900 dark:text-white font-semibold">&nbsp;&nbsp;&nbsp;&nbsp;AI Engineer Intern at QUAVEO</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
+    <!-- Grid Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <!-- Left & Center: Git Tree UI Client (col-span-8) -->
+        <div class="lg:col-span-8 flex flex-col bg-white/5 dark:bg-black/20 rounded-3xl border border-black/5 dark:border-white/5 backdrop-blur-sm shadow-xl overflow-hidden min-h-[500px]">
+            <!-- Git Client Header Bar -->
+            <div class="bg-neutral-100/50 dark:bg-[#181818]/60 px-4 py-3 border-b border-black/5 dark:border-white/5 flex flex-wrap items-center justify-between gap-3 text-[11px] font-medium">
+                <div class="flex items-center gap-4 flex-wrap">
+                    <!-- Branches Selector -->
+                    <div class="flex items-center gap-1.5 bg-neutral-200/50 dark:bg-neutral-800/60 px-3 py-1.5 rounded-md border border-black/5 dark:border-white/5">
+                        <span class="text-neutral-500 dark:text-neutral-400">Branches:</span>
+                        <select id="branch-filter" class="bg-transparent font-bold focus:outline-none cursor-pointer text-indigo-600 dark:text-indigo-400" onchange="filterBranch()">
+                            <option value="all" class="bg-white dark:bg-[#121212]">Show All</option>
+                            <option value="main" class="bg-white dark:bg-[#121212]">main</option>
+                            <option value="nlp-lab" class="bg-white dark:bg-[#121212]">research/nlp-lab</option>
+                            <option value="quaveo" class="bg-white dark:bg-[#121212]">work/quaveo</option>
+                        </select>
+                    </div>
+                </div>
 
-                    <!-- Row 2: lab_present -->
-                    <tr class="relative h-14 commit-row" onclick="selectMilestone('lab_present')" data-milestone="lab_present">
-                        <!-- Mobile -->
-                        <td class="border-s-2 border-s-cyan-400 table-cell md:hidden">
-                            <div class="circle-component bg-[#FAFAFA] dark:bg-dark circle-upper-left border-cyan-400"></div>
-                        </td>
-                        <!-- Col 1: QUAVEO -->
-                        <td class="w-[25px] border-s-2 border-s-red-400 hidden md:table-cell"></td>
-                        <!-- Col 2: NLP -->
-                        <td class="w-[25px] border-s-2 border-s-cyan-400 hidden md:table-cell">
-                            <div class="circle-component bg-[#FAFAFA] dark:bg-dark circle-upper-left border-cyan-400"></div>
-                        </td>
-                        <!-- Col 3: TDTU -->
-                        <td class="w-[25px] border-s-2 border-s-blue-500 hidden md:table-cell"></td>
-                        <!-- Text -->
-                        <td>
-                            <div class="relative -top-3 ps-4 md:ps-2 group">
-                                <div class="transition-all duration-300">
-                                    <div class="block group-hover:hidden">
-                                        <p class="text-sm font-semibold text-neutral-900 dark:text-white group-hover:text-cyan-500 transition-colors">TDTU NLP-KD Lab</p>
-                                        <p class="text-[10px] font-mono text-cyan-500 dark:text-cyan-400 mt-0.5">Jan 2025 — Present · HEAD</p>
-                                    </div>
-                                    <div class="hidden group-hover:block font-mono text-[10px] text-neutral-600 dark:text-neutral-400 leading-tight bg-white dark:bg-black/40 p-2 rounded-lg border border-black/5 dark:border-white/10 shadow-sm">
-                                        <p><span class="text-cyan-500 dark:text-cyan-400">commit</span> e5f6g7h8 (HEAD -> research/nlp-lab)</p>
-                                        <p>Author: Mai Nhat Duy &lt;maiduy07102003@gmail.com&gt;</p>
-                                        <p>Date:   Present</p>
-                                        <p class="mt-2 text-neutral-900 dark:text-white font-semibold">&nbsp;&nbsp;&nbsp;&nbsp;TDTU NLP-KD Lab Researcher</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
+                <!-- Utilities Icons -->
+                <div class="flex items-center gap-3.5 text-neutral-500 dark:text-neutral-400">
+                    <button class="hover:text-indigo-500 transition-colors" title="Search Commits">
+                        <iconify-icon icon="lucide:search" width="14" class="align-middle"></iconify-icon>
+                    </button>
+                    <button class="hover:text-indigo-500 transition-colors" title="Git Settings">
+                        <iconify-icon icon="lucide:settings" width="14" class="align-middle"></iconify-icon>
+                    </button>
+                    <button class="hover:text-indigo-500 transition-colors" title="Fetch Upstream">
+                        <iconify-icon icon="lucide:cloud-download" width="14" class="align-middle"></iconify-icon>
+                    </button>
+                    <button class="hover:text-indigo-500 transition-colors" title="Refresh Log" onclick="initGitTree()">
+                        <iconify-icon icon="lucide:refresh-cw" width="14" class="align-middle"></iconify-icon>
+                    </button>
+                </div>
+            </div>
 
-                    <!-- Row 3: tdtu_present -->
-                    <tr class="relative h-14 commit-row" onclick="selectMilestone('tdtu_present')" data-milestone="tdtu_present">
-                        <!-- Mobile -->
-                        <td class="border-s-2 border-s-blue-500 table-cell md:hidden">
-                            <div class="circle-component bg-[#FAFAFA] dark:bg-dark circle-upper-left border-blue-500"></div>
-                        </td>
-                        <!-- Col 1: QUAVEO -->
-                        <td class="w-[25px] border-s-2 border-s-red-400 hidden md:table-cell"></td>
-                        <!-- Col 2: NLP -->
-                        <td class="w-[25px] border-s-2 border-s-cyan-400 hidden md:table-cell"></td>
-                        <!-- Col 3: TDTU -->
-                        <td class="w-[25px] border-s-2 border-s-blue-500 hidden md:table-cell">
-                            <div class="circle-component bg-[#FAFAFA] dark:bg-dark circle-upper-left border-blue-500"></div>
-                        </td>
-                        <!-- Text -->
-                        <td>
-                            <div class="relative -top-3 ps-4 md:ps-2 group">
-                                <div class="transition-all duration-300">
-                                    <div class="block group-hover:hidden">
-                                        <p class="text-sm font-semibold text-neutral-900 dark:text-white group-hover:text-blue-500 transition-colors">Ton Duc Thang University</p>
-                                        <p class="text-[10px] font-mono text-blue-500 dark:text-blue-400 mt-0.5">Oct 2022 — Present · HEAD</p>
-                                    </div>
-                                    <div class="hidden group-hover:block font-mono text-[10px] text-neutral-600 dark:text-neutral-400 leading-tight bg-white dark:bg-black/40 p-2 rounded-lg border border-black/5 dark:border-white/10 shadow-sm">
-                                        <p><span class="text-blue-500 dark:text-blue-400">commit</span> i9j0k1l2 (HEAD -> main)</p>
-                                        <p>Author: Mai Nhat Duy &lt;maiduy07102003@gmail.com&gt;</p>
-                                        <p>Date:   Present</p>
-                                        <p class="mt-2 text-neutral-900 dark:text-white font-semibold">&nbsp;&nbsp;&nbsp;&nbsp;Continuing CS Undergraduate Studies</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
+            <!-- Graph and Table Workspace -->
+            <div class="relative flex-1 overflow-x-auto min-h-[450px]">
+                <!-- Dynamic SVG Canvas overlay -->
+                <svg id="git-svg-canvas" class="absolute top-0 left-0 h-full pointer-events-none z-10" style="width: 140px;"></svg>
 
-                    <!-- Row 4: quaveo_start -->
-                    <tr class="relative h-14 commit-row" onclick="selectMilestone('quaveo_start')" data-milestone="quaveo_start">
-                        <!-- Mobile -->
-                        <td class="border-s-2 border-s-red-400 table-cell md:hidden">
-                            <div class="circle-component bg-[#FAFAFA] dark:bg-dark circle-upper-left border-red-400"></div>
-                        </td>
-                        <!-- Col 1: QUAVEO -->
-                        <td class="w-[25px] border-s-2 border-s-red-400 hidden md:table-cell">
-                            <div class="circle-component bg-[#FAFAFA] dark:bg-dark circle-upper-left border-red-400"></div>
-                        </td>
-                        <!-- Col 2: NLP -->
-                        <td class="w-[25px] border-s-2 border-s-cyan-400 hidden md:table-cell"></td>
-                        <!-- Col 3: TDTU -->
-                        <td class="w-[25px] border-s-2 border-s-blue-500 hidden md:table-cell"></td>
-                        <!-- Text -->
-                        <td>
-                            <div class="relative -top-3 ps-4 md:ps-2 group">
-                                <div class="transition-all duration-300">
-                                    <div class="block group-hover:hidden">
-                                        <p class="text-sm font-semibold text-neutral-900 dark:text-white group-hover:text-red-500 transition-colors">Started Internship at QUAVEO</p>
-                                        <p class="text-[10px] font-mono text-red-500 dark:text-red-400 mt-0.5">Feb 2026 · branch: work/quaveo</p>
-                                    </div>
-                                    <div class="hidden group-hover:block font-mono text-[10px] text-neutral-600 dark:text-neutral-400 leading-tight bg-white dark:bg-black/40 p-2 rounded-lg border border-black/5 dark:border-white/10 shadow-sm">
-                                        <p><span class="text-red-500 dark:text-red-400">commit</span> m3n4o5p6 (work/quaveo)</p>
-                                        <p>Author: Mai Nhat Duy &lt;maiduy07102003@gmail.com&gt;</p>
-                                        <p>Date:   Sun Feb 01 09:00:00 2026 +0700</p>
-                                        <p class="mt-2 text-neutral-900 dark:text-white font-semibold">&nbsp;&nbsp;&nbsp;&nbsp;Started Internship at QUAVEO</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
+                <table class="w-full text-left text-xs whitespace-nowrap border-collapse min-w-[700px]">
+                    <thead>
+                        <tr class="bg-neutral-100/50 dark:bg-[#181818]/60 border-b border-black/5 dark:border-white/5 text-neutral-500 dark:text-neutral-400 uppercase tracking-wider text-[10px]">
+                            <th class="w-[140px] px-4 py-2 font-semibold text-center">Graph</th>
+                            <th class="px-4 py-2 font-semibold">Description</th>
+                            <th class="w-[150px] px-4 py-2 font-semibold">Date</th>
+                            <th class="w-[150px] px-4 py-2 font-semibold">Author</th>
+                            <th class="w-[100px] px-4 py-2 font-semibold text-right">Commit</th>
+                        </tr>
+                    </thead>
+                    <tbody id="git-commits-tbody">
+                        <!-- Commits rows will be generated dynamically by JS -->
+                    </tbody>
+                </table>
+            </div>
 
-                    <!-- Row 4.5: Merge curve QUAVEO to Main -->
-                    <tr class="h-8 hidden md:table-row">
-                        <td class="hidden"></td> <!-- Mobile -->
-                        <td class="w-[25px] border-s-2 border-b-2 border-red-400 rounded-bl-lg"></td>
-                        <td class="w-[25px] border-s-2 border-cyan-400 border-b-2 border-red-400"></td>
-                        <td class="w-[25px] border-s-2 border-blue-500"></td>
-                        <td></td>
-                    </tr>
-
-                    <!-- Row 5: Split point for QUAVEO on Main -->
-                    <tr class="relative h-14 commit-row" onclick="selectMilestone('quaveo_start')" data-milestone="quaveo_start">
-                        <!-- Mobile -->
-                        <td class="border-s-2 border-s-blue-500 table-cell md:hidden">
-                            <div class="circle-component bg-[#FAFAFA] dark:bg-dark circle-upper-left border-blue-500"></div>
-                        </td>
-                        <!-- Col 1: Empty -->
-                        <td class="w-[25px] hidden md:table-cell"></td>
-                        <!-- Col 2: NLP -->
-                        <td class="w-[25px] border-s-2 border-s-cyan-400 hidden md:table-cell"></td>
-                        <!-- Col 3: TDTU -->
-                        <td class="w-[25px] border-s-2 border-s-blue-500 hidden md:table-cell">
-                            <div class="circle-component bg-[#FAFAFA] dark:bg-dark circle-upper-left border-blue-500"></div>
-                        </td>
-                        <!-- Text -->
-                        <td>
-                            <div class="relative -top-3 ps-4 md:ps-2 group">
-                                <div class="transition-all duration-300">
-                                    <div class="block group-hover:hidden">
-                                        <p class="text-sm font-semibold text-neutral-900 dark:text-white group-hover:text-blue-500 transition-colors">Checkout branch work/quaveo</p>
-                                        <p class="text-[10px] font-mono text-blue-500 dark:text-blue-400 mt-0.5">Feb 2026 · main</p>
-                                    </div>
-                                    <div class="hidden group-hover:block font-mono text-[10px] text-neutral-600 dark:text-neutral-400 leading-tight bg-white dark:bg-black/40 p-2 rounded-lg border border-black/5 dark:border-white/10 shadow-sm">
-                                        <p><span class="text-blue-500 dark:text-blue-400">commit</span> q7r8s9t0 (main)</p>
-                                        <p>Author: Mai Nhat Duy &lt;maiduy07102003@gmail.com&gt;</p>
-                                        <p>Date:   Sun Feb 01 08:59:00 2026 +0700</p>
-                                        <p class="mt-2 text-neutral-900 dark:text-white font-semibold">&nbsp;&nbsp;&nbsp;&nbsp;Branched work/quaveo from main</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <!-- Row 6: Olympiad -->
-                    <tr class="relative h-14 commit-row" onclick="selectMilestone('olympiad')" data-milestone="olympiad">
-                        <!-- Mobile -->
-                        <td class="border-s-2 border-s-blue-500 table-cell md:hidden">
-                            <div class="circle-component bg-[#FAFAFA] dark:bg-dark circle-upper-left border-blue-500"></div>
-                        </td>
-                        <!-- Col 1: Empty -->
-                        <td class="w-[25px] hidden md:table-cell"></td>
-                        <!-- Col 2: NLP -->
-                        <td class="w-[25px] border-s-2 border-s-cyan-400 hidden md:table-cell"></td>
-                        <!-- Col 3: TDTU -->
-                        <td class="w-[25px] border-s-2 border-s-blue-500 hidden md:table-cell">
-                            <div class="circle-component bg-[#FAFAFA] dark:bg-dark circle-upper-left border-blue-500"></div>
-                        </td>
-                        <!-- Text -->
-                        <td>
-                            <div class="relative -top-3 ps-4 md:ps-2 group">
-                                <div class="transition-all duration-300">
-                                    <div class="block group-hover:hidden">
-                                        <p class="text-sm font-semibold text-neutral-900 dark:text-white group-hover:text-blue-500 transition-colors">Southern AI Olympiad 2025 🏆</p>
-                                        <p class="text-[10px] font-mono text-cyan-500 dark:text-cyan-400 mt-0.5">May 2025 · Consolation Prize</p>
-                                    </div>
-                                    <div class="hidden group-hover:block font-mono text-[10px] text-neutral-600 dark:text-neutral-400 leading-tight bg-white dark:bg-black/40 p-2 rounded-lg border border-black/5 dark:border-white/10 shadow-sm">
-                                        <p><span class="text-blue-500 dark:text-blue-400">commit</span> u1v2w3x4 (main)</p>
-                                        <p>Author: Mai Nhat Duy &lt;maiduy07102003@gmail.com&gt;</p>
-                                        <p>Date:   Thu May 15 14:30:00 2025 +0700</p>
-                                        <p class="mt-2 text-neutral-900 dark:text-white font-semibold">&nbsp;&nbsp;&nbsp;&nbsp;Achieved Consolation Prize at AI Olympiad</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <!-- Row 7: NLP Lab Start -->
-                    <tr class="relative h-14 commit-row" onclick="selectMilestone('lab')" data-milestone="lab">
-                        <!-- Mobile -->
-                        <td class="border-s-2 border-s-cyan-400 table-cell md:hidden">
-                            <div class="circle-component bg-[#FAFAFA] dark:bg-dark circle-upper-left border-cyan-400"></div>
-                        </td>
-                        <!-- Col 1: Empty -->
-                        <td class="w-[25px] hidden md:table-cell"></td>
-                        <!-- Col 2: NLP -->
-                        <td class="w-[25px] border-s-2 border-s-cyan-400 hidden md:table-cell">
-                            <div class="circle-component bg-[#FAFAFA] dark:bg-dark circle-upper-left border-cyan-400"></div>
-                        </td>
-                        <!-- Col 3: TDTU -->
-                        <td class="w-[25px] border-s-2 border-s-blue-500 hidden md:table-cell"></td>
-                        <!-- Text -->
-                        <td>
-                            <div class="relative -top-3 ps-4 md:ps-2 group">
-                                <div class="transition-all duration-300">
-                                    <div class="block group-hover:hidden">
-                                        <p class="text-sm font-semibold text-neutral-900 dark:text-white group-hover:text-cyan-500 transition-colors">Joined TDTU NLP-KD Lab</p>
-                                        <p class="text-[10px] font-mono text-cyan-500 dark:text-cyan-400 mt-0.5">Jan 2025 · branch: research/nlp-lab</p>
-                                    </div>
-                                    <div class="hidden group-hover:block font-mono text-[10px] text-neutral-600 dark:text-neutral-400 leading-tight bg-white dark:bg-black/40 p-2 rounded-lg border border-black/5 dark:border-white/10 shadow-sm">
-                                        <p><span class="text-cyan-500 dark:text-cyan-400">commit</span> y5z6a7b8 (research/nlp-lab)</p>
-                                        <p>Author: Mai Nhat Duy &lt;maiduy07102003@gmail.com&gt;</p>
-                                        <p>Date:   Wed Jan 15 10:00:00 2025 +0700</p>
-                                        <p class="mt-2 text-neutral-900 dark:text-white font-semibold">&nbsp;&nbsp;&nbsp;&nbsp;Joined TDTU NLP-KD Lab as Research Assistant</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <!-- Row 7.5: Merge curve NLP to Main -->
-                    <tr class="h-8 hidden md:table-row">
-                        <td class="hidden"></td> <!-- Mobile -->
-                        <td class="w-[25px] hidden md:table-cell"></td> <!-- Col 1 Empty -->
-                        <td class="w-[25px] border-s-2 border-b-2 border-cyan-400 rounded-bl-lg"></td>
-                        <td class="w-[25px] border-s-2 border-blue-500"></td>
-                        <td></td>
-                    </tr>
-
-                    <!-- Row 8: Split point for NLP Lab on Main -->
-                    <tr class="relative h-14 commit-row" onclick="selectMilestone('lab')" data-milestone="lab">
-                        <!-- Mobile -->
-                        <td class="border-s-2 border-s-blue-500 table-cell md:hidden">
-                            <div class="circle-component bg-[#FAFAFA] dark:bg-dark circle-upper-left border-blue-500"></div>
-                        </td>
-                        <!-- Col 1: Empty -->
-                        <td class="w-[25px] hidden md:table-cell"></td>
-                        <!-- Col 2: Empty -->
-                        <td class="w-[25px] hidden md:table-cell"></td>
-                        <!-- Col 3: TDTU -->
-                        <td class="w-[25px] border-s-2 border-s-blue-500 hidden md:table-cell">
-                            <div class="circle-component bg-[#FAFAFA] dark:bg-dark circle-upper-left border-blue-500"></div>
-                        </td>
-                        <!-- Text -->
-                        <td>
-                            <div class="relative -top-3 ps-4 md:ps-2 group">
-                                <div class="transition-all duration-300">
-                                    <div class="block group-hover:hidden">
-                                        <p class="text-sm font-semibold text-neutral-900 dark:text-white group-hover:text-blue-500 transition-colors">Checkout branch research/nlp-lab</p>
-                                        <p class="text-[10px] font-mono text-blue-500 dark:text-blue-400 mt-0.5">Jan 2025 · main</p>
-                                    </div>
-                                    <div class="hidden group-hover:block font-mono text-[10px] text-neutral-600 dark:text-neutral-400 leading-tight bg-white dark:bg-black/40 p-2 rounded-lg border border-black/5 dark:border-white/10 shadow-sm">
-                                        <p><span class="text-blue-500 dark:text-blue-400">commit</span> c9d0e1f2 (main)</p>
-                                        <p>Author: Mai Nhat Duy &lt;maiduy07102003@gmail.com&gt;</p>
-                                        <p>Date:   Wed Jan 15 09:59:00 2025 +0700</p>
-                                        <p class="mt-2 text-neutral-900 dark:text-white font-semibold">&nbsp;&nbsp;&nbsp;&nbsp;Branched research/nlp-lab from main</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <!-- Row 9: Start of Journey -->
-                    <tr class="relative h-14 commit-row" onclick="selectMilestone('root')" data-milestone="root">
-                        <!-- Mobile -->
-                        <td class="table-cell md:hidden">
-                            <div class="circle-component bg-[#FAFAFA] dark:bg-dark circle-upper-left border-blue-500 translate-x-[-9px]"></div>
-                        </td>
-                        <!-- Col 1: Empty -->
-                        <td class="w-[25px] hidden md:table-cell"></td>
-                        <!-- Col 2: Empty -->
-                        <td class="w-[25px] hidden md:table-cell"></td>
-                        <!-- Col 3: TDTU -->
-                        <td class="w-[25px] hidden md:table-cell">
-                            <div class="circle-component bg-[#FAFAFA] dark:bg-dark circle-upper-left border-blue-500 translate-x-[-9px]"></div>
-                        </td>
-                        <!-- Text -->
-                        <td>
-                            <div class="relative -top-3 ps-4 md:ps-2 group">
-                                <div class="transition-all duration-300">
-                                    <div class="block group-hover:hidden">
-                                        <p class="text-sm font-semibold text-neutral-900 dark:text-white group-hover:text-blue-500 transition-colors">Start of Journey</p>
-                                        <p class="text-[10px] font-mono text-blue-500 dark:text-blue-400 mt-0.5">Oct 2022 · Initial commit</p>
-                                    </div>
-                                    <div class="hidden group-hover:block font-mono text-[10px] text-neutral-600 dark:text-neutral-400 leading-tight bg-white dark:bg-black/40 p-2 rounded-lg border border-black/5 dark:border-white/10 shadow-sm">
-                                        <p><span class="text-blue-500 dark:text-blue-400">commit</span> g3h4i5j6 (main)</p>
-                                        <p>Author: Mai Nhat Duy &lt;maiduy07102003@gmail.com&gt;</p>
-                                        <p>Date:   Mon Oct 03 08:00:00 2022 +0700</p>
-                                        <p class="mt-2 text-neutral-900 dark:text-white font-semibold">&nbsp;&nbsp;&nbsp;&nbsp;Initial commit: Enrolled at TDTU</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <!-- Footer of Table -->
+            <div class="p-3 bg-neutral-100/50 dark:bg-[#181818]/60 border-t border-black/5 dark:border-white/5 flex justify-between items-center text-[11px] text-neutral-400">
+                <div class="flex items-center gap-2">
+                    <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span>Repository synced with upstream/live</span>
+                </div>
+                <div>
+                    <span id="commit-counter">Showing 7 commits</span>
+                </div>
+            </div>
         </div>
 
-        <!-- Right: Details Card (col-span-1) -->
-        <div class="lg:col-span-1">
-            <div id="journey-detail-card"
-                class="glass-card rounded-[20px] p-8 border-l-4 border-indigo-500 transition-all duration-300 flex flex-col justify-between min-h-[220px]">
+        <!-- Right Section: Details Panel & Creator (col-span-4) -->
+        <div class="lg:col-span-4 flex flex-col gap-6">
+            <!-- Commit Detail Inspection Box -->
+            <div id="journey-detail-card" class="glass-card rounded-[20px] p-6 border-l-4 border-indigo-500 transition-all duration-300 flex flex-col justify-between min-h-[220px]">
                 <div>
-                    <div class="flex items-center gap-2 mb-4">
-                        <div
-                            class="w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-500">
-                            <iconify-icon id="journey-icon" icon="lucide:graduation-cap"
-                                width="18"></iconify-icon>
-                        </div>
-                        <span id="journey-duration"
-                            class="text-[10px] font-mono text-indigo-500 dark:text-indigo-400 font-semibold uppercase tracking-wider">2022
-                            — Present</span>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-2 py-0.5 rounded text-[10px] uppercase font-bold font-mono tracking-wider border" id="inspect-branch-tag">
+                            work/quaveo
+                        </span>
+                        <span class="text-xs text-neutral-400 font-mono" id="inspect-hash">
+                            commit a1b2c3d4
+                        </span>
                     </div>
-                    <h3 id="journey-title" class="text-xl font-bold dark:text-white leading-tight">Ton Duc Thang
-                        University</h3>
-                    <p id="journey-subtitle" class="text-xs text-neutral-500 dark:text-neutral-400 mt-1 mb-4">
-                        Final-Year Computer Science Undergraduate</p>
-                    <p id="journey-description"
-                        class="text-sm text-neutral-600 dark:text-neutral-400 font-light leading-relaxed">
-                        Focusing academic coursework on Deep Learning architectures and computational
-                        linguistics.
-                    </p>
+
+                    <h3 id="journey-title" class="text-lg font-bold leading-tight mb-2 text-neutral-900 dark:text-white">
+                        AI Engineer Intern at QUAVEO
+                    </h3>
+
+                    <div class="flex items-center gap-2 text-xs text-neutral-500 dark:text-neutral-400 mb-4 border-b border-black/5 dark:border-white/5 pb-3">
+                        <iconify-icon icon="lucide:user" width="14" class="text-neutral-400"></iconify-icon>
+                        <span id="inspect-author" class="font-medium">Mai Nhat Duy &lt;maiduy07102003@gmail.com&gt;</span>
+                    </div>
+
+                    <!-- Timing and summary -->
+                    <div class="space-y-4 mb-4 text-xs">
+                        <div>
+                            <span class="text-neutral-400 uppercase tracking-wide text-[10px] font-semibold block mb-0.5">Duration/Date</span>
+                            <p id="journey-duration" class="font-semibold text-neutral-700 dark:text-neutral-300">Feb 2026 — Present</p>
+                        </div>
+                        <div>
+                            <span class="text-neutral-400 uppercase tracking-wide text-[10px] font-semibold block mb-0.5">Key Focus / Accomplishment</span>
+                            <p id="journey-description" class="text-neutral-600 dark:text-neutral-400 leading-relaxed font-light">
+                                Focusing academic coursework on Deep Learning architectures and computational linguistics.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Simulation File Changes -->
+                    <div class="bg-neutral-50/50 dark:bg-black/30 p-3 rounded-lg border border-black/5 dark:border-white/5">
+                        <div class="flex items-center justify-between text-[11px] font-semibold text-neutral-400 mb-2">
+                            <span>Changeset (Simulated)</span>
+                            <span class="text-emerald-500 font-mono" id="inspect-changes-stat">+142 -24 lines</span>
+                        </div>
+                        <ul class="text-[11px] space-y-1.5 font-mono max-h-36 overflow-y-auto" id="inspect-files">
+                            <!-- Will fill dynamically -->
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

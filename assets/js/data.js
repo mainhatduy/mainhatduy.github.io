@@ -71,61 +71,86 @@ const PROJECTS_DATA = {
 };
 
 // --- Journey Milestones Database ---
-const MILESTONES_DATA = {
-  'root': {
-    title: "Start of Journey",
-    subtitle: "Enrolled at TDTU",
-    duration: "Oct 2022",
-    description: "Commenced Computer Science undergraduate studies at Ton Duc Thang University (TDTU). Focused on building a strong foundation in algorithms, programming, and mathematics.",
-    icon: "lucide:flag",
-    color: "blue"
+const MILESTONES_DATA = [
+  {
+    id: 'present',
+    branch: 'main',
+    title: 'Present Roles & Ongoing Activities',
+    subtitle: 'Active Roles Across Academics, Research, and Industry',
+    duration: 'Present',
+    description: 'Balancing multi-disciplinary roles: completing undergraduate studies in Computer Science at Ton Duc Thang University, conducting Deep Learning and language diffusion research at the TDTU NLP-KD Lab, and building enterprise agentic workflows as an AI Engineer Intern at QUAVEO.',
+    author: 'Mai Nhat Duy <maiduy07102003@gmail.com>',
+    hash: '9a2b5c7d',
+    isHead: true,
+    tags: ['TDTU', 'NLP Lab', 'QUAVEO'],
+    changes: {
+      stat: '+865 -157 lines',
+      files: [
+        'academic/transcript.csv',
+        'nlp/models/distilled_llama.py',
+        'src/agent/pipeline.py',
+        'configs/model.json'
+      ]
+    },
+    icon: 'lucide:briefcase',
+    color: 'blue'
   },
-  'lab': {
-    title: "TDTU NLP-KD Lab",
-    subtitle: "Research Assistant",
-    duration: "Jan 2025",
-    description: "Joined the TDTU NLP-KD Lab. Conducted research on Deep Learning, Language Diffusion Models, and hardware acceleration optimization.",
-    icon: "lucide:graduation-cap",
-    color: "cyan"
+  {
+    id: 'quaveo_start',
+    branch: 'quaveo',
+    title: 'Started Internship at QUAVEO',
+    subtitle: 'AI Engineer Intern',
+    duration: 'Feb 2026',
+    description: 'Joined QUAVEO as an AI Engineer Intern, gaining hands-on experience in enterprise AI product development.',
+    author: 'Mai Nhat Duy <maiduy07102003@gmail.com>',
+    hash: '3691754b',
+    tags: ['work/quaveo'],
+    changes: { stat: '+115 -10 lines', files: ['README.md', 'scripts/onboard.sh', '.env.example'] },
+    icon: 'lucide:briefcase',
+    color: 'red'
   },
-  'olympiad': {
-    title: "Southern Region Student AI Olympiad 2025",
-    subtitle: "Consolation Prize",
-    duration: "May 2025",
-    description: "Awarded the Consolation Prize in the Southern Region Student AI Olympiad 2025, demonstrating machine learning problem-solving under tight time constraints.",
-    icon: "lucide:trophy",
-    color: "cyan"
+  {
+    id: 'olympiad',
+    branch: 'main',
+    title: 'Southern Region Student AI Olympiad 2025',
+    subtitle: 'Consolation Prize',
+    duration: 'May 2025',
+    description: 'Awarded the Consolation Prize in the Southern Region Student AI Olympiad 2025, demonstrating machine learning problem-solving under tight time constraints.',
+    author: 'Mai Nhat Duy <maiduy07102003@gmail.com>',
+    hash: '06ba6e56',
+    isForkPoint: 'quaveo',
+    tags: ['milestone/olympiad-2025'],
+    changes: { stat: '+1,290 -310 lines', files: ['competition/solution.ipynb', 'models/backbone.py', 'assets/certificate.png'] },
+    icon: 'lucide:trophy',
+    color: 'cyan'
   },
-  'lab_present': {
-    title: "TDTU NLP-KD Lab",
-    subtitle: "Research Assistant (Present)",
-    duration: "Jan 2025 — Present",
-    description: "Continuing research on Deep Learning, Language Diffusion Models, and hardware acceleration optimization at the TDTU NLP-KD Lab.",
-    icon: "lucide:graduation-cap",
-    color: "cyan"
+  {
+    id: 'lab',
+    branch: 'nlp-lab',
+    title: 'TDTU NLP-KD Lab',
+    subtitle: 'Research Assistant',
+    duration: 'Jan 2025',
+    description: 'Joined the TDTU NLP-KD Lab. Conducted research on Deep Learning, Language Diffusion Models, and hardware acceleration optimization.',
+    author: 'Mai Nhat Duy <maiduy07102003@gmail.com>',
+    hash: '7fbe3c8f',
+    tags: ['research/nlp-lab'],
+    changes: { stat: '+210 -40 lines', files: ['nlp/classification_baseline.py', 'nlp/dataset/loader.py'] },
+    icon: 'lucide:graduation-cap',
+    color: 'cyan'
   },
-  'tdtu_present': {
-    title: "Ton Duc Thang University",
-    subtitle: "Final-Year Student",
-    duration: "Oct 2022 — Present",
-    description: "Completing undergraduate coursework in Computer Science at TDTU. Researching Large Language Model (LLM) optimization and text generation techniques.",
-    icon: "lucide:graduation-cap",
-    color: "blue"
-  },
-  'quaveo_start': {
-    title: "Start of Internship at QUAVEO",
-    subtitle: "AI Engineer Intern",
-    duration: "Feb 2026",
-    description: "Joined QUAVEO as an AI Engineer Intern, gaining hands-on experience in enterprise AI product development.",
-    icon: "lucide:briefcase",
-    color: "red"
-  },
-  'quaveo_present': {
-    title: "AI Engineer Intern at QUAVEO",
-    subtitle: "Present",
-    duration: "Feb 2026 — Present",
-    description: "Researching and developing advanced AI solutions, optimizing Natural Language Processing (NLP) applications, building Multi-Agent systems, and deploying LLMs at QUAVEO.",
-    icon: "lucide:briefcase",
-    color: "red"
+  {
+    id: 'root',
+    branch: 'main',
+    title: 'Start of Journey',
+    subtitle: 'Enrolled at TDTU',
+    duration: 'Oct 2022',
+    description: 'Commenced Computer Science undergraduate studies at Ton Duc Thang University (TDTU). Focused on building a strong foundation in algorithms, programming, and mathematics.',
+    author: 'Mai Nhat Duy <maiduy07102003@gmail.com>',
+    hash: '57688c47',
+    isForkPoint: 'nlp-lab',
+    tags: ['root'],
+    changes: { stat: '+25 -0 lines', files: ['.gitignore', 'LICENSE', 'README.md'] },
+    icon: 'lucide:flag',
+    color: 'blue'
   }
-};
+];
