@@ -5,7 +5,7 @@
 // --- Journey Git Tree Globals & Setup ---
 const branchMeta = {
   'main': { index: 0, color: '#3b82f6', label: 'main' },
-  'nlp-lab': { index: 1, color: '#06b6d4', label: 'research/nlp-lab' },
+  'nlp-lab': { index: 1, color: '#10b981', label: 'research/nlp-lab' },
   'quaveo': { index: 2, color: '#ef4444', label: 'work/quaveo' }
 };
 
@@ -53,8 +53,8 @@ function selectMilestone(id) {
     colorClass = 'bg-blue-500/10 text-blue-500 border-blue-500/20';
     borderClass = 'border-l-blue-500';
   } else if (commit.branch === 'nlp-lab') {
-    colorClass = 'bg-cyan-500/10 text-cyan-500 border-cyan-500/20';
-    borderClass = 'border-l-cyan-500';
+    colorClass = 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20';
+    borderClass = 'border-l-emerald-500';
   } else if (commit.branch === 'quaveo') {
     colorClass = 'bg-red-500/10 text-red-500 border-red-500/20';
     borderClass = 'border-l-red-500';
@@ -146,16 +146,16 @@ function renderTableRows() {
           badgeStyle = 'bg-blue-100 text-blue-800 border border-blue-200 dark:bg-blue-950/50 dark:text-blue-400 dark:border-blue-900/60';
         } else if (tag.includes('milestone')) {
           badgeStyle = 'bg-amber-100 text-amber-800 border border-amber-200 dark:bg-amber-950/50 dark:text-amber-400 dark:border-amber-900/60';
-        } else if (tag === 'NLP Lab') {
-          badgeStyle = 'bg-cyan-100 text-cyan-800 border border-cyan-200 dark:bg-cyan-950/50 dark:text-cyan-400 dark:border-cyan-900/60';
-        } else if (tag === 'QUAVEO') {
+        } else if (tag === 'NLP Lab' || tag === 'research/nlp-lab') {
+          badgeStyle = 'bg-emerald-100 text-emerald-800 border border-emerald-200 dark:bg-emerald-950/50 dark:text-emerald-400 dark:border-emerald-900/60';
+        } else if (tag === 'QUAVEO' || tag === 'work/quaveo') {
           badgeStyle = 'bg-red-100 text-red-800 border border-red-200 dark:bg-red-950/50 dark:text-red-400 dark:border-red-900/60';
         }
 
         let url = '';
         if (tag === 'TDTU') url = 'https://itclass.tdtu.edu.vn/khmt2021tc01/';
-        else if (tag === 'NLP Lab') url = 'https://it.tdtu.edu.vn/nlplab';
-        else if (tag === 'QUAVEO') url = 'https://quaveo.ai/';
+        else if (tag === 'NLP Lab' || tag === 'research/nlp-lab') url = 'https://it.tdtu.edu.vn/nlplab';
+        else if (tag === 'QUAVEO' || tag === 'work/quaveo') url = 'https://quaveo.ai/';
 
         if (url) {
           tagsMarkup += `
@@ -187,6 +187,9 @@ function renderTableRows() {
             <span class="text-[10px] text-neutral-400 dark:text-neutral-500 truncate">${commit.subtitle || commit.description}</span>
           </div>
         </div>
+      </td>
+      <td class="px-4 py-2 text-neutral-500 dark:text-neutral-400 text-xs" style="width: 120px; min-width: 120px; max-width: 120px;">
+        ${commit.duration}
       </td>
     `;
     tbody.appendChild(tr);
@@ -249,7 +252,7 @@ function drawGitGraph() {
   canvas.appendChild(mainLine);
 
   // Calculate other branch lines
-  // NLP LAB Branch Cyan (#06b6d4)
+  // NLP LAB Branch Green (#10b981)
   const nlpCommits = activeCommits.filter(c => c.branch === 'nlp-lab');
   if (nlpCommits.length > 0) {
     const nlpYEnd = nlpCommits[nlpCommits.length - 1].yCoord;

@@ -122,7 +122,7 @@ const MILESTONES_DATA = [
     tags: ['milestone/olympiad-2025'],
     changes: { stat: '+1,290 -310 lines', files: ['competition/solution.ipynb', 'models/backbone.py', 'assets/certificate.png'] },
     icon: 'lucide:trophy',
-    color: 'cyan'
+    color: 'green'
   },
   {
     id: 'lab',
@@ -136,7 +136,7 @@ const MILESTONES_DATA = [
     tags: ['research/nlp-lab'],
     changes: { stat: '+210 -40 lines', files: ['nlp/classification_baseline.py', 'nlp/dataset/loader.py'] },
     icon: 'lucide:graduation-cap',
-    color: 'cyan'
+    color: 'green'
   },
   {
     id: 'root',

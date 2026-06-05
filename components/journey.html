@@ -33,39 +33,21 @@
                         </select>
                     </div>
                 </div>
-
-                <!-- Utilities Icons -->
-                <div class="flex items-center gap-3.5 text-neutral-500 dark:text-neutral-400">
-                    <button class="hover:text-indigo-500 transition-colors" title="Search Commits">
-                        <iconify-icon icon="lucide:search" width="14" class="align-middle"></iconify-icon>
-                    </button>
-                    <button class="hover:text-indigo-500 transition-colors" title="Git Settings">
-                        <iconify-icon icon="lucide:settings" width="14" class="align-middle"></iconify-icon>
-                    </button>
-                    <button class="hover:text-indigo-500 transition-colors" title="Fetch Upstream">
-                        <iconify-icon icon="lucide:cloud-download" width="14" class="align-middle"></iconify-icon>
-                    </button>
-                    <button class="hover:text-indigo-500 transition-colors" title="Refresh Log" onclick="initGitTree()">
-                        <iconify-icon icon="lucide:refresh-cw" width="14" class="align-middle"></iconify-icon>
-                    </button>
-                </div>
             </div>
 
             <!-- Graph and Table Workspace -->
             <div class="relative flex-1 overflow-x-auto min-h-[450px]">
                 <!-- Dynamic SVG Canvas overlay -->
                 <svg id="git-svg-canvas" class="absolute top-0 left-0 h-full pointer-events-none z-10"
-                    style="width: 140px;"></svg>
+                    style="width: 180px;"></svg>
 
-                <table class="w-full text-left text-xs whitespace-nowrap border-collapse min-w-[700px]">
+                <table class="w-full text-left text-xs whitespace-nowrap border-collapse min-w-[500px]">
                     <thead>
                         <tr
                             class="bg-neutral-100/50 dark:bg-[#181818]/60 border-b border-black/5 dark:border-white/5 text-neutral-500 dark:text-neutral-400 uppercase tracking-wider text-[10px]">
-                            <th class="w-[140px] px-4 py-2 font-semibold text-center">Graph</th>
+                            <th class="px-4 py-2 font-semibold text-center" style="width: 180px; min-width: 180px; max-width: 180px;">Graph</th>
                             <th class="px-4 py-2 font-semibold">Description</th>
-                            <th class="w-[150px] px-4 py-2 font-semibold">Date</th>
-                            <th class="w-[150px] px-4 py-2 font-semibold">Author</th>
-                            <th class="w-[100px] px-4 py-2 font-semibold text-right">Commit</th>
+                            <th class="px-4 py-2 font-semibold" style="width: 120px; min-width: 120px; max-width: 120px;">Date</th>
                         </tr>
                     </thead>
                     <tbody id="git-commits-tbody">
