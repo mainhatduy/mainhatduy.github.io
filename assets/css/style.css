@@ -196,3 +196,116 @@
   transition: background-color 0.3s ease;
 }
 
+/* ==========================================================================
+   Orbital Node Animation Styles (block-enterprise)
+   ========================================================================== */
+block-enterprise {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  position: relative;
+  overflow: visible;
+}
+
+@media (max-width: 768px) {
+  block-enterprise {
+    aspect-ratio: 1.1 / 1;
+    max-width: 100%;
+  }
+}
+
+/* Glassmorphic Orbiting Nodes (Text-only, code-style) */
+.orbit-node {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  white-space: nowrap;
+  user-select: none;
+  transition: color 0.3s, transform 0.3s;
+  cursor: pointer;
+  z-index: 10;
+  transform-origin: 50% 50%;
+  font-family: 'JetBrains Mono', monospace;
+  color: #52525b; /* neutral-600 */
+}
+
+.dark .orbit-node {
+  color: #a1a1aa; /* neutral-400 */
+}
+
+.orbit-node:hover {
+  color: #6366f1; /* indigo-500 */
+}
+
+.dark .orbit-node:hover {
+  color: #818cf8; /* indigo-400 */
+}
+
+@media (max-width: 600px) {
+  .orbit-node {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+}
+
+/* Pulsing Central AI Core (Borderless text-only) */
+.central-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140px;
+  height: 140px;
+  z-index: 10;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .central-core {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.core-glow {
+  display: none;
+}
+
+.core-inner {
+  position: relative;
+  width: auto;
+  height: auto;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: #171717;
+  border: none;
+  box-shadow: none;
+  animation: pulse-core-scale 3s ease-in-out infinite alternate;
+}
+
+.dark .core-inner {
+  color: #ffffff;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+@keyframes pulse-core-scale {
+  0% { transform: scale(0.95); }
+  100% { transform: scale(1.05); }
+}
+
