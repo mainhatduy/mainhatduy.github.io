@@ -1,0 +1,85 @@
+<section id="proj-1" class="page-section hidden">
+    <!-- Breadcrumbs -->
+    <button onclick="navigateTo('projects')"
+        class="inline-flex items-center gap-1 text-xs text-neutral-500 dark:text-neutral-400 hover:text-indigo-500 transition-colors mb-8">
+        <iconify-icon icon="lucide:arrow-left" width="12"></iconify-icon>
+        <span>Back to Selected Works</span>
+    </button>
+
+    <!-- Case Study Content Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+        <!-- Main Case Study Info -->
+        <div class="lg:col-span-2 space-y-10">
+            <div class="flex items-center gap-4">
+                <div
+                    class="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-indigo-500">
+                    <iconify-icon id="detail-icon" icon="lucide:brain-circuit" width="26"></iconify-icon>
+                </div>
+                <h1 id="detail-title" class="text-3xl md:text-5xl font-bold tracking-tight dark:text-white">
+                    Vietnamese Medical SLM</h1>
+            </div>
+
+            <p id="detail-desc"
+                class="text-lg text-neutral-600 dark:text-neutral-400 font-light leading-relaxed">
+                Detailed case study explanation showing training methodologies and optimization parameters.
+            </p>
+
+            <hr class="border-neutral-200 dark:border-white/5">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3
+                        class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-widest mb-2">
+                        The Problem</h3>
+                    <p id="detail-problem"
+                        class="text-sm text-neutral-600 dark:text-neutral-400 font-light leading-relaxed">
+                        Explaining hospital computing constraints and clinical data indexing hurdles.
+                    </p>
+                </div>
+                <div>
+                    <h3
+                        class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-widest mb-2">
+                        The Solution</h3>
+                    <p id="detail-solution"
+                        class="text-sm text-neutral-600 dark:text-neutral-400 font-light leading-relaxed">
+                        Describing LoRA fine-tuning, training dataset curation with Datatrove and GPU memory
+                        reductions.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Metrics & Technology Summary -->
+        <div class="space-y-8">
+            <div class="glass-card rounded-[20px] p-6 space-y-6">
+                <div>
+                    <h4
+                        class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-widest mb-3">
+                        Technologies</h4>
+                    <div id="detail-tech" class="flex flex-wrap gap-1.5">
+                        <!-- Tech elements rendered here -->
+                    </div>
+                </div>
+
+                <hr class="border-white/5">
+
+                <div>
+                    <h4
+                        class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-widest mb-3">
+                        Metrics & Details</h4>
+                    <div id="detail-metrics" class="space-y-3">
+                        <!-- Key metrics values printed here -->
+                    </div>
+                </div>
+
+                <div class="pt-4">
+                    <a id="detail-link" href="#" target="_blank"
+                        class="w-full inline-flex items-center justify-center gap-2 px-4 py-3 text-xs font-semibold text-white bg-indigo-500 hover:bg-indigo-400 rounded-xl transition-all shadow-lg shadow-indigo-500/10">
+                        <iconify-icon icon="lucide:external-link" width="14"></iconify-icon>
+                        <span>Visit Repository</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

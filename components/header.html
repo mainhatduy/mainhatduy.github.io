@@ -1,0 +1,35 @@
+<header class="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-5xl z-40">
+    <div class="glass-panel rounded-full px-6 py-2 flex items-center justify-between shadow-lg shadow-black/5 dark:shadow-black/20">
+        <!-- Logo -->
+        <a href="#" onclick="navigateTo('home'); return false;"
+            class="flex items-center gap-2 font-mono text-sm tracking-wider font-semibold text-neutral-900 dark:text-white group">
+            <span class="w-2 h-2 rounded-full bg-indigo-500 animate-pulse-slow"></span>
+            <span>myduy</span>
+        </a>
+
+        <!-- Nav Links -->
+        <nav class="flex items-center gap-1">
+            <button onclick="navigateTo('home')"
+                class="nav-link px-4 py-2 text-[11px] font-medium text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors rounded-full hover:bg-black/5 dark:hover:bg-white/5 active"
+                data-target="home">Home</button>
+            <button onclick="navigateTo('projects')"
+                class="nav-link px-4 py-2 text-[11px] font-medium text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors rounded-full hover:bg-black/5 dark:hover:bg-white/5"
+                data-target="projects">Projects</button>
+            <button onclick="navigateTo('journey')"
+                class="nav-link px-4 py-2 text-[11px] font-medium text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors rounded-full hover:bg-black/5 dark:hover:bg-white/5"
+                data-target="journey">Journey</button>
+            <button onclick="navigateTo('skills')"
+                class="nav-link px-4 py-2 text-[11px] font-medium text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors rounded-full hover:bg-black/5 dark:hover:bg-white/5"
+                data-target="skills">Skills</button>
+        </nav>
+
+        <!-- Actions / Resume Button -->
+        <div>
+            <a href="/CV_MaiNhatDuy_AI_Engineering.pdf" target="_blank"
+                class="inline-flex items-center gap-1.5 px-4 py-2 text-[11px] font-semibold text-white bg-indigo-500 hover:bg-indigo-400 rounded-full transition-all shadow-lg shadow-indigo-500/20 hover:shadow-[0_0_20px_rgba(99,102,241,0.3)]">
+                <span>CV</span>
+                <iconify-icon icon="lucide:arrow-up-right" width="12"></iconify-icon>
+            </a>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,112 @@
+<section id="projects" class="page-section hidden">
+    <div class="mb-12">
+        <span class="text-[11px] font-mono uppercase tracking-widest text-indigo-500">Selected Works</span>
+        <h2 class="text-3xl font-bold tracking-tight dark:text-white mt-1">Research & Systems</h2>
+    </div>
+
+    <!-- Bento Grid Layout -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 h-auto">
+
+        <!-- Project 1: Medical SLM (Large: col-span-2) -->
+        <div onclick="openProject('proj-1')"
+            class="group md:col-span-2 glass-card rounded-[20px] p-8 flex flex-col justify-between cursor-pointer relative overflow-hidden min-h-[280px]">
+            <div class="flex items-start justify-between">
+                <span class="text-[10px] font-mono uppercase tracking-wider text-indigo-400">NLP / LLM</span>
+                <iconify-icon icon="lucide:brain-circuit" width="22"
+                    class="text-neutral-500 dark:text-neutral-400 group-hover:scale-125 duration-500"></iconify-icon>
+            </div>
+            <div>
+                <h3 class="text-2xl font-semibold tracking-tight dark:text-white mt-10">Vietnamese Medical SLM
+                </h3>
+                <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2">Training specialized Small
+                    Language Models on medical documents and clinical notes optimized for constrained hardware
+                    architectures.</p>
+                <div
+                    class="border-l border-indigo-500/20 bg-indigo-500/5 px-3 py-1.5 rounded-r mt-4 text-xs dark:text-indigo-300 w-fit">
+                    +4.5% Accuracy improvement vs Base
+                </div>
+            </div>
+            <div class="flex items-center gap-1.5 text-xs font-semibold dark:text-white mt-6">
+                <span>View Case Study</span>
+                <iconify-icon icon="lucide:arrow-right" width="12"
+                    class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+            </div>
+        </div>
+
+        <!-- Project 2: deep-bot (Small: col-span-1) -->
+        <div onclick="openProject('proj-2')"
+            class="group md:col-span-1 glass-card rounded-[20px] p-8 flex flex-col justify-between cursor-pointer relative overflow-hidden min-h-[280px]">
+            <div class="flex items-start justify-between">
+                <span class="text-[10px] font-mono uppercase tracking-wider text-indigo-400">Agents / RAG</span>
+                <iconify-icon icon="lucide:bot" width="22"
+                    class="text-neutral-500 dark:text-neutral-400 group-hover:scale-125 duration-500"></iconify-icon>
+            </div>
+            <div>
+                <h3 class="text-2xl font-semibold tracking-tight dark:text-white mt-10">deep-bot</h3>
+                <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2">Graph-routed Agentic chatbot
+                    system supporting hybrid Vector & SQL parallel querying pipelines.</p>
+                <div
+                    class="border-l border-indigo-500/20 bg-indigo-500/5 px-3 py-1.5 rounded-r mt-4 text-xs dark:text-indigo-300 w-fit">
+                    LangGraph Multi-Agent RAG
+                </div>
+            </div>
+            <div class="flex items-center gap-1.5 text-xs font-semibold dark:text-white mt-6">
+                <span>View Case Study</span>
+                <iconify-icon icon="lucide:arrow-right" width="12"
+                    class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+            </div>
+        </div>
+
+        <!-- Project 3: Medical NER (Small: col-span-1) -->
+        <div onclick="openProject('proj-3')"
+            class="group md:col-span-1 glass-card rounded-[20px] p-8 flex flex-col justify-between cursor-pointer relative overflow-hidden min-h-[280px]">
+            <div class="flex items-start justify-between">
+                <span class="text-[10px] font-mono uppercase tracking-wider text-indigo-400">Diffusion /
+                    NER</span>
+                <iconify-icon icon="lucide:scan-eye" width="22"
+                    class="text-neutral-500 dark:text-neutral-400 group-hover:scale-125 duration-500"></iconify-icon>
+            </div>
+            <div>
+                <h3 class="text-2xl font-semibold tracking-tight dark:text-white mt-10">Medical NER</h3>
+                <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2">Fine-tuned Dream 7B Diffusion
+                    Language Model for Nested NER on Vietnamese COVID-19 documentation.</p>
+                <div
+                    class="border-l border-indigo-500/20 bg-indigo-500/5 px-3 py-1.5 rounded-r mt-4 text-xs dark:text-indigo-300 w-fit">
+                    F1-Score of 79.04%
+                </div>
+            </div>
+            <div class="flex items-center gap-1.5 text-xs font-semibold dark:text-white mt-6">
+                <span>View Case Study</span>
+                <iconify-icon icon="lucide:arrow-right" width="12"
+                    class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+            </div>
+        </div>
+
+        <!-- Project 4: Translation (Large: col-span-2) -->
+        <div onclick="openProject('proj-4')"
+            class="group md:col-span-2 glass-card rounded-[20px] p-8 flex flex-col justify-between cursor-pointer relative overflow-hidden min-h-[280px]">
+            <div class="flex items-start justify-between">
+                <span class="text-[10px] font-mono uppercase tracking-wider text-indigo-400">Diffusion /
+                    Transl.</span>
+                <iconify-icon icon="lucide:languages" width="22"
+                    class="text-neutral-500 dark:text-neutral-400 group-hover:scale-125 duration-500"></iconify-icon>
+            </div>
+            <div>
+                <h3 class="text-2xl font-semibold tracking-tight dark:text-white mt-10">dlm-vi2en</h3>
+                <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2">Discrete Diffusion translation
+                    engine built starting from XLM-RoBERTa Large featuring non-autoregressive token generation.
+                </p>
+                <div
+                    class="border-l border-indigo-500/20 bg-indigo-500/5 px-3 py-1.5 rounded-r mt-4 text-xs dark:text-indigo-300 w-fit">
+                    BLEU score of 37.9
+                </div>
+            </div>
+            <div class="flex items-center gap-1.5 text-xs font-semibold dark:text-white mt-6">
+                <span>View Case Study</span>
+                <iconify-icon icon="lucide:arrow-right" width="12"
+                    class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+            </div>
+        </div>
+
+    </div>
+</section>
