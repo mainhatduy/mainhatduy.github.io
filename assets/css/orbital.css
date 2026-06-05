@@ -29,12 +29,13 @@ block-enterprise {
   padding: 6px 12px;
   white-space: nowrap;
   user-select: none;
-  transition: color 0.3s, transform 0.3s;
+  transition: color 0.3s;
   cursor: pointer;
   z-index: 10;
   transform-origin: 50% 50%;
   font-family: 'JetBrains Mono', monospace;
   color: #52525b; /* neutral-600 */
+  opacity: 0;
 }
 
 .dark .orbit-node {

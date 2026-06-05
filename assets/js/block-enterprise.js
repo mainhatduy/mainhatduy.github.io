@@ -85,11 +85,16 @@ class BlockEnterprise extends HTMLElement {
 
     this.prepend(this.$svg);
     this.resize();
+    this.update();
 
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(() => {
         this.resize();
-        requestAnimationFrame(() => this.resize());
+        this.update();
+        requestAnimationFrame(() => {
+          this.resize();
+          this.update();
+        });
       });
     }
 
@@ -113,6 +118,7 @@ class BlockEnterprise extends HTMLElement {
 
   handleResize() {
     this.resize();
+    this.update();
   }
 
   resize() {
@@ -147,6 +153,18 @@ class BlockEnterprise extends HTMLElement {
   }
 
   update() {
+    // If the element's actual display size changes, trigger resize synchronously
+    if (this.clientWidth !== this._width || this.clientHeight !== this._height) {
+      this.resize();
+    }
+
+    if (this._width <= 1 || this._height <= 1) {
+      this.$slides.forEach(slide => {
+        slide.style.opacity = '0';
+      });
+      return;
+    }
+
     if (!this.stopped) {
       this.time += 0.007; // Control speed
     }
