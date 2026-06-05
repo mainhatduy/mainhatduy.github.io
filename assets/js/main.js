@@ -30,7 +30,21 @@ function selectMilestone(id) {
   
   // Update branch tag
   const branchTag = document.getElementById('inspect-branch-tag');
-  branchTag.textContent = branchMeta[commit.branch].label;
+  let branchUrl = '';
+  if (commit.branch === 'main') branchUrl = 'https://itclass.tdtu.edu.vn/khmt2021tc01/';
+  else if (commit.branch === 'nlp-lab') branchUrl = 'https://it.tdtu.edu.vn/nlplab';
+  else if (commit.branch === 'quaveo') branchUrl = 'https://quaveo.ai/';
+  
+  if (branchUrl) {
+    branchTag.innerHTML = `
+      <a href="${branchUrl}" target="_blank" class="flex items-center gap-1 hover:underline">
+        <iconify-icon icon="lucide:external-link" width="10"></iconify-icon>
+        ${branchMeta[commit.branch].label}
+      </a>
+    `;
+  } else {
+    branchTag.textContent = branchMeta[commit.branch].label;
+  }
   
   // Tag styling based on branch color
   let colorClass = '';
@@ -137,17 +151,32 @@ function renderTableRows() {
         } else if (tag === 'QUAVEO') {
           badgeStyle = 'bg-red-100 text-red-800 border border-red-200 dark:bg-red-950/50 dark:text-red-400 dark:border-red-900/60';
         }
-        tagsMarkup += `
-          <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-semibold tracking-wide ${badgeStyle} mr-1.5">
-            <iconify-icon icon="lucide:tag" width="10" class="inline-block align-middle mr-0.5"></iconify-icon>
-            ${tag}
-          </span>
-        `;
+
+        let url = '';
+        if (tag === 'TDTU') url = 'https://itclass.tdtu.edu.vn/khmt2021tc01/';
+        else if (tag === 'NLP Lab') url = 'https://it.tdtu.edu.vn/nlplab';
+        else if (tag === 'QUAVEO') url = 'https://quaveo.ai/';
+
+        if (url) {
+          tagsMarkup += `
+            <a href="${url}" target="_blank" onclick="event.stopPropagation();" class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-semibold tracking-wide ${badgeStyle} mr-1.5 hover:scale-105 hover:opacity-90 active:scale-95 transition-all">
+              <iconify-icon icon="lucide:link" width="10" class="inline-block align-middle mr-0.5"></iconify-icon>
+              ${tag}
+            </a>
+          `;
+        } else {
+          tagsMarkup += `
+            <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-semibold tracking-wide ${badgeStyle} mr-1.5">
+              <iconify-icon icon="lucide:tag" width="10" class="inline-block align-middle mr-0.5"></iconify-icon>
+              ${tag}
+            </span>
+          `;
+        }
       });
     }
 
     tr.innerHTML = `
-      <td class="px-4 py-2 graph-column" data-branch="${commit.branch}">
+      <td class="px-4 py-2 graph-column" data-branch="${commit.branch}" style="width: 180px; min-width: 180px; max-width: 180px;">
         <!-- Placeholder spacer for the absolute SVG canvas -->
       </td>
       <td class="px-4 py-2 text-neutral-900 dark:text-neutral-100 font-medium">
@@ -158,15 +187,6 @@ function renderTableRows() {
             <span class="text-[10px] text-neutral-400 dark:text-neutral-500 truncate">${commit.subtitle || commit.description}</span>
           </div>
         </div>
-      </td>
-      <td class="px-4 py-2 text-neutral-500 dark:text-neutral-400 text-xs">
-        ${commit.duration}
-      </td>
-      <td class="px-4 py-2 text-neutral-500 dark:text-neutral-400 text-xs truncate max-w-[120px]">
-        ${commit.author.split(' <')[0]}
-      </td>
-      <td class="px-4 py-2 text-right text-xs font-mono text-neutral-400 dark:text-neutral-500">
-        ${commit.hash}
       </td>
     `;
     tbody.appendChild(tr);
@@ -185,9 +205,15 @@ function drawGitGraph() {
   const rows = document.querySelectorAll('.commit-row-item');
   if (rows.length === 0) return;
 
-  const rowHeight = 56; // Matching h-[56px] set in rows
+  // Dynamically size SVG height to match the actual height of the table sibling
+  const table = canvas.nextElementSibling;
+  if (table) {
+    canvas.setAttribute('height', table.offsetHeight);
+    canvas.style.height = table.offsetHeight + 'px';
+  }
+
   const colWidth = 24;  // Width between branch tracks
-  const startX = 30;    // Padding from left
+  const startX = 66;    // Padding from left to center lines in 180px column
 
   // Define branch coordinates (startX is for main track)
   let branchDraws = {
@@ -196,9 +222,16 @@ function drawGitGraph() {
     'quaveo': { color: branchMeta['quaveo'].color, x: startX + colWidth * 2, points: [] }
   };
 
-  // Loop 1: Find vertical y locations of each commit based on visual position
+  // Loop 1: Find vertical y locations of each commit based on visual position of table rows in the DOM
   activeCommits.forEach((commit, i) => {
-    const y = (i * rowHeight) + (rowHeight / 2);
+    const rowEl = rows[i];
+    let y = 0;
+    if (rowEl) {
+      y = rowEl.offsetTop + (rowEl.offsetHeight / 2);
+    } else {
+      const rowHeight = 56;
+      y = (i * rowHeight) + (rowHeight / 2);
+    }
     commit.yCoord = y;
     commit.xCoord = branchDraws[commit.branch].x;
   });
@@ -425,6 +458,10 @@ function navigateTo(sectionId) {
       link.classList.add('active');
     }
   });
+
+  if (sectionId === 'journey') {
+    setTimeout(drawGitGraph, 50);
+  }
   
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }

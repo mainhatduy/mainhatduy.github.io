@@ -1,24 +1,31 @@
 <section id="journey" class="page-section hidden">
     <!-- Header/Title Section -->
     <div class="mb-12">
-        <span class="text-[11px] font-mono uppercase tracking-widest text-indigo-500">Interactive Path Visualization</span>
+        <span class="text-[11px] font-mono uppercase tracking-widest text-indigo-500">Interactive Path
+            Visualization</span>
         <h2 class="text-3xl font-bold tracking-tight dark:text-white mt-1">Development & Research Journey</h2>
         <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2 max-w-2xl">
-            Explore each career milestone formatted as Git commits. Click on individual rows to inspect technical details, simulated files modified, hashes, and tags.
+            Explore each career milestone formatted as Git commits. Click on individual rows to inspect technical
+            details, simulated files modified, hashes, and tags.
         </p>
     </div>
 
     <!-- Grid Layout -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         <!-- Left & Center: Git Tree UI Client (col-span-8) -->
-        <div class="lg:col-span-8 flex flex-col bg-white/5 dark:bg-black/20 rounded-3xl border border-black/5 dark:border-white/5 backdrop-blur-sm shadow-xl overflow-hidden min-h-[500px]">
+        <div
+            class="lg:col-span-8 flex flex-col bg-white/5 dark:bg-black/20 rounded-3xl border border-black/5 dark:border-white/5 backdrop-blur-sm shadow-xl overflow-hidden min-h-[500px]">
             <!-- Git Client Header Bar -->
-            <div class="bg-neutral-100/50 dark:bg-[#181818]/60 px-4 py-3 border-b border-black/5 dark:border-white/5 flex flex-wrap items-center justify-between gap-3 text-[11px] font-medium">
+            <div
+                class="bg-neutral-100/50 dark:bg-[#181818]/60 px-4 py-3 border-b border-black/5 dark:border-white/5 flex flex-wrap items-center justify-between gap-3 text-[11px] font-medium">
                 <div class="flex items-center gap-4 flex-wrap">
                     <!-- Branches Selector -->
-                    <div class="flex items-center gap-1.5 bg-neutral-200/50 dark:bg-neutral-800/60 px-3 py-1.5 rounded-md border border-black/5 dark:border-white/5">
+                    <div
+                        class="flex items-center gap-1.5 bg-neutral-200/50 dark:bg-neutral-800/60 px-3 py-1.5 rounded-md border border-black/5 dark:border-white/5">
                         <span class="text-neutral-500 dark:text-neutral-400">Branches:</span>
-                        <select id="branch-filter" class="bg-transparent font-bold focus:outline-none cursor-pointer text-indigo-600 dark:text-indigo-400" onchange="filterBranch()">
+                        <select id="branch-filter"
+                            class="bg-transparent font-bold focus:outline-none cursor-pointer text-indigo-600 dark:text-indigo-400"
+                            onchange="filterBranch()">
                             <option value="all" class="bg-white dark:bg-[#121212]">Show All</option>
                             <option value="main" class="bg-white dark:bg-[#121212]">main</option>
                             <option value="nlp-lab" class="bg-white dark:bg-[#121212]">research/nlp-lab</option>
@@ -47,11 +54,13 @@
             <!-- Graph and Table Workspace -->
             <div class="relative flex-1 overflow-x-auto min-h-[450px]">
                 <!-- Dynamic SVG Canvas overlay -->
-                <svg id="git-svg-canvas" class="absolute top-0 left-0 h-full pointer-events-none z-10" style="width: 140px;"></svg>
+                <svg id="git-svg-canvas" class="absolute top-0 left-0 h-full pointer-events-none z-10"
+                    style="width: 140px;"></svg>
 
                 <table class="w-full text-left text-xs whitespace-nowrap border-collapse min-w-[700px]">
                     <thead>
-                        <tr class="bg-neutral-100/50 dark:bg-[#181818]/60 border-b border-black/5 dark:border-white/5 text-neutral-500 dark:text-neutral-400 uppercase tracking-wider text-[10px]">
+                        <tr
+                            class="bg-neutral-100/50 dark:bg-[#181818]/60 border-b border-black/5 dark:border-white/5 text-neutral-500 dark:text-neutral-400 uppercase tracking-wider text-[10px]">
                             <th class="w-[140px] px-4 py-2 font-semibold text-center">Graph</th>
                             <th class="px-4 py-2 font-semibold">Description</th>
                             <th class="w-[150px] px-4 py-2 font-semibold">Date</th>
@@ -66,7 +75,8 @@
             </div>
 
             <!-- Footer of Table -->
-            <div class="p-3 bg-neutral-100/50 dark:bg-[#181818]/60 border-t border-black/5 dark:border-white/5 flex justify-between items-center text-[11px] text-neutral-400">
+            <div
+                class="p-3 bg-neutral-100/50 dark:bg-[#181818]/60 border-t border-black/5 dark:border-white/5 flex justify-between items-center text-[11px] text-neutral-400">
                 <div class="flex items-center gap-2">
                     <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
                     <span>Repository synced with upstream/live</span>
@@ -80,10 +90,13 @@
         <!-- Right Section: Details Panel & Creator (col-span-4) -->
         <div class="lg:col-span-4 flex flex-col gap-6">
             <!-- Commit Detail Inspection Box -->
-            <div id="journey-detail-card" class="glass-card rounded-[20px] p-6 border-l-4 border-indigo-500 transition-all duration-300 flex flex-col justify-between min-h-[220px]">
+            <div id="journey-detail-card"
+                class="glass-card rounded-[20px] p-6 border-l-4 border-indigo-500 transition-all duration-300 flex flex-col justify-between min-h-[220px]">
                 <div>
                     <div class="flex items-center justify-between mb-4">
-                        <span class="px-2 py-0.5 rounded text-[10px] uppercase font-bold font-mono tracking-wider border" id="inspect-branch-tag">
+                        <span
+                            class="px-2 py-0.5 rounded text-[10px] uppercase font-bold font-mono tracking-wider border"
+                            id="inspect-branch-tag">
                             work/quaveo
                         </span>
                         <span class="text-xs text-neutral-400 font-mono" id="inspect-hash">
@@ -91,31 +104,41 @@
                         </span>
                     </div>
 
-                    <h3 id="journey-title" class="text-lg font-bold leading-tight mb-2 text-neutral-900 dark:text-white">
+                    <h3 id="journey-title"
+                        class="text-lg font-bold leading-tight mb-2 text-neutral-900 dark:text-white">
                         AI Engineer Intern at QUAVEO
                     </h3>
 
-                    <div class="flex items-center gap-2 text-xs text-neutral-500 dark:text-neutral-400 mb-4 border-b border-black/5 dark:border-white/5 pb-3">
+                    <div
+                        class="flex items-center gap-2 text-xs text-neutral-500 dark:text-neutral-400 mb-4 border-b border-black/5 dark:border-white/5 pb-3">
                         <iconify-icon icon="lucide:user" width="14" class="text-neutral-400"></iconify-icon>
-                        <span id="inspect-author" class="font-medium">Mai Nhat Duy &lt;maiduy07102003@gmail.com&gt;</span>
+                        <span id="inspect-author" class="font-medium">Mai Nhat Duy
+                            &lt;maiduy07102003@gmail.com&gt;</span>
                     </div>
 
                     <!-- Timing and summary -->
                     <div class="space-y-4 mb-4 text-xs">
                         <div>
-                            <span class="text-neutral-400 uppercase tracking-wide text-[10px] font-semibold block mb-0.5">Duration/Date</span>
-                            <p id="journey-duration" class="font-semibold text-neutral-700 dark:text-neutral-300">Feb 2026 — Present</p>
+                            <span
+                                class="text-neutral-400 uppercase tracking-wide text-[10px] font-semibold block mb-0.5">Duration/Date</span>
+                            <p id="journey-duration" class="font-semibold text-neutral-700 dark:text-neutral-300">Feb
+                                2026 — Present</p>
                         </div>
                         <div>
-                            <span class="text-neutral-400 uppercase tracking-wide text-[10px] font-semibold block mb-0.5">Key Focus / Accomplishment</span>
-                            <p id="journey-description" class="text-neutral-600 dark:text-neutral-400 leading-relaxed font-light">
-                                Focusing academic coursework on Deep Learning architectures and computational linguistics.
+                            <span
+                                class="text-neutral-400 uppercase tracking-wide text-[10px] font-semibold block mb-0.5">Key
+                                Focus / Accomplishment</span>
+                            <p id="journey-description"
+                                class="text-neutral-600 dark:text-neutral-400 leading-relaxed font-light">
+                                Focusing academic coursework on Deep Learning architectures and computational
+                                linguistics.
                             </p>
                         </div>
                     </div>
 
                     <!-- Simulation File Changes -->
-                    <div class="bg-neutral-50/50 dark:bg-black/30 p-3 rounded-lg border border-black/5 dark:border-white/5">
+                    <div
+                        class="bg-neutral-50/50 dark:bg-black/30 p-3 rounded-lg border border-black/5 dark:border-white/5">
                         <div class="flex items-center justify-between text-[11px] font-semibold text-neutral-400 mb-2">
                             <span>Changeset (Simulated)</span>
                             <span class="text-emerald-500 font-mono" id="inspect-changes-stat">+142 -24 lines</span>

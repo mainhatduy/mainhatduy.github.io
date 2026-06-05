@@ -76,7 +76,7 @@ const MILESTONES_DATA = [
     id: 'present',
     branch: 'main',
     title: 'Present Roles & Ongoing Activities',
-    subtitle: 'Active Roles Across Academics, Research, and Industry',
+    subtitle: 'Active Roles',
     duration: 'Present',
     description: 'Balancing multi-disciplinary roles: completing undergraduate studies in Computer Science at Ton Duc Thang University, conducting Deep Learning and language diffusion research at the TDTU NLP-KD Lab, and building enterprise agentic workflows as an AI Engineer Intern at QUAVEO.',
     author: 'Mai Nhat Duy <maiduy07102003@gmail.com>',
