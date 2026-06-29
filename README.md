@@ -17,7 +17,7 @@ The project has been refactored from a complex Jekyll setup into an extremely mi
 │   ├── css/
 │   │   └── style.css   # Main styles and responsive design CSS
 │   ├── img/
-│   │   ├── avt.jpg     # Personal avatar image
+│   │   ├── avt.png     # Personal avatar image
 │   │   └── logo.png    # Logo image (if applicable)
 │   └── js/
 │       └── main.js     # Scroll animations and mobile navigation menu logic
