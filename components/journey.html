@@ -1,10 +1,9 @@
-<section id="journey" class="page-section hidden">
+<section id="journey" class="page-section hidden pt-8">
     <!-- Header/Title Section -->
     <div class="mb-12">
-        <span class="text-[11px] font-mono uppercase tracking-widest text-indigo-500">Interactive Path
-            Visualization</span>
-        <h2 class="text-3xl font-bold tracking-tight dark:text-white mt-1">Development & Research Journey</h2>
-        <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2 max-w-2xl">
+        <span class="text-xs font-mono uppercase tracking-widest text-neutral-500">Interactive Path Visualization</span>
+        <h2 class="font-display text-4xl font-bold tracking-tight text-neutral-900 mt-1">Development & Research Journey</h2>
+        <p class="text-sm text-neutral-600 mt-2 max-w-2xl leading-relaxed">
             Explore each career milestone formatted as Git commits. Click on individual rows to inspect technical
             details, simulated files modified, hashes, and tags.
         </p>
@@ -14,22 +13,22 @@
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         <!-- Left & Center: Git Tree UI Client (col-span-8) -->
         <div
-            class="lg:col-span-8 flex flex-col bg-white/5 dark:bg-black/20 rounded-3xl border border-black/5 dark:border-white/5 backdrop-blur-sm shadow-xl overflow-hidden min-h-[500px]">
+            class="lg:col-span-8 flex flex-col bg-white rounded-3xl border border-neutral-200 shadow-lg overflow-hidden min-h-[500px]">
             <!-- Git Client Header Bar -->
             <div
-                class="bg-neutral-100/50 dark:bg-[#181818]/60 px-4 py-3 border-b border-black/5 dark:border-white/5 flex flex-wrap items-center justify-between gap-3 text-[11px] font-medium">
+                class="bg-neutral-50 px-4 py-3 border-b border-neutral-200 flex flex-wrap items-center justify-between gap-3 text-[11px] font-medium">
                 <div class="flex items-center gap-4 flex-wrap">
                     <!-- Branches Selector -->
                     <div
-                        class="flex items-center gap-1.5 bg-neutral-200/50 dark:bg-neutral-800/60 px-3 py-1.5 rounded-md border border-black/5 dark:border-white/5">
-                        <span class="text-neutral-500 dark:text-neutral-400">Branches:</span>
+                        class="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-md border border-neutral-200 shadow-sm">
+                        <span class="text-neutral-500">Branches:</span>
                         <select id="branch-filter"
-                            class="bg-transparent font-bold focus:outline-none cursor-pointer text-indigo-600 dark:text-indigo-400"
+                            class="bg-transparent font-bold focus:outline-none cursor-pointer text-neutral-900"
                             onchange="filterBranch()">
-                            <option value="all" class="bg-white dark:bg-[#121212]">Show All</option>
-                            <option value="main" class="bg-white dark:bg-[#121212]">main</option>
-                            <option value="nlp-lab" class="bg-white dark:bg-[#121212]">research/nlp-lab</option>
-                            <option value="quaveo" class="bg-white dark:bg-[#121212]">work/quaveo</option>
+                            <option value="all" class="bg-white">Show All</option>
+                            <option value="main" class="bg-white">main</option>
+                            <option value="nlp-lab" class="bg-white">research/nlp-lab</option>
+                            <option value="quaveo" class="bg-white">work/quaveo</option>
                         </select>
                     </div>
                 </div>
