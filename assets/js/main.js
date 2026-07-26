@@ -437,8 +437,34 @@ function createNewCommit(e) {
   filterBranch();
 }
 
-// --- Single-Page Navigation Switcher ---
-function navigateTo(sectionId) {
+// --- Single-Page Navigation Switcher & Routing ---
+function getSectionFromURL() {
+  const hash = window.location.hash.replace(/^#\/?/, '');
+  const path = window.location.pathname.replace(/\/$/, '').split('/').pop();
+  const searchParams = new URLSearchParams(window.location.search);
+  const projectId = searchParams.get('id') || searchParams.get('project');
+
+  if (projectId && typeof PROJECTS_DATA !== 'undefined' && PROJECTS_DATA[projectId]) {
+    return { section: 'proj-1', projectId: projectId };
+  }
+
+  if (hash) {
+    if (typeof PROJECTS_DATA !== 'undefined' && PROJECTS_DATA[hash]) {
+      return { section: 'proj-1', projectId: hash };
+    }
+    if (['home', 'projects', 'journey', 'skills'].includes(hash)) {
+      return { section: hash };
+    }
+  }
+
+  if (['projects', 'journey', 'skills', 'home'].includes(path)) {
+    return { section: path };
+  }
+
+  return { section: 'home' };
+}
+
+function navigateTo(sectionId, pushState = true) {
   // Hide all sections
   document.querySelectorAll('.page-section').forEach(section => {
     section.classList.add('hidden');
@@ -465,54 +491,156 @@ function navigateTo(sectionId) {
   if (sectionId === 'journey') {
     setTimeout(drawGitGraph, 50);
   }
+
+  if (pushState) {
+    let routePath = '/';
+    if (sectionId === 'projects') routePath = '/projects';
+    else if (sectionId === 'journey') routePath = '/journey';
+    else if (sectionId === 'skills') routePath = '/skills';
+    else if (sectionId === 'home') routePath = '/';
+
+    if (window.location.protocol === 'file:') {
+      routePath = sectionId === 'home' ? '#' : `#${sectionId}`;
+    }
+
+    if (window.location.pathname !== routePath && window.location.hash !== routePath) {
+      try {
+        window.history.pushState({ section: sectionId }, '', routePath);
+      } catch (e) {
+        window.history.pushState({ section: sectionId }, '', sectionId === 'home' ? '#' : `#${sectionId}`);
+      }
+    }
+  }
   
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// --- Dynamic Project Modal Renderer ---
-function openProject(projectId) {
-  navigateTo('proj-1'); // Uses #proj-1 as the reusable details section container
-  
-  const data = PROJECTS_DATA[projectId];
-  if (!data) return;
-  
-  // Update Details Content
-  document.getElementById('detail-title').textContent = data.title;
-  document.getElementById('detail-icon').setAttribute('icon', data.icon);
-  document.getElementById('detail-desc').textContent = data.description;
-  document.getElementById('detail-problem').textContent = data.problem;
-  document.getElementById('detail-solution').textContent = data.solution;
-  
-  // Render Tech Tags
-  const techEl = document.getElementById('detail-tech');
-  techEl.innerHTML = '';
-  data.techs.forEach(tech => {
-    const span = document.createElement('span');
-    span.className = "px-3 py-1 text-[11px] font-medium border border-white/10 rounded-full text-neutral-300 bg-white/5";
-    span.textContent = tech;
-    techEl.appendChild(span);
+// --- Category Filtering for Projects ---
+function filterProjects(category) {
+  // Update button active state
+  document.querySelectorAll('.project-filter-btn').forEach(btn => {
+    btn.classList.remove('active', 'bg-neutral-900', 'text-white', 'shadow-sm');
+    btn.classList.add('text-neutral-600', 'hover:text-neutral-900');
+    if (btn.getAttribute('data-project-filter') === category) {
+      btn.classList.add('active', 'bg-neutral-900', 'text-white', 'shadow-sm');
+      btn.classList.remove('text-neutral-600', 'hover:text-neutral-900');
+    }
   });
-  
-  // Render Metrics
-  const metricsEl = document.getElementById('detail-metrics');
-  metricsEl.innerHTML = '';
-  Object.entries(data.metrics).forEach(([key, val]) => {
-    const div = document.createElement('div');
-    div.className = "flex items-end justify-between border-b border-white/5 pb-2";
-    div.innerHTML = `
-      <span class="text-sm text-neutral-500">${key}</span>
-      <span class="font-mono text-sm text-white">${val}</span>
-    `;
-    metricsEl.appendChild(div);
+
+  // Filter cards
+  const cards = document.querySelectorAll('.project-card');
+  cards.forEach(card => {
+    const cardCat = card.getAttribute('data-category');
+    if (category === 'all' || cardCat === category) {
+      card.style.display = '';
+      card.classList.remove('hidden');
+    } else {
+      card.style.display = 'none';
+      card.classList.add('hidden');
+    }
   });
-  
-  // Update Action Button Link
-  const linkEl = document.getElementById('detail-link');
-  linkEl.setAttribute('href', data.linkUrl);
-  linkEl.innerHTML = `
-    <iconify-icon icon="lucide:external-link" width="14"></iconify-icon> ${data.linkLabel}
-  `;
 }
+
+// --- Dynamic Project Modal Renderer ---
+function openProject(projectId, pushState = true) {
+  // Hide all sections
+  document.querySelectorAll('.page-section').forEach(section => {
+    section.classList.add('hidden');
+    section.classList.remove('animate-slide-up');
+  });
+
+  const target = document.getElementById('proj-1'); // Uses #proj-1 as the reusable details section container
+  if (target) {
+    target.classList.remove('hidden');
+    void target.offsetWidth;
+    target.classList.add('animate-slide-up');
+  }
+
+  const data = PROJECTS_DATA[projectId];
+  if (data) {
+    // Update Details Content
+    document.getElementById('detail-title').textContent = data.title;
+    document.getElementById('detail-icon').setAttribute('icon', data.icon);
+    document.getElementById('detail-desc').textContent = data.description;
+    document.getElementById('detail-problem').textContent = data.problem;
+    document.getElementById('detail-solution').textContent = data.solution;
+    
+    const taglineEl = document.getElementById('detail-tagline');
+    if (taglineEl && data.tagline) {
+      taglineEl.textContent = data.tagline;
+    }
+
+    // Render Tech Tags
+    const techEl = document.getElementById('detail-tech');
+    techEl.innerHTML = '';
+    data.techs.forEach(tech => {
+      const span = document.createElement('span');
+      span.className = "px-3 py-1 text-xs font-mono font-medium rounded-lg text-neutral-800 bg-neutral-100 border border-neutral-200/80";
+      span.textContent = tech;
+      techEl.appendChild(span);
+    });
+    
+    // Render Metrics
+    const metricsEl = document.getElementById('detail-metrics');
+    metricsEl.innerHTML = '';
+    Object.entries(data.metrics).forEach(([key, val]) => {
+      const div = document.createElement('div');
+      div.className = "flex items-center justify-between border-b border-neutral-100 pb-2.5 pt-1 text-xs";
+      div.innerHTML = `
+        <span class="text-neutral-500 font-medium">${key}</span>
+        <span class="font-mono font-semibold text-neutral-900 bg-neutral-100 px-2 py-0.5 rounded">${val}</span>
+      `;
+      metricsEl.appendChild(div);
+    });
+    
+    // Update Action Button Link
+    const linkEl = document.getElementById('detail-link');
+    linkEl.setAttribute('href', data.linkUrl);
+    linkEl.innerHTML = `
+      <iconify-icon icon="lucide:external-link" width="14"></iconify-icon> ${data.linkLabel}
+    `;
+  }
+
+  // Update navbar state to 'projects' for project detail
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('data-target') === 'projects') {
+      link.classList.add('active');
+    }
+  });
+
+  if (pushState) {
+    let routePath = `/projects?id=${projectId}`;
+    if (window.location.protocol === 'file:') {
+      routePath = `#${projectId}`;
+    }
+    try {
+      window.history.pushState({ section: 'proj-1', projectId: projectId }, '', routePath);
+    } catch (e) {
+      window.history.pushState({ section: 'proj-1', projectId: projectId }, '', `#${projectId}`);
+    }
+  }
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Listen for browser Back/Forward navigation buttons
+window.addEventListener('popstate', (event) => {
+  if (event.state && event.state.section) {
+    if (event.state.section === 'proj-1' && event.state.projectId) {
+      openProject(event.state.projectId, false);
+    } else {
+      navigateTo(event.state.section, false);
+    }
+  } else {
+    const route = getSectionFromURL();
+    if (route.section === 'proj-1' && route.projectId) {
+      openProject(route.projectId, false);
+    } else {
+      navigateTo(route.section, false);
+    }
+  }
+});
 
 // --- Component Loader ---
 async function loadComponents() {
@@ -545,7 +673,29 @@ async function loadComponents() {
 
 // --- Initialize App ---
 function initializeApp() {
-  navigateTo('home');
+  const route = getSectionFromURL();
+  if (route.section === 'proj-1' && route.projectId) {
+    openProject(route.projectId, false);
+  } else {
+    navigateTo(route.section, false);
+  }
+
+  try {
+    let initialPath = '/';
+    if (route.section === 'projects') initialPath = '/projects';
+    else if (route.section === 'journey') initialPath = '/journey';
+    else if (route.section === 'skills') initialPath = '/skills';
+    else if (route.section === 'proj-1') initialPath = `/projects?id=${route.projectId}`;
+
+    if (window.location.protocol === 'file:') {
+      initialPath = route.section === 'home' ? '#' : `#${route.section === 'proj-1' ? route.projectId : route.section}`;
+    }
+
+    window.history.replaceState({ section: route.section, projectId: route.projectId || null }, '', initialPath);
+  } catch (e) {
+    // Ignore on local restricted origin
+  }
+
   initGitTree();
   
   // Call particles animation resize and animate
