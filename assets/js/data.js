@@ -6,54 +6,73 @@
 const PROJECTS_DATA = {
   'proj-1': {
     title: "Vietnamese Medical SLM",
+    tagline: "Fine-tuned 1.7B–4B Small Language Models for healthcare edge systems",
+    category: "llm",
+    categoryLabel: "NLP / LLM",
+    badgeColor: "bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border-indigo-500/20",
     icon: "lucide:brain-circuit",
     techs: ["PyTorch", "Transformers", "Unsloth", "DeepSpeed", "Datatrove", "Marker"],
     description: "Small Language Models (1.7B to 4B parameters) fine-tuned for specialized medical queries and Vietnamese healthcare environments.",
     problem: "Traditional Large Language Models are computationally expensive to run on localized hospital edge systems, and frequently hallucinate or fail when queried with Vietnamese clinical documentation or terminology.",
     solution: "Digitized physical medical documents using Marker, cleaned data at scale with Datatrove, and optimized SLM training on consumer-grade GPU instances using Unsloth (LoRA/QLoRA) and DeepSpeed SFT pipelines.",
     metrics: {
-      "Evaluation": "MedUC Benchmark",
-      "Accuracy Improvement": "+4.5% vs Base",
-      "Model Sizes": "1.7B - 4.0B params",
-      "Inference Target": "Edge Deployment"
+      "Evaluation Benchmark": "MedUC Benchmark",
+      "Accuracy vs Base": "+4.5% Improvement",
+      "Model Size": "1.7B - 4.0B Parameters",
+      "Deployment Target": "Hospital Edge Hardware"
     },
+    highlightMetric: "+4.5% Accuracy vs Base",
     linkUrl: "https://huggingface.co/collections/myduy/vietnamese-medical-language-models-68f73b22ffa29c05d321bf23",
-    linkLabel: "View Collection Hub"
+    linkLabel: "View HF Collection Hub"
   },
   'proj-2': {
-    title: "Agentic RAG Chatbot",
+    title: "deep-bot: Agentic RAG",
+    tagline: "LangGraph-routed multi-agent hybrid vector & SQL analytics chatbot",
+    category: "agents",
+    categoryLabel: "Agents / RAG",
+    badgeColor: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20",
     icon: "lucide:bot",
     techs: ["LangGraph", "LangChain", "ElasticSearch", "PostgreSQL", "Python", "vLLM"],
     description: "Enterprise agentic assistant utilizing graph-based multi-agent flows and hybrid search capabilities.",
     problem: "Standard Retrieval-Augmented Generation architectures fail when queries require multi-step reasoning, routing between vector semantic searches and relational SQL databases, or parallel sub-task execution.",
     solution: "Designed a multi-agent system using LangGraph for cyclic agent routing, integrated Elasticsearch for hybrid dense-sparse vector search, and enabled SQL agent toolkits to perform direct semantic analytics.",
     metrics: {
-      "Response Latency": "Sub-1.2 seconds",
-      "Agent Flow Success": "94.2% accuracy",
-      "Search Support": "Vector & SQL",
-      "Database": "Elasticsearch & Postgres"
+      "Response Latency": "< 1.2 Seconds",
+      "Agent Flow Accuracy": "94.2% Success Rate",
+      "Query Architecture": "Hybrid Vector & SQL",
+      "Search Backend": "Elasticsearch & Postgres"
     },
+    highlightMetric: "LangGraph Multi-Agent RAG",
     linkUrl: "https://github.com/mainhatduy/deep-bot",
-    linkLabel: "View Source Code"
+    linkLabel: "View GitHub Source Code"
   },
   'proj-3': {
     title: "Diffusion LM for Medical NER",
+    tagline: "Supervised discrete diffusion for nested entity extraction in clinical text",
+    category: "diffusion",
+    categoryLabel: "Diffusion / NER",
+    badgeColor: "bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20",
     icon: "lucide:scan-eye",
-    techs: ["Diffusion LM", "SFT", "PyTorch", "Hugging Face", "DeBERTa"],
+    techs: ["Diffusion LM", "SFT", "PyTorch", "Hugging Face", "DeBERTa-v3"],
     description: "A specialized Discrete Diffusion Language Model for extracting nested medical entities in clinical Vietnamese texts.",
     problem: "Nested Named Entity Recognition is historically difficult for traditional sequence-labeling models because entities overlap (e.g. 'COVID-19 patient' contains both a disease and a person).",
     solution: "Fine-tuned a Dream 7B Diffusion Language Model using supervised sequence generation constraints on the Vietnamese COVID-19 Nested NER dataset to generate semantic spans iteratively.",
     metrics: {
-      "Entity F1-Score": "79.04%",
-      "Inference Steps": "50 (denoising)",
-      "Dataset": "COVID-19 Nested NER",
-      "Base Embeddings": "DeBERTa-v3"
+      "Entity F1-Score": "79.04% F1",
+      "Denoising Steps": "50 Iterative Steps",
+      "Target Dataset": "COVID-19 Nested NER",
+      "Base Model": "DeBERTa-v3 Embeddings"
     },
+    highlightMetric: "F1-Score of 79.04%",
     linkUrl: "https://huggingface.co/myduy/diffusion-medical-ner",
     linkLabel: "Visit Model Page"
   },
   'proj-4': {
     title: "Discrete Diffusion Translation",
+    tagline: "Non-autoregressive English-to-Vietnamese machine translation engine",
+    category: "diffusion",
+    categoryLabel: "Diffusion / Machine Translation",
+    badgeColor: "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20",
     icon: "lucide:languages",
     techs: ["PyTorch", "XLM-RoBERTa", "Discrete Diffusion", "NLP", "Machine Translation"],
     description: "Discrete Diffusion sequence model specialized in English-to-Vietnamese machine translation.",
@@ -61,10 +80,11 @@ const PROJECTS_DATA = {
     solution: "Trained a Reparameterized Discrete Diffusion Model starting from pretrained XLM-RoBERTa Large. The model generates translations by iteratively denoising discrete text tokens in parallel.",
     metrics: {
       "BLEU Score": "37.9 En-Vi",
-      "Denoising Steps": "20 steps",
-      "Base Model": "XLM-RoBERTa Large",
-      "Vocabulary Size": "250,002 tokens"
+      "Denoising Iterations": "20 Parallel Steps",
+      "Pretrained Base": "XLM-RoBERTa Large",
+      "Vocabulary Size": "250,002 Tokens"
     },
+    highlightMetric: "BLEU Score 37.9",
     linkUrl: "https://huggingface.co/myduy/dlm-vi2en",
     linkLabel: "Visit Model Page"
   }

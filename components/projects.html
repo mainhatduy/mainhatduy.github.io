@@ -1,110 +1,209 @@
-<section id="projects" class="page-section hidden">
-    <div class="mb-12">
-        <span class="text-[11px] font-mono uppercase tracking-widest text-indigo-500">Selected Works</span>
-        <h2 class="text-3xl font-bold tracking-tight dark:text-white mt-1">Research & Systems</h2>
+<section id="projects" class="page-section hidden pt-6 pb-12">
+    
+    <!-- Section Header & Quick Stats -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 text-neutral-600 text-xs font-mono font-medium mb-3">
+                <span class="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
+                SELECTED WORKS & RESEARCH
+            </div>
+            <h2 class="font-display text-4xl sm:text-5xl font-bold tracking-tight text-neutral-950">Research & Systems</h2>
+            <p class="text-neutral-500 text-sm md:text-base mt-2 max-w-xl">
+                Open-source AI models, specialized language architectures, and multi-agent enterprise RAG systems.
+            </p>
+        </div>
+
+        <!-- Filter Navigation Tabs -->
+        <div class="flex flex-wrap items-center gap-1.5 p-1.5 rounded-2xl bg-neutral-100/80 border border-neutral-200/70 w-fit backdrop-blur-md">
+            <button onclick="filterProjects('all')" data-project-filter="all"
+                class="project-filter-btn active px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all duration-200">
+                All Works
+            </button>
+            <button onclick="filterProjects('llm')" data-project-filter="llm"
+                class="project-filter-btn px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all duration-200">
+                LLM & SLM
+            </button>
+            <button onclick="filterProjects('agents')" data-project-filter="agents"
+                class="project-filter-btn px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all duration-200">
+                Agents & RAG
+            </button>
+            <button onclick="filterProjects('diffusion')" data-project-filter="diffusion"
+                class="project-filter-btn px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all duration-200">
+                Diffusion LMs
+            </button>
+        </div>
     </div>
 
-    <!-- Bento Grid Layout -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 h-auto">
+    <!-- Equal-Area Symmetrical Grid Layout (2x2 Grid) -->
+    <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-        <!-- Project 1: Medical SLM (Large: col-span-2) -->
-        <div onclick="openProject('proj-1')"
-            class="group md:col-span-2 glass-card rounded-[20px] p-8 flex flex-col justify-between cursor-pointer relative overflow-hidden min-h-[280px]">
-            <div class="flex items-start justify-between">
-                <span class="text-[10px] font-mono uppercase tracking-wider text-indigo-400">NLP / LLM</span>
-                <iconify-icon icon="lucide:brain-circuit" width="22"
-                    class="text-neutral-500 dark:text-neutral-400 group-hover:scale-125 duration-500"></iconify-icon>
-            </div>
+        <!-- Project 1: Medical SLM -->
+        <div data-category="llm" onclick="openProject('proj-1')"
+            class="project-card group glass-card rounded-[28px] p-7 md:p-8 flex flex-col justify-between cursor-pointer relative overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-neutral-200/80 bg-white/90 h-full min-h-[300px]">
+            
             <div>
-                <h3 class="text-2xl font-semibold tracking-tight dark:text-white mt-10">Vietnamese Medical SLM
-                </h3>
-                <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2">Training specialized Small
-                    Language Models on medical documents and clinical notes optimized for constrained hardware
-                    architectures.</p>
-                <div
-                    class="border-l border-indigo-500/20 bg-indigo-500/5 px-3 py-1.5 rounded-r mt-4 text-xs dark:text-indigo-300 w-fit">
-                    +4.5% Accuracy improvement vs Base
+                <!-- Header row: Category & Icon -->
+                <div class="flex items-center justify-between">
+                    <span class="px-3 py-1 rounded-full text-[11px] font-mono font-semibold tracking-wider uppercase bg-indigo-50 text-indigo-600 border border-indigo-100">
+                        NLP / LLM
+                    </span>
+                    <div class="w-10 h-10 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-600 group-hover:bg-neutral-900 group-hover:text-white transition-all duration-300">
+                        <iconify-icon icon="lucide:brain-circuit" width="20"></iconify-icon>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="mt-6">
+                    <h3 class="font-display text-2xl font-bold tracking-tight text-neutral-900 group-hover:text-indigo-600 transition-colors">
+                        Vietnamese Medical SLM
+                    </h3>
+                    <p class="text-sm text-neutral-600 mt-2.5 leading-relaxed font-light">
+                        Specialized Small Language Models (1.7B to 4B parameters) fine-tuned on Vietnamese clinical records and medical literature, optimized for resource-constrained edge systems.
+                    </p>
                 </div>
             </div>
-            <div class="flex items-center gap-1.5 text-xs font-semibold dark:text-white mt-6">
-                <span>View Case Study</span>
-                <iconify-icon icon="lucide:arrow-right" width="12"
-                    class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+
+            <!-- Footer: Tech Tags, Metric, & Action CTA -->
+            <div class="mt-8 pt-6 border-t border-neutral-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div class="flex flex-wrap items-center gap-2">
+                    <span class="px-3 py-1 rounded-lg text-xs font-mono font-medium bg-emerald-50 text-emerald-700 border border-emerald-200/60">
+                        +4.5% Accuracy vs Base
+                    </span>
+                    <span class="px-2.5 py-1 rounded-lg text-xs font-mono text-neutral-500 bg-neutral-100">
+                        1.7B - 4.0B Params
+                    </span>
+                </div>
+                
+                <div class="flex items-center gap-2 text-xs font-semibold text-neutral-900 group-hover:text-indigo-600 transition-colors">
+                    <span>View Case Study</span>
+                    <iconify-icon icon="lucide:arrow-right" width="16" class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+                </div>
             </div>
         </div>
 
-        <!-- Project 2: deep-bot (Small: col-span-1) -->
-        <div onclick="openProject('proj-2')"
-            class="group md:col-span-1 glass-card rounded-[20px] p-8 flex flex-col justify-between cursor-pointer relative overflow-hidden min-h-[280px]">
-            <div class="flex items-start justify-between">
-                <span class="text-[10px] font-mono uppercase tracking-wider text-indigo-400">Agents / RAG</span>
-                <iconify-icon icon="lucide:bot" width="22"
-                    class="text-neutral-500 dark:text-neutral-400 group-hover:scale-125 duration-500"></iconify-icon>
-            </div>
+        <!-- Project 2: deep-bot -->
+        <div data-category="agents" onclick="openProject('proj-2')"
+            class="project-card group glass-card rounded-[28px] p-7 md:p-8 flex flex-col justify-between cursor-pointer relative overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-neutral-200/80 bg-white/90 h-full min-h-[300px]">
+            
             <div>
-                <h3 class="text-2xl font-semibold tracking-tight dark:text-white mt-10">deep-bot</h3>
-                <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2">Graph-routed Agentic chatbot
-                    system supporting hybrid Vector & SQL parallel querying pipelines.</p>
-                <div
-                    class="border-l border-indigo-500/20 bg-indigo-500/5 px-3 py-1.5 rounded-r mt-4 text-xs dark:text-indigo-300 w-fit">
-                    LangGraph Multi-Agent RAG
+                <!-- Header row: Category & Icon -->
+                <div class="flex items-center justify-between">
+                    <span class="px-3 py-1 rounded-full text-[11px] font-mono font-semibold tracking-wider uppercase bg-emerald-50 text-emerald-600 border border-emerald-100">
+                        Agents / RAG
+                    </span>
+                    <div class="w-10 h-10 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-600 group-hover:bg-neutral-900 group-hover:text-white transition-all duration-300">
+                        <iconify-icon icon="lucide:bot" width="20"></iconify-icon>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="mt-6">
+                    <h3 class="font-display text-2xl font-bold tracking-tight text-neutral-900 group-hover:text-emerald-600 transition-colors">
+                        deep-bot
+                    </h3>
+                    <p class="text-sm text-neutral-600 mt-2.5 leading-relaxed font-light">
+                        LangGraph multi-agent chatbot featuring graph routing, dense-sparse vector indexing, and parallel SQL database analytics.
+                    </p>
                 </div>
             </div>
-            <div class="flex items-center gap-1.5 text-xs font-semibold dark:text-white mt-6">
-                <span>View Case Study</span>
-                <iconify-icon icon="lucide:arrow-right" width="12"
-                    class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+
+            <!-- Footer: Tech Tags, Metric, & Action CTA -->
+            <div class="mt-8 pt-6 border-t border-neutral-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div class="flex flex-wrap items-center gap-2">
+                    <span class="px-3 py-1 rounded-lg text-xs font-mono font-medium bg-emerald-50 text-emerald-700 border border-emerald-200/60">
+                        LangGraph Multi-Agent RAG
+                    </span>
+                </div>
+                
+                <div class="flex items-center gap-2 text-xs font-semibold text-neutral-900 group-hover:text-emerald-600 transition-colors">
+                    <span>View Case Study</span>
+                    <iconify-icon icon="lucide:arrow-right" width="16" class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+                </div>
             </div>
         </div>
 
-        <!-- Project 3: Medical NER (Small: col-span-1) -->
-        <div onclick="openProject('proj-3')"
-            class="group md:col-span-1 glass-card rounded-[20px] p-8 flex flex-col justify-between cursor-pointer relative overflow-hidden min-h-[280px]">
-            <div class="flex items-start justify-between">
-                <span class="text-[10px] font-mono uppercase tracking-wider text-indigo-400">Diffusion /
-                    NER</span>
-                <iconify-icon icon="lucide:scan-eye" width="22"
-                    class="text-neutral-500 dark:text-neutral-400 group-hover:scale-125 duration-500"></iconify-icon>
-            </div>
+        <!-- Project 3: Medical NER -->
+        <div data-category="diffusion" onclick="openProject('proj-3')"
+            class="project-card group glass-card rounded-[28px] p-7 md:p-8 flex flex-col justify-between cursor-pointer relative overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-neutral-200/80 bg-white/90 h-full min-h-[300px]">
+            
             <div>
-                <h3 class="text-2xl font-semibold tracking-tight dark:text-white mt-10">Medical NER</h3>
-                <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2">Fine-tuned Dream 7B Diffusion
-                    Language Model for Nested NER on Vietnamese COVID-19 documentation.</p>
-                <div
-                    class="border-l border-indigo-500/20 bg-indigo-500/5 px-3 py-1.5 rounded-r mt-4 text-xs dark:text-indigo-300 w-fit">
-                    F1-Score of 79.04%
+                <!-- Header row: Category & Icon -->
+                <div class="flex items-center justify-between">
+                    <span class="px-3 py-1 rounded-full text-[11px] font-mono font-semibold tracking-wider uppercase bg-purple-50 text-purple-600 border border-purple-100">
+                        Diffusion / NER
+                    </span>
+                    <div class="w-10 h-10 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-600 group-hover:bg-neutral-900 group-hover:text-white transition-all duration-300">
+                        <iconify-icon icon="lucide:scan-eye" width="20"></iconify-icon>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="mt-6">
+                    <h3 class="font-display text-2xl font-bold tracking-tight text-neutral-900 group-hover:text-purple-600 transition-colors">
+                        Medical NER
+                    </h3>
+                    <p class="text-sm text-neutral-600 mt-2.5 leading-relaxed font-light">
+                        Fine-tuned Dream 7B Discrete Diffusion Language Model for extracting nested medical entities in clinical Vietnamese text.
+                    </p>
                 </div>
             </div>
-            <div class="flex items-center gap-1.5 text-xs font-semibold dark:text-white mt-6">
-                <span>View Case Study</span>
-                <iconify-icon icon="lucide:arrow-right" width="12"
-                    class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+
+            <!-- Footer: Tech Tags, Metric, & Action CTA -->
+            <div class="mt-8 pt-6 border-t border-neutral-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div class="flex flex-wrap items-center gap-2">
+                    <span class="px-3 py-1 rounded-lg text-xs font-mono font-medium bg-purple-50 text-purple-700 border border-purple-200/60">
+                        F1-Score 79.04%
+                    </span>
+                </div>
+                
+                <div class="flex items-center gap-2 text-xs font-semibold text-neutral-900 group-hover:text-purple-600 transition-colors">
+                    <span>View Case Study</span>
+                    <iconify-icon icon="lucide:arrow-right" width="16" class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+                </div>
             </div>
         </div>
 
-        <!-- Project 4: Translation (Large: col-span-2) -->
-        <div onclick="openProject('proj-4')"
-            class="group md:col-span-2 glass-card rounded-[20px] p-8 flex flex-col justify-between cursor-pointer relative overflow-hidden min-h-[280px]">
-            <div class="flex items-start justify-between">
-                <span class="text-[10px] font-mono uppercase tracking-wider text-indigo-400">Diffusion /
-                    Transl.</span>
-                <iconify-icon icon="lucide:languages" width="22"
-                    class="text-neutral-500 dark:text-neutral-400 group-hover:scale-125 duration-500"></iconify-icon>
-            </div>
+        <!-- Project 4: Translation -->
+        <div data-category="diffusion" onclick="openProject('proj-4')"
+            class="project-card group glass-card rounded-[28px] p-7 md:p-8 flex flex-col justify-between cursor-pointer relative overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-neutral-200/80 bg-white/90 h-full min-h-[300px]">
+            
             <div>
-                <h3 class="text-2xl font-semibold tracking-tight dark:text-white mt-10">dlm-vi2en</h3>
-                <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2">Discrete Diffusion translation
-                    engine built starting from XLM-RoBERTa Large featuring non-autoregressive token generation.
-                </p>
-                <div
-                    class="border-l border-indigo-500/20 bg-indigo-500/5 px-3 py-1.5 rounded-r mt-4 text-xs dark:text-indigo-300 w-fit">
-                    BLEU score of 37.9
+                <!-- Header row: Category & Icon -->
+                <div class="flex items-center justify-between">
+                    <span class="px-3 py-1 rounded-full text-[11px] font-mono font-semibold tracking-wider uppercase bg-amber-50 text-amber-600 border border-amber-100">
+                        Diffusion / Machine Transl.
+                    </span>
+                    <div class="w-10 h-10 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-600 group-hover:bg-neutral-900 group-hover:text-white transition-all duration-300">
+                        <iconify-icon icon="lucide:languages" width="20"></iconify-icon>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="mt-6">
+                    <h3 class="font-display text-2xl font-bold tracking-tight text-neutral-900 group-hover:text-amber-600 transition-colors">
+                        dlm-vi2en Machine Translation
+                    </h3>
+                    <p class="text-sm text-neutral-600 mt-2.5 leading-relaxed font-light">
+                        Discrete Diffusion translation engine built starting from pretrained XLM-RoBERTa Large, using iterative non-autoregressive token denoising.
+                    </p>
                 </div>
             </div>
-            <div class="flex items-center gap-1.5 text-xs font-semibold dark:text-white mt-6">
-                <span>View Case Study</span>
-                <iconify-icon icon="lucide:arrow-right" width="12"
-                    class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+
+            <!-- Footer: Tech Tags, Metric, & Action CTA -->
+            <div class="mt-8 pt-6 border-t border-neutral-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div class="flex flex-wrap items-center gap-2">
+                    <span class="px-3 py-1 rounded-lg text-xs font-mono font-medium bg-amber-50 text-amber-700 border border-amber-200/60">
+                        BLEU Score 37.9
+                    </span>
+                    <span class="px-2.5 py-1 rounded-lg text-xs font-mono text-neutral-500 bg-neutral-100">
+                        XLM-RoBERTa Large
+                    </span>
+                </div>
+                
+                <div class="flex items-center gap-2 text-xs font-semibold text-neutral-900 group-hover:text-amber-600 transition-colors">
+                    <span>View Case Study</span>
+                    <iconify-icon icon="lucide:arrow-right" width="16" class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+                </div>
             </div>
         </div>
 

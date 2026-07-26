@@ -37,7 +37,7 @@ class Particle {
     if (this.y < 0 || this.y > height) this.vy *= -1;
   }
   draw(ctx) {
-    ctx.fillStyle = 'rgba(255,255,255,0.5)';
+    ctx.fillStyle = 'rgba(0,0,0,0.2)';
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
     ctx.fill();
@@ -69,7 +69,7 @@ function animateParticles() {
       
       if (dist < CONFIG.connectionDist) {
         ctx.beginPath();
-        ctx.strokeStyle = `rgba(255,255,255,${0.15 - (dist / CONFIG.connectionDist) * 0.15})`;
+        ctx.strokeStyle = `rgba(0,0,0,${0.08 - (dist / CONFIG.connectionDist) * 0.08})`;
         ctx.lineWidth = 0.5;
         ctx.moveTo(p.x, p.y);
         ctx.lineTo(p2.x, p2.y);

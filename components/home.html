@@ -1,82 +1,89 @@
-<section id="home" class="page-section min-h-[70vh] flex flex-col justify-center animate-slide-up">
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-16 items-center">
-        <!-- Bio & Title -->
-        <div class="lg:col-span-2 space-y-8">
-            <!-- Availability Badge -->
-            <div
-                class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-500/5 border border-emerald-500/20 rounded-full text-emerald-500 text-[10px] font-medium tracking-wider uppercase">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
-                <span>Available for Collaboration</span>
-            </div>
+<section id="home" class="page-section flex flex-col justify-between pt-6 pb-2 animate-slide-up relative">
+    
+    <!-- Top Row: Greeting Subhead -->
+    <div class="text-center mb-2">
+        <p class="text-base md:text-xl font-normal text-neutral-600 tracking-tight">
+            👋, my name is <span class="font-semibold text-neutral-900">Mai Nhat Duy</span> and I am an
+        </p>
+    </div>
 
-            <div class="space-y-4">
-                <h1
-                    class="text-5xl md:text-8xl font-bold tracking-[-0.03em] leading-[0.95] text-transparent bg-clip-text bg-gradient-to-b from-neutral-900 via-neutral-900 to-neutral-500 dark:from-white dark:via-white dark:to-neutral-400 glow-text">
-                    Mai Nhat Duy
+    <!-- Main Giant Headline & Cutout Centerpiece Container -->
+    <div class="relative w-full flex flex-col items-center justify-center my-4 select-none">
+        
+        <!-- Big Typography Layer -->
+        <div class="text-center w-full z-0 leading-none space-y-1 md:space-y-0">
+            <!-- Line 1: Solid Bold Text -->
+            <div class="flex items-center justify-center">
+                <h1 class="font-display text-[8.5vw] md:text-[94px] lg:text-[112px] font-bold uppercase tracking-tight text-neutral-950 leading-none whitespace-nowrap">
+                    AI ENGINEER
                 </h1>
-                <p
-                    class="text-lg md:text-xl font-light text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-xl">
-                    AI Engineer & NLP Researcher bridging the gap between theoretical models and robust
-                    production systems. Specializing in Large Language Model fine-tuning, discrete diffusion,
-                    and agentic RAG architectures.
-                </p>
             </div>
 
-            <!-- Call To Actions -->
-            <div class="flex flex-wrap items-center gap-4">
-                <button id="btn-case-studies" onclick="navigateTo('projects')"
-                    class="px-6 py-3 bg-neutral-900 hover:bg-neutral-800 dark:bg-[#EDEDED] dark:hover:bg-white text-white dark:text-black text-xs font-semibold rounded-xl transition-all shadow-lg hover:-translate-y-1">
-                    View Case Studies
-                </button>
-                <a id="btn-get-in-touch" href="mailto:maiduy07102003@gmail.com"
-                    class="px-6 py-3 border border-neutral-300 dark:border-white/10 hover:bg-neutral-200 dark:hover:bg-white/5 text-xs font-semibold rounded-xl transition-all hover:-translate-y-1">
-                    Get in Touch
-                </a>
-
-                <!-- Social Links -->
-                <div class="flex items-center gap-2 pl-3">
-                    <a href="https://github.com/mainhatduy" target="_blank"
-                        class="home-social-link icon-only w-8 h-8 rounded-full border border-neutral-300 dark:border-white/10 flex items-center justify-center text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors"
-                        aria-label="GitHub">
-                        <iconify-icon icon="lucide:github" width="18" style="width: 18px; height: 18px;"></iconify-icon>
-                    </a>
-                    <a href="https://linkedin.com/in/mainhatduy" target="_blank"
-                        class="home-social-link icon-only w-8 h-8 rounded-full border border-neutral-300 dark:border-white/10 flex items-center justify-center text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors"
-                        aria-label="LinkedIn">
-                        <iconify-icon icon="lucide:linkedin" width="18"
-                            style="width: 18px; height: 18px;"></iconify-icon>
-                    </a>
-                    <a href="https://huggingface.co/myduy" target="_blank"
-                        class="home-social-link text-badge px-3 py-1.5 rounded-full border border-neutral-300 dark:border-white/10 flex items-center justify-center text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white text-[10px] font-bold font-mono transition-colors"
-                        aria-label="Hugging Face">
-                        🤗 HF
-                    </a>
-                </div>
+            <!-- Line 2: Stroked Outline Text -->
+            <div class="flex items-center justify-center">
+                <h2 class="font-display text-[7.5vw] md:text-[82px] lg:text-[98px] font-bold uppercase tracking-tight text-stroke leading-none whitespace-nowrap">
+                    NLP RESEARCHER
+                </h2>
             </div>
         </div>
 
-        <!-- Avatar Profile visual -->
-        <div class="flex justify-center lg:justify-end">
-            <div class="relative w-64 h-64 lg:w-72 lg:h-72">
-                <div
-                    class="absolute inset-0 bg-gradient-to-tr from-indigo-500 to-purple-500/10 rounded-3xl blur-3xl opacity-20 dark:opacity-40 animate-pulse-slow">
-                </div>
-                <div
-                    class="w-full h-full rounded-[32px] overflow-hidden border border-black/5 dark:border-white/10 p-2 bg-[#FAFAFA]/80 dark:bg-[#0A0A0A]/80 backdrop-blur-md drop-shadow-2xl">
-                    <img src="/assets/img/avt.png" alt="Mai Nhat Duy" class="w-full h-full object-cover rounded-[24px]">
-                </div>
-            </div>
+        <!-- Centered B&W Avatar Cutout Image -->
+        <div class="relative w-full max-w-4xl mx-auto z-10 -mt-16 sm:-mt-24 md:-mt-32 lg:-mt-40 flex flex-col items-center">
+            <!-- Image -->
+            <img src="assets/img/new_avt_tranp_bw.png" alt="Mai Nhat Duy" 
+                 class="w-[260px] sm:w-[320px] md:w-[400px] lg:w-[450px] max-w-none object-contain drop-shadow-2xl filter contrast-105 pointer-events-none">
+        </div>
+
+    </div>
+
+    <!-- Original Bio Paragraph & Social Links Section -->
+    <div class="max-w-2xl mx-auto text-center space-y-6 mt-12 z-20">
+        <p class="text-base md:text-lg font-light text-neutral-600 leading-relaxed">
+            AI Engineer & NLP Researcher bridging the gap between theoretical models and robust
+            production systems. Specializing in Large Language Model fine-tuning, discrete diffusion,
+            and agentic RAG architectures.
+        </p>
+
+        <!-- Call To Action & Social Links -->
+        <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+            <a href="mailto:maiduy07102003@gmail.com"
+                class="home-social-link icon-only w-9 h-9 rounded-full border border-neutral-300 flex items-center justify-center text-neutral-600 hover:bg-neutral-900 hover:text-white transition-all shadow-sm"
+                aria-label="Email">
+                <iconify-icon icon="lucide:mail" width="18"></iconify-icon>
+            </a>
+            <a href="tel:+84944043973"
+                class="home-social-link icon-only w-9 h-9 rounded-full border border-neutral-300 flex items-center justify-center text-neutral-600 hover:bg-neutral-900 hover:text-white transition-all shadow-sm"
+                aria-label="Phone">
+                <iconify-icon icon="lucide:phone" width="18"></iconify-icon>
+            </a>
+            <a href="https://github.com/mainhatduy" target="_blank"
+                class="home-social-link icon-only w-9 h-9 rounded-full border border-neutral-300 flex items-center justify-center text-neutral-600 hover:bg-neutral-900 hover:text-white transition-all shadow-sm"
+                aria-label="GitHub">
+                <iconify-icon icon="lucide:github" width="18"></iconify-icon>
+            </a>
+            <a href="https://linkedin.com/in/mainhatduy" target="_blank"
+                class="home-social-link icon-only w-9 h-9 rounded-full border border-neutral-300 flex items-center justify-center text-neutral-600 hover:bg-neutral-900 hover:text-white transition-all shadow-sm"
+                aria-label="LinkedIn">
+                <iconify-icon icon="lucide:linkedin" width="18"></iconify-icon>
+            </a>
+            <a href="https://huggingface.co/myduy" target="_blank"
+                class="home-social-link text-badge px-3.5 py-2 rounded-full border border-neutral-300 flex items-center justify-center text-neutral-700 hover:bg-neutral-900 hover:text-white text-[11px] font-bold font-mono transition-all shadow-sm"
+                aria-label="Hugging Face">
+                🤗 Hugging Face
+            </a>
         </div>
     </div>
 
-    <!-- Orbital Stats Animation Section -->
-    <div class="mt-16 pt-8 border-t border-neutral-200 dark:border-white/5 w-full flex flex-col items-center">
+
+
+    <!-- Orbital Stats Animation Section (Preserved Component) -->
+    <div class="mt-8 pt-6 border-t border-neutral-200/80 w-full flex flex-col items-center">
         <div class="w-full max-w-4xl relative">
-            <block-enterprise class="text-indigo-500/25 dark:text-indigo-400/30">
+            <block-enterprise class="text-indigo-500/25">
 
                 <!-- Central Core -->
                 <div class="central-core">
-                    <div class="core-inner">AI Core</div>
+                    <div class="core-inner text-neutral-900">AI Core</div>
                 </div>
 
                 <!-- Orbiting Nodes -->
@@ -91,4 +98,5 @@
             </block-enterprise>
         </div>
     </div>
+
 </section>
