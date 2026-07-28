@@ -599,6 +599,23 @@ function openProject(projectId, pushState = true) {
     linkEl.innerHTML = `
       <iconify-icon icon="lucide:external-link" width="14"></iconify-icon> ${data.linkLabel}
     `;
+
+    // Render optional Thesis / Document PDF Link
+    let pdfBtnEl = document.getElementById('detail-pdf-link');
+    if (data.pdfUrl) {
+      if (!pdfBtnEl) {
+        pdfBtnEl = document.createElement('a');
+        pdfBtnEl.id = 'detail-pdf-link';
+        pdfBtnEl.target = '_blank';
+        pdfBtnEl.className = "w-full inline-flex items-center justify-center gap-2 px-5 py-3 text-xs font-semibold text-neutral-800 bg-neutral-100 hover:bg-neutral-200 border border-neutral-300/80 rounded-xl transition-all shadow-sm mt-2.5";
+        linkEl.parentNode.appendChild(pdfBtnEl);
+      }
+      pdfBtnEl.style.display = 'inline-flex';
+      pdfBtnEl.setAttribute('href', data.pdfUrl);
+      pdfBtnEl.innerHTML = `<iconify-icon icon="lucide:file-text" width="14"></iconify-icon> ${data.pdfLabel || 'Read Thesis (PDF)'}`;
+    } else if (pdfBtnEl) {
+      pdfBtnEl.style.display = 'none';
+    }
   }
 
   // Update navbar state to 'projects' for project detail
