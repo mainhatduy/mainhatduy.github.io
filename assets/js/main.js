@@ -181,10 +181,10 @@ function renderTableRows() {
       </td>
       <td class="px-4 py-2 text-neutral-900 dark:text-neutral-100 font-medium">
         <div class="flex flex-col">
-          <span class="truncate max-w-[320px] md:max-w-md block font-semibold">${commit.title}</span>
+          <span class="truncate max-w-[160px] sm:max-w-[320px] md:max-w-md block font-semibold">${commit.title}</span>
           <div class="flex items-center gap-1 mt-0.5">
             ${tagsMarkup}
-            <span class="text-[10px] text-neutral-400 dark:text-neutral-500 truncate">${commit.subtitle || commit.description}</span>
+            <span class="text-[10px] text-neutral-400 dark:text-neutral-500 truncate max-w-[160px] sm:max-w-[320px]">${commit.subtitle || commit.description}</span>
           </div>
         </div>
       </td>

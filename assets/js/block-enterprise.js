@@ -176,6 +176,9 @@ class BlockEnterprise extends HTMLElement {
     });
     
     let r = Math.min(this._width / 2 - t / 2, this._height / 2 - n / 2);
+    if (this._width < 600) {
+      r = r * 0.58;
+    }
     let i = r;
     let a = this._width / 2;
     let o = this._height / 2;

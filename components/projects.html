@@ -10,21 +10,21 @@
         </div>
 
         <!-- Filter Navigation Tabs -->
-        <div class="flex flex-wrap items-center gap-1.5 p-1.5 rounded-2xl bg-neutral-100/80 border border-neutral-200/70 w-fit backdrop-blur-md">
+        <div class="flex items-center gap-1 sm:gap-1.5 p-1 sm:p-1.5 rounded-xl sm:rounded-2xl bg-neutral-100/80 border border-neutral-200/70 w-full sm:w-fit overflow-x-auto max-w-full backdrop-blur-md no-scrollbar">
             <button onclick="filterProjects('all')" data-project-filter="all"
-                class="project-filter-btn active px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all duration-200">
+                class="project-filter-btn active px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-semibold tracking-wide transition-all duration-200 whitespace-nowrap">
                 All Works
             </button>
             <button onclick="filterProjects('llm')" data-project-filter="llm"
-                class="project-filter-btn px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all duration-200">
+                class="project-filter-btn px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-semibold tracking-wide transition-all duration-200 whitespace-nowrap">
                 LLM & SLM
             </button>
             <button onclick="filterProjects('agents')" data-project-filter="agents"
-                class="project-filter-btn px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all duration-200">
+                class="project-filter-btn px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-semibold tracking-wide transition-all duration-200 whitespace-nowrap">
                 Agents & RAG
             </button>
             <button onclick="filterProjects('diffusion')" data-project-filter="diffusion"
-                class="project-filter-btn px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all duration-200">
+                class="project-filter-btn px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-semibold tracking-wide transition-all duration-200 whitespace-nowrap">
                 Diffusion LMs
             </button>
         </div>

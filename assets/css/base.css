@@ -159,6 +159,18 @@ iconify-icon {
   padding: 8px 24px;
 }
 
+@media (max-width: 640px) {
+  .glass-panel {
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .glass-panel {
+    padding: 4px 8px;
+  }
+}
+
 /* Nav Link fallback */
 .nav-link {
   display: inline-block;
@@ -171,6 +183,21 @@ iconify-icon {
   cursor: pointer;
   text-decoration: none;
   transition: color 0.15s, background-color 0.15s;
+}
+
+@media (max-width: 640px) {
+  .nav-link {
+    padding: 3px 5px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .nav-link {
+    padding: 2px 3px;
+    font-size: 9.5px;
+    letter-spacing: 0;
+  }
 }
 .dark .nav-link {
   color: #a3a3a3; /* text-neutral-400 */
